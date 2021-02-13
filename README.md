@@ -1,2 +1,2 @@
-# nodejs
- my node js projects
+# javascript
+ my javascript projects
