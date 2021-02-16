@@ -1,0 +1,6 @@
+WARNING this is a warnging
+ERROR this is an error
+CRITICAL all your base now belong to us
+WARNING this is a warnging
+ERROR this is an error
+CRITICAL all your base now belong to us
