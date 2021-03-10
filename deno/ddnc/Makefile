@@ -1,4 +1,3 @@
-include couchdb/Makefile
 
 network=ddnc-net
 
