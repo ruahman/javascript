@@ -2,10 +2,8 @@ FROM hayd/deno:alpine-1.7.2
 
 WORKDIR /app
 
-COPY . .
-
 USER deno
 
-CMD ["run", "--allow-net", "--allow-read", "src/mod.ts"]
+CMD ["deno"]
 
-EXPOSE 8000
+EXPOSE 3000

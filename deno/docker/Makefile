@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-name = nodejs
+name = deno
 ports = 3000:3000
 
 ifndef network
@@ -29,7 +29,7 @@ run: build network
 
 .PHONY: shell
 shell: build network 
-	docker container run --name $(name) --network=$(network) -v $(shell pwd):/app/ -w /app -p $(ports) -it --rm $(name) /bin/bash
+	docker container run --name $(name) --network=$(network) -v $(shell pwd):/app/ -w /app -p $(ports) -it --rm $(name) /bin/sh
 
 .PHONY: stop
 stop:
