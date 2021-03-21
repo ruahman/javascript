@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "foobar",
+      "day": "Feb 22, 1981",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "text": "yoshi",
+      "day": "Feb 22, 1981",
+      "reminder": true
+    },
+    {
+      "text": "asdf",
+      "day": "asdfas",
+      "reminder": true,
+      "id": 3
+    },
+    {
+      "text": "lugi",
+      "day": "wen",
+      "reminder": false,
+      "id": 4
+    },
+    {
+      "text": "test",
+      "day": "test",
+      "reminder": false,
+      "id": 5
+    }
+  ]
+}
