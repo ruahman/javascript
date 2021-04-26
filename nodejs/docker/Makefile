@@ -1,11 +1,11 @@
 SHELL=/bin/bash
 
 name = nodejs
-image = nodejs
+image = $(name)
 port = 3000:3000
 path=$(shell pwd)
-network=nodejs-net
-dockerFile=/home/ruahman/Projects/javascript/nodejs/docker/Dockerfile
+network=$(name)-net
+dockerFile=$(path)/Dockerfile
 
 .PHONY: build
 build:

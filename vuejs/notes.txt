@@ -1,0 +1,25 @@
+npm i -g yarn
+yarn add vue@3.0.7
+yarn add vite@2.1.1
+
+npm init @vitejs/app
+yarn create @vitejs/app
+yarn 
+yarn dev
+
+yarn vite src
+
+SFC
+v-model
+computed
+
+yarn add @vue/compiler-sfc@3.0.7
+yarn add @vitejs/plugin-vue@1.1.5
+
+//vite.config.js
+import vue from '@vitejs/plugin-vue'
+
+export default {
+  plugins: [vue()]
+}
+
