@@ -6,7 +6,7 @@
   "scripts": {
     "build": "echo build",
     "clean": "echo clean",
-    "dev": "vite src"
+    "dev": "vite --config .\\vite.config.js src"
   },
   "keywords": [],
   "author": "",

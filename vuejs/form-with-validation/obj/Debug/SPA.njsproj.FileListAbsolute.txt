@@ -1,3 +1,0 @@
-C:\Users\dego_\source\repos\dotnet\ThreeTier\VueApp\obj\Debug\SPA.njsproj.AssemblyReference.cache
-C:\Users\dego_\source\repos\dotnet\ThreeTier\VueApp\obj\Debug\SPA.njsproj.CoreCompileInputs.cache
-C:\Users\dego_\source\repos\dotnet\ThreeTier\VueApp\bin\Microsoft.NodejsTools.WebRole.dll
