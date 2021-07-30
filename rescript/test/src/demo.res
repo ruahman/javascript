@@ -135,16 +135,16 @@ let hanA' = ["Han", "Solo", "Pilot"]
 
 let getSecond = arr => arr[1];
 
-let [ firstn, l, x ] = hanA;
+// let [ firstn, l, x ] = hanA;
 
-firstn -> Js.log
-l -> Js.log
-x -> Js.log
+// firstn -> Js.log
+// l -> Js.log
+// x -> Js.log
 
-let getFullName = ([firstname, lastname, job]) => {
-  job -> Js.log;
-  [firstname, lastname];
-};
+// let getFullName = ([firstname, lastname, job]) => {
+//   job -> Js.log;
+//   [firstname, lastname];
+// };
 
 // variant Types
 

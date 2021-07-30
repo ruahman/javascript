@@ -131,52 +131,6 @@ function getSecond(arr) {
   return Caml_array.get(arr, 1);
 }
 
-if (hanA.length !== 3) {
-  throw {
-        RE_EXN_ID: "Match_failure",
-        _1: [
-          "demo.res",
-          138,
-          4
-        ],
-        Error: new Error()
-      };
-}
-
-var firstn = hanA[0];
-
-var l = hanA[1];
-
-var x = hanA[2];
-
-console.log(firstn);
-
-console.log(l);
-
-console.log(x);
-
-function getFullName(param) {
-  if (param.length !== 3) {
-    throw {
-          RE_EXN_ID: "Match_failure",
-          _1: [
-            "demo.res",
-            144,
-            18
-          ],
-          Error: new Error()
-        };
-  }
-  var firstname = param[0];
-  var lastname = param[1];
-  var job = param[2];
-  console.log(job);
-  return [
-          firstname,
-          lastname
-        ];
-}
-
 function toString(field) {
   if (field) {
     if (field._0) {
@@ -499,9 +453,6 @@ exports.updateLuke = updateLuke;
 exports.hanA = hanA;
 exports.hanA$p = hanA$p;
 exports.getSecond = getSecond;
-exports.firstn = firstn;
-exports.l = l;
-exports.getFullName = getFullName;
 exports.nextTurn = nextTurn;
 exports.toString = toString;
 exports.randomeField = randomeField;
@@ -547,5 +498,5 @@ exports.resEx = resEx;
 exports.Done = Done;
 exports.mult = mult;
 exports.i = i;
-exports.x = x$1;
+exports.x = x;
 /*  Not a pure module */

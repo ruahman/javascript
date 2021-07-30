@@ -12,5 +12,10 @@
   "license": "ISC",
   "devDependencies": {
     "rescript": "^9.1.4"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.10.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
