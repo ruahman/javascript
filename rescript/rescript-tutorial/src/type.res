@@ -25,3 +25,50 @@ type scoreType = int;
 let x: scoreType = 109
 
 Js.log(x)
+
+// Generic
+type intCoor = (int, int, int)
+type floatCoor = (float, float, float)
+
+let a: intCoor = (10, 20, 20)
+let b: floatCoor = (10., 20., 30.)
+
+Js.log(a)
+Js.log(b)
+
+type coordinates<'a> = ('a, 'a, 'a)
+let a: coordinates<int> = (10, 20, 30)
+let b: coordinates<float> = (10.5, 20.5, 20.5)
+
+Js.log(a)
+Js.log(b)
+
+type result<'a, 'b> =
+  | Ok('a)
+  | Error('b)
+
+type payload = {data: string}
+
+type payLoadResults<'error> = array<result<payload, 'error>>
+
+let myPayLoadResults: payLoadResults<string> = [
+  Ok({data: "hi"}),
+  Ok({data: "bye"}),
+  Error("Someting wrong happened")
+]
+
+// recursive types
+type rec person = {
+  name: string,
+  friends: array<person>
+}
+
+type rec student = {taughtBy: teacher}
+and teacher = {students: array<student>}
+
+// write your own conversion function
+external convertToFloat : int => float = "%identity"
+let age = 10
+let gpa = 2.1 +. convertToFloat(age)
+
+gpa -> Js.log

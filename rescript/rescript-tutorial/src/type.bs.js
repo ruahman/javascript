@@ -24,11 +24,64 @@ console.log(59);
 
 console.log(109);
 
+console.log([
+      10,
+      20,
+      20
+    ]);
+
+console.log([
+      10,
+      20,
+      30
+    ]);
+
+var a = [
+  10,
+  20,
+  30
+];
+
+var b = [
+  10.5,
+  20.5,
+  20.5
+];
+
+console.log(a);
+
+console.log(b);
+
+var myPayLoadResults = [
+  {
+    TAG: /* Ok */0,
+    _0: {
+      data: "hi"
+    }
+  },
+  {
+    TAG: /* Ok */0,
+    _0: {
+      data: "bye"
+    }
+  },
+  {
+    TAG: /* Error */1,
+    _0: "Someting wrong happened"
+  }
+];
+
+var gpa = 2.1 + 10;
+
+console.log(gpa);
+
 var score = 10;
 
 var score$prime = 11;
 
 var x = 109;
+
+var age = 10;
 
 exports.score = score;
 exports.score$prime = score$prime;
@@ -36,4 +89,9 @@ exports.myInt = myInt$1;
 exports.add = add;
 exports.drawCircle = drawCircle;
 exports.x = x;
+exports.a = a;
+exports.b = b;
+exports.myPayLoadResults = myPayLoadResults;
+exports.age = age;
+exports.gpa = gpa;
 /*  Not a pure module */
