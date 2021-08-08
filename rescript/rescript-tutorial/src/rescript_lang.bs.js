@@ -26,7 +26,7 @@ function add(a, b) {
   return a + b | 0;
 }
 
-function add$p(x, y) {
+function add$prime(x, y) {
   return x + y | 0;
 }
 
@@ -178,7 +178,7 @@ exports.result2 = result2;
 exports.result3 = result3;
 exports.add = add;
 exports.score = score;
-exports.add$p = add$p;
+exports.add$prime = add$prime;
 exports.resr = resr;
 exports.a = a;
 exports.b = b;

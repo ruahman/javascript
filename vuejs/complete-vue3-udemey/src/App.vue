@@ -1,43 +1,35 @@
 <template>
-  <!-- <form @submit.prevent="submit">
-    <MyButton
-      background="green"
-      color="red"
-      :disabled="disabled"
-      @testEmit="testEmit"
-    /> -->
-  <!-- </form> -->
   <!-- <HelloWorld /> -->
   <!-- <Pokemon /> -->
-  <Composition />
+  <!-- <Composition /> -->
+  <!-- <MicroBlog /> -->
+  <MyRoutes />
+  <!-- <Form /> -->
+  <!-- <MyVuex /> -->
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import HelloWorld from './components/HelloWorld.vue';
-import MyButton from './components/MyButton.vue';
 import Pokemon from './components/Pokemon.vue';
 import Composition from './components/Composition.vue';
+import MicroBlog from './components/MicroBlog.vue';
+import Form from './components/Form.vue';
+import MyRoutes from './components/MyRoutes.vue';
+import MyVuex from './components/MyVuex.vue';
 
 @Options({
   components: {
-    MyButton,
     HelloWorld,
     Pokemon,
     Composition,
+    MicroBlog,
+    Form,
+    MyRoutes,
+    MyVuex,
   },
 })
-export default class App extends Vue {
-  disabled = false;
-
-  submit() {
-    alert('I was submitted');
-  }
-
-  testEmit(payload: string) {
-    alert(payload);
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style>

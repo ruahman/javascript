@@ -23,6 +23,7 @@
   {{ radioValue }}
   <input type="checkbox" v-model="checkValue" />
   {{ checkValue }}
+  <!-- <input type="text" v-model.number="num" /> -->
 </template>
 
 <script lang="ts">
