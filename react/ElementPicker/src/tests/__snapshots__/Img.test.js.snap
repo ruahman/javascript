@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Img works ok 1`] = `
+<img
+  alt="Cool image"
+  src="http://lorempixel.com/400/200"
+/>
+`;

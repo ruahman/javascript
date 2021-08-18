@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar works ok 1`] = `
+<div
+  className="navbar"
+>
+  <span
+    className="navbar__label"
+  >
+    Simple Website Builder
+  </span>
+</div>
+`;
