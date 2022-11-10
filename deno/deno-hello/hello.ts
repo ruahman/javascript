@@ -34,3 +34,19 @@ function handler(_: Request): Response {
 
 const _ = serve(handler, { port: 8000 });
 console.log("listening on port 8000");
+
+// deno info : show dependencies of file, also where cache of compile file lives
+
+// deno cache:  every file we import gets cached in $DENO_DIR
+// deno run --reload file : reload imports
+// deno caches our packages
+// you can change DENO_DIR
+// DENO_DIR=./deno_dir deno cache src/deps.ts
+
+// locking dependencies:
+// create a lock.json
+// deno cache --lock=lock.json --lock-write src/deps.ts
+//    as we cashe the files imports we also keep a hash
+
+// deno upgrade:  get latest deno
+// deno info: a dependenciy inspector
