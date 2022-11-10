@@ -7,7 +7,7 @@ const args = Deno.args;
 
 console.log(args);
 
-const greeting: string = "Hello world";
+const greeting = "Hello world";
 
 console.log(greeting);
 console.log(dayOfYear(new Date("2020-2-22")));

@@ -6,7 +6,7 @@
   "lint": {
     "rules": {
       "tags": ["recommended"],
-      "exclude": ["no-inferrable-types"]
+      "exclude": []
     }
   }
 }
