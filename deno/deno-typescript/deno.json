@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-all ./main.ts"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": []
+    }
+  }
+}

@@ -5,19 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "request": "launch",
-      "name": "Launch Deno",
+      "name": "Deno",
       "type": "node",
-      "program": "${workspaceFolder}/main.ts",
+      "request": "launch",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "C:\\Users\\dego_\\.deno\\bin\\deno.EXE",
-      "runtimeArgs": [
-        "run",
-        "--inspect-brk",
-        "--allow-all",
-        "--unstable"
-      ],
-      "attachSimplePort": 9229,
+      "runtimeExecutable": "deno",
+      "runtimeArgs": ["run", "-A", "main.ts"],
       "outputCapture": "std"
     }
   ]
