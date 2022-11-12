@@ -1,12 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --allow-all ./hello.ts",
-    "shell": "deno run -A .\\Drake.ts shell"
-  },
-  "lint": {
-    "rules": {
-      "tags": ["recommended"],
-      "exclude": []
-    }
+    "run": "deno run --allow-all ./mod.ts",
+    "shell": "deno run --allow-all .\\Drake.ts shell"
   }
 }

@@ -1,3 +1,5 @@
+// Interfaces are similar to type aliases, except they only apply to object types.
+
 export interface User {
   readonly id: number;
   name: string;
@@ -31,4 +33,21 @@ export default function demo() {
   const add: MathFunc = (x: number, y: number): number => x + y;
 
   console.log(add(2, 2));
+
+  // extend interfaces
+  interface Rectangle {
+    height: number;
+    width: number;
+  }
+
+  interface ColoredRectangle extends Rectangle {
+    color: string;
+  }
+
+  const coloredRectangle: ColoredRectangle = {
+    height: 20,
+    width: 10,
+    color: "red",
+  };
+  console.log(coloredRectangle);
 }

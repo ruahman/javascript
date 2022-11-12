@@ -22,7 +22,59 @@ class Employee extends Person {
   }
 }
 
-export default function () {
+interface Shape {
+  getArea: () => number;
+}
+
+// implements an interface
+class Rectangle implements Shape {
+  public constructor(
+    protected readonly width: number,
+    protected readonly height: number,
+  ) {}
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+
+  public toString(): string {
+    return `Rectangle[width=${this.width}, height=${this.height}]`;
+  }
+}
+
+// extends a class
+class Square extends Rectangle {
+  public constructor(width: number) {
+    super(width, width);
+  }
+  // this toString replaces the toString from Rectangle
+  public override toString(): string {
+    return `Square[width=${this.width}]`;
+  }
+}
+
+abstract class Polygon {
+  public abstract getArea(): number;
+
+  public toString(): string {
+    return `Polygon[area=${this.getArea()}]`;
+  }
+}
+
+class Rectangle2 extends Polygon {
+  public constructor(
+    protected readonly width: number,
+    protected readonly height: number,
+  ) {
+    super();
+  }
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+}
+
+export default function demo() {
   console.log("***** classes *****");
 
   const person = new Person(23, "diego");
@@ -30,4 +82,10 @@ export default function () {
 
   const emp = new Employee(34, "andy", "boss");
   console.log(emp);
+
+  const sq = new Square(23);
+  console.log(sq);
+
+  const rec = new Rectangle2(1, 2);
+  console.log(rec);
 }
