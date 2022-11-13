@@ -2,10 +2,12 @@ import { dayOfYear } from "./deps.ts";
 import { copy } from "./deps.ts";
 // import { serve } from "./deps.ts";
 import { qrcode } from "./deps.ts";
+import { red } from "./deps.ts";
 
 export default async function demo() {
   const args = Deno.args;
   console.log(args);
+  console.log(red("hello world"));
 
   console.log(dayOfYear(new Date("2020-2-22")));
 

@@ -1,5 +1,5 @@
 {
   "tasks": {
-    "run": "deno run --allow-all ./mod.ts"
+    "run": "deno run --allow-all ./main.ts"
   }
 }
