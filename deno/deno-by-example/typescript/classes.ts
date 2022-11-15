@@ -74,6 +74,13 @@ class Rectangle2 extends Polygon {
   }
 }
 
+class PersonP {
+  constructor(
+    public name: string,
+    public readonly age: number,
+  ) {}
+}
+
 export default function demo() {
   console.log("***** classes *****");
 
@@ -88,4 +95,7 @@ export default function demo() {
 
   const rec = new Rectangle2(1, 2);
   console.log(rec);
+
+  const pubp = new PersonP("diego", 44);
+  console.log(pubp);
 }

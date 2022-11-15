@@ -20,7 +20,15 @@ class NamedValue<T> {
   }
 }
 
-export default function demo() {
+function getPromise<T extends Map<string, number>>(value: T): Promise<T> {
+  return new Promise((res, _rej) => {
+    setTimeout(() => {
+      res(value);
+    }, 1000);
+  });
+}
+
+export default async function demo() {
   console.log("***** generics *****");
   const numArray = getArray<number>([1, 2, 3, 4, 5]);
   console.log(numArray);
@@ -35,4 +43,18 @@ export default function demo() {
   const value = new NamedValue<number>("myNumber");
   value.setValue(10);
   console.log(value.toString());
+
+  // const resNum = await getPromise(123);
+  // const resStr = await getPromise("123");
+  // const resBool = await getPromise(true);
+  const mapping = new Map<string, number>();
+
+  //1. Add entries
+  mapping.set("Lokesh", 37);
+  mapping.set("Raj", 35);
+  mapping.set("John", 40);
+
+  const resMap = await getPromise(mapping);
+  // console.log(resNum, resStr, resBool);
+  console.log(resMap);
 }
