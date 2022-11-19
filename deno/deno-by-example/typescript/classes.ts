@@ -74,11 +74,72 @@ class Rectangle2 extends Polygon {
   }
 }
 
-class PersonP {
+// getters and setters
+
+class PersonGetSet {
+  // private _age: number
+  // private _firstName: string;
+  // private _lastName: string;
+
   constructor(
-    public name: string,
-    public readonly age: number,
+    private _age: number,
+    private _firstName: string,
+    private _lastName: string,
   ) {}
+
+  public get age() {
+    return this._age;
+  }
+
+  public set age(theAge: number) {
+    if (theAge <= 0 || theAge >= 200) {
+      throw new Error("The age is invalid");
+    }
+    this._age = theAge;
+  }
+
+  public get firstName() {
+    return this._firstName;
+  }
+
+  public set firstName(theFirstName: string) {
+    if (!theFirstName) {
+      throw new Error("Invalid first name.");
+    }
+    this._firstName = theFirstName;
+  }
+
+  public get lastName() {
+    return this._lastName;
+  }
+
+  public set lastName(theLastName: string) {
+    if (!theLastName) {
+      throw new Error("Invalid last name.");
+    }
+    this._lastName = theLastName;
+  }
+
+  public getFullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+// static methods
+class EmployeeStatic {
+  private static headcount = 0;
+
+  constructor(
+    private firstName: string,
+    private lastName: string,
+    private jobTitle: string,
+  ) {
+    EmployeeStatic.headcount++;
+  }
+
+  public static getHeadcount() {
+    return EmployeeStatic.headcount;
+  }
 }
 
 export default function demo() {
@@ -96,6 +157,17 @@ export default function demo() {
   const rec = new Rectangle2(1, 2);
   console.log(rec);
 
-  const pubp = new PersonP("diego", 44);
-  console.log(pubp);
+  const personGetSet = new PersonGetSet(42, "diego", "vila");
+  personGetSet.age = 44;
+  console.log(
+    "getter and setter: ",
+    personGetSet.age,
+    personGetSet.firstName,
+    personGetSet.lastName,
+  );
+
+  const _john = new EmployeeStatic("John", "Doe", "Front-end Developer");
+  const _jane = new EmployeeStatic("Jane", "Doe", "Back-end Developer");
+
+  console.log("static method: ", EmployeeStatic.getHeadcount()); // 2
 }

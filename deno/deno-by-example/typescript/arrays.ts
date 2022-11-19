@@ -6,6 +6,9 @@ export default () => {
   a.push(66);
   console.log("simple array ", a);
 
+  const b: Array<string> = ["hello", "string", "array"];
+  console.log("simple array: ", b);
+
   // read only array
   const names: readonly string[] = ["Dylan"];
   // names.push("Jack");

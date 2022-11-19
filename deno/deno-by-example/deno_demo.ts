@@ -1,6 +1,5 @@
 import { dayOfYear } from "./deps.ts";
 import { copy } from "./deps.ts";
-// import { serve } from "./deps.ts";
 import { qrcode } from "./deps.ts";
 import { red } from "./deps.ts";
 import { createRequire } from "./deps.ts";

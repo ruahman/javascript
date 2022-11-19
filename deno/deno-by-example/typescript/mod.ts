@@ -5,19 +5,12 @@ import objects from "./objects.ts";
 import enums from "./enums.ts";
 import type_alias from "./type_alias.ts";
 import interfaces from "./interfaces.ts";
-// import functionDemo from "./functions.ts";
-// import classesDemo from "./classes.ts";
-// import genericsDemo from "./generics.ts";
-// import typeAliasesDemo from "./type_aliases.ts";
-// import castingDemo from "./casting.ts";
-
-// variableDemo();
-// functionDemo();
-// interfaceDemo();
-// classesDemo();
-// genericsDemo();
-// typeAliasesDemo();
-// castingDemo();
+import unions from "./unions.ts";
+import functions from "./functions.ts";
+import casting from "./casting.ts";
+import classes from "./classes.ts";
+import generics from "./generics.ts";
+import intersection_types from "./intersection_types.ts";
 
 export default () => {
   console.log("----- typescript -----");
@@ -28,4 +21,10 @@ export default () => {
   enums();
   type_alias();
   interfaces();
+  unions();
+  functions();
+  casting();
+  classes();
+  generics();
+  intersection_types();
 };
