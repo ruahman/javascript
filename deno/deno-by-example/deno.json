@@ -7,6 +7,10 @@
     "deno_files": "deno run -A --lock=lock.json --cached-only deno_files.ts",
     "import_json": "deno run -A --lock=lock.json --cached-only import_json.ts",
     "parse_json": "deno run -A --lock=lock.json --cached-only parse_json.ts",
+    "npm_express": "deno run -A --lock=lock.json --cached-only npm_express.ts",
+    "cow_say": "deno run --allow-env --allow-read npm:cowsay@1.5.0 Hello there!",
+    "local_npm": "deno run -A --node-modules-dir .\\local_npm.ts",
+    "ffi": "deno run --allow-ffi --unstable .\\ffi.ts",
     "cache": "deno cache --lock=lock.json --lock-write --import-map=import_map.json .\\deps.ts",
     "reload": "deno cache --reload --lock=lock.json --import-map=import_map.json .\\deps.ts",
     "shell": "deno run --allow-all .\\Drake.ts shell"
