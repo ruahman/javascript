@@ -13,4 +13,10 @@ export default function variables() {
 
   let v: any = true;
   v = "string";
+
+  // basic types
+  const id: number = 5;
+  const company: string = "acme";
+  const isPublished: boolean = true;
+  console.log("basic types :", id, company, isPublished);
 }

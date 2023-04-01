@@ -1,7 +1,7 @@
-export default () => {
-  console.log("***** type alias *****");
+export default function aliases() {
+  console.log("**** aliases ****");
 
-  // type aliases
+  // create an alias for types
   type CarYear = number;
   type CarType = string;
   type CarModel = string;
@@ -13,12 +13,10 @@ export default () => {
 
   const carYear: CarYear = 2001;
   const carType: CarType = "Toyota";
-  const carModel: CarModel = "Corolla";
+  const carModel: CarModel = "Carola";
   const car: Car = {
     year: carYear,
     type: carType,
     model: carModel,
   };
-
-  console.log("type aliases: ", car);
-};
+}

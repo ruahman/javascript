@@ -11,4 +11,9 @@ export default function arrays() {
   // type inference
   const numbers = [1, 2, 3];
   numbers.push(4);
+
+  // simple array
+  const a: number[] = [1, 2, 3, 4, 5];
+  a.push(66);
+  console.log("simple array ", a);
 }

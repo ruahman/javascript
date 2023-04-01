@@ -1,32 +1,23 @@
-import { User } from "./interfaces.ts";
-
-class Person implements User {
-  id: number;
+class Person {
   name: string;
+  private readonly middle: string;
 
-  constructor(id: number, name: string) {
-    this.id = id;
+  public constructor(name: string, middle: string, private lastname: string) {
     this.name = name;
+    this.middle = middle;
   }
 
-  register() {
-    return `${this.name} is ${this.id}`;
+  public getname() {
+    return this.name;
   }
 }
 
-class Employee extends Person {
-  position: string;
-  constructor(id: number, name: string, position: string) {
-    super(id, name);
-    this.position = position;
-  }
-}
+// interface
 
 interface Shape {
   getArea: () => number;
 }
 
-// implements an interface
 class Rectangle implements Shape {
   public constructor(
     protected readonly width: number,
@@ -38,37 +29,35 @@ class Rectangle implements Shape {
   }
 
   public toString(): string {
-    return `Rectangle[width=${this.width}, height=${this.height}]`;
+    return "this is a rectangel";
   }
 }
 
-// extends a class
 class Square extends Rectangle {
   public constructor(width: number) {
     super(width, width);
   }
-  // this toString replaces the toString from Rectangle
+
   public override toString(): string {
-    return `Square[width=${this.width}]`;
+    return "this is a square";
   }
 }
 
+// abstract class
 abstract class Polygon {
   public abstract getArea(): number;
-
   public toString(): string {
-    return `Polygon[area=${this.getArea()}]`;
+    return "this is a polygon";
   }
 }
 
-class Rectangle2 extends Polygon {
+class Rectange2 extends Polygon {
   public constructor(
     protected readonly width: number,
     protected readonly height: number,
   ) {
     super();
   }
-
   public getArea(): number {
     return this.width * this.height;
   }
@@ -125,7 +114,6 @@ class PersonGetSet {
   }
 }
 
-// static methods
 class EmployeeStatic {
   private static headcount = 0;
 
@@ -142,20 +130,15 @@ class EmployeeStatic {
   }
 }
 
-export default function demo() {
-  console.log("***** classes *****");
-
-  const person = new Person(23, "diego");
-  console.log(person.register());
-
-  const emp = new Employee(34, "andy", "boss");
-  console.log(emp);
-
-  const sq = new Square(23);
-  console.log(sq);
-
-  const rec = new Rectangle2(1, 2);
+export default function classes() {
+  console.log("**** classes ****");
+  const person = new Person("diego", "ramon", "vila");
+  console.log(person);
+  const rec = new Rectangle(34, 56);
   console.log(rec);
+  const square = new Square(5);
+  console.log(square);
+  console.log(square.toString());
 
   const personGetSet = new PersonGetSet(42, "diego", "vila");
   personGetSet.age = 44;

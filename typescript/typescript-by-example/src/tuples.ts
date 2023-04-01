@@ -16,8 +16,18 @@ export default function tuples() {
 
   // named tuples
   const graph: [x: number, y: number] = [56, 78];
+  console.log("named tuple: ", graph);
 
   // destructing tuples
   const graph2: [number, number] = [34, 56];
   const [x, y] = graph2;
+
+  // tuple array
+  // deno-lint-ignore prefer-const
+  let employee: [string, number][];
+  employee = [
+    ["aaa", 1],
+    ["bbb", 34],
+  ];
+  console.log("array of tuples: ", employee);
 }
