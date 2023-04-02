@@ -1,5 +1,7 @@
 export default function objects() {
   console.log("**** objects ****");
+
+  // you can spcify the type in objec
   const car: { type: string; model: string; year: number } = {
     type: "Toyota",
     model: "Carolla",

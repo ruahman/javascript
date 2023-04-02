@@ -19,4 +19,8 @@ export default function aliases() {
     type: carType,
     model: carModel,
   };
+
+  type Combinable = number | string;
+  let comb: Combinable = 0;
+  comb = "tes";
 }
