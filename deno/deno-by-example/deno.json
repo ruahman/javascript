@@ -1,5 +1,20 @@
 {
   "tasks": {
+    "welcome": "deno run https://deno.land/std/examples/welcome.ts",
+    "files": "deno run --allow-read --allow-write files.ts",
+    "fetch": "deno run --allow-net fetch.ts",
+    "std": "deno run --allow-read --allow-write --allow-net std.ts",
+    "third_parties": "deno run third_parties.ts",
+    "docker:up": "docker compose up",
+    "docker:down": "docker compose down",
+    "docker:stop": "docker compose stop",
+    "docker:start": "docker compose start",
+    "docker:logs": "docker compose logs -f",
+    "docker:deno": "docker compose exec -it deno /bin/bash",
+    "docker:rmi:all": "docker rmi -f $(docker images -aq)",
+    "docker:rm:all": "docker rm -vf $(docker ps -aq)",
+    "docker:volume:prune": "docker volume prune",
+
     "main": "deno run --allow-all --unstable --lock=lock.json --cached-only --import-map=import_map.json .\\main.ts",
     "http_request": "deno run --allow-all --unstable --lock=lock.json --cached-only --import-map=import_map.json .\\http_request.ts https://www.google.com",
     "read_file": "deno run --allow-all --unstable --lock=lock.json --cached-only --import-map=import_map.json .\\read_file.ts 'C:\\Windows\\System32\\Drivers\\etc\\hosts'",
@@ -14,5 +29,12 @@
     "cache": "deno cache --lock=lock.json --lock-write --import-map=import_map.json .\\deps.ts",
     "reload": "deno cache --reload --lock=lock.json --import-map=import_map.json .\\deps.ts",
     "shell": "deno run --allow-all .\\Drake.ts shell"
+  },
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-inferrable-types"
+      ]
+    }
   }
 }
