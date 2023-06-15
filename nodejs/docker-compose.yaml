@@ -1,37 +1,43 @@
 version: '3'
 services:
   node:
-    container_name: ruahman-nodejs
-    build:
-      context: .
-      dockerfile: Dockerfile.node
+    container_name: node
+    image: node
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     # command: tail -f yarn.lock
+    working_dir: /code
     ports:
       - 3000:3000
     volumes:
-      - /app/node_modules
-      - .:/app
+      - .:/code
     depends_on:
       - mongo
+      - mariadb
+      - memcached
     
   mongo:
-    container_name: ruahman-mongo
+    container_name: mongo
     image: mongo
     restart: always
     # you need to configure a crypto key when creating a replica set.
     volumes:
       - mongo:/data/db
   
-  mariadb
-    container_name: ruahman-mariadb
+  mariadb:
+    container_name: mariadb
     image: mariadb
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: password
     volumes:
       - mariadb:/var/lib/mysql
+  
+  memcached:
+    container_name: memcached
+    image: memcached
+    restart: always
+
   
 volumes:
   mongo:

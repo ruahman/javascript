@@ -17,6 +17,7 @@ services:
       - couchdb
       - postgres
       - redis
+      - rabbitmq
     
   couchdb:
     container_name: couchdb
@@ -42,6 +43,11 @@ services:
   redis:
     container_name: redis
     image: redis
+    restart: always
+  
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq
     restart: always
 
 volumes:
