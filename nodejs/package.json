@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-tuts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:up": "docker compose up",
+    "docker:down": "docker compose down",
+    "docker:node": "docker compose exec -it node /bin/bash"
+  },
+  "author": "",
+  "license": "ISC"
+}
