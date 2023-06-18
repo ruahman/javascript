@@ -3,12 +3,13 @@ services:
   node:
     container_name: node
     image: node
-    stdin_open: true # docker run -i
-    tty: true # docker run -t
-    # command: tail -f yarn.lock
+    stdin_open: true
+    tty: true
     working_dir: /code
     ports:
       - 3000:3000
     volumes:
       - .:/code
-      - /code/node_modules
+      - node_modules:/code/node_modules
+volumes:
+  node_modules:

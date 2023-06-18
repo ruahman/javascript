@@ -8,4 +8,6 @@ let u = true;
 let v: any = true;
 v = "string"; // no error as it can be "any" type
 
-console.log(firstName, firstName2);
+let simpleNumber: number = 312;
+
+console.log(firstName, firstName2, simpleNumber);

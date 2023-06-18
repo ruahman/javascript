@@ -1,8 +1,6 @@
-export default function casting() {
-  console.log("**** casting ****");
-  let x: unknown = "hello world";
-  console.log((x as string).length);
+console.log("**** casting ****");
+const q: unknown = "hello world";
+console.log((q as string).length);
 
-  let y: unknown = "hello world2";
-  console.log((<string> y).length);
-}
+const w: unknown = "hello world2";
+console.log((<string>w).length);
