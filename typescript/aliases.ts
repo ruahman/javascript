@@ -22,3 +22,9 @@ const car: Car = {
 type Combinable = number | string;
 let comb: Combinable = 0;
 comb = "tes";
+
+type alphanumeric = string | number;
+let input: alphanumeric;
+input = 100; // valid
+input = "Hi"; // valid
+// input = false; // Compiler error

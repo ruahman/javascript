@@ -23,5 +23,9 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "prefer-const": "off",
+    "no-constant-condition": "off",
   },
 };

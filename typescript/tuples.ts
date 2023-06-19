@@ -25,3 +25,13 @@ employee = [
   ["bbb", 34],
 ];
 console.log("array of tuples: ", employee);
+
+let skill: [string, number];
+skill = ["Programming", 5];
+
+let color: [number, number, number] = [255, 0, 0];
+
+// optional elements
+let bgColor, headerColor: [number, number, number, number?];
+bgColor = [0, 255, 255, 0.5];
+headerColor = [0, 255, 255];
