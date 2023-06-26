@@ -9,5 +9,8 @@
     "docker:node": "docker compose exec -it node /bin/bash"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.43.0"
+  }
 }
