@@ -7,7 +7,7 @@
     "docker:up": "docker compose up",
     "docker:down": "docker compose down",
     "docker:node": "docker compose exec -it node /bin/bash",
-    "http-server": "node http-server.js"
+    "http-server": "NODE_ENV=staging node http-server.js"
   },
   "author": "",
   "license": "ISC",
