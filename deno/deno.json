@@ -1,6 +1,10 @@
 {
   "tasks": {
+    "main": "deno run .\\main.ts",
+    "test": "deno run .\\test.ts",
+    "watch:test": "denon run .\\test.ts",
     "welcome": "deno run https://deno.land/std/examples/welcome.ts",
+    "sandbox": "deno run --allow-read --allow-write --allow-net .\\sandbox.ts",
     "files": "deno run --allow-read --allow-write files.ts",
     "fetch": "deno run --allow-net fetch.ts",
     "std": "deno run --allow-read --allow-write --allow-net std.ts",
@@ -15,7 +19,6 @@
     "docker:rm:all": "docker rm -vf $(docker ps -aq)",
     "docker:volume:prune": "docker volume prune",
 
-    "main": "deno run --allow-all --unstable --lock=lock.json --cached-only --import-map=import_map.json .\\main.ts",
     "http_request": "deno run --allow-all --unstable --lock=lock.json --cached-only --import-map=import_map.json .\\http_request.ts https://www.google.com",
     "read_file": "deno run --allow-all --unstable --lock=lock.json --cached-only --import-map=import_map.json .\\read_file.ts 'C:\\Windows\\System32\\Drivers\\etc\\hosts'",
     "http_server": "deno run --allow-net --allow-write --lock=lock.json --cached-only http_server.ts",
@@ -36,5 +39,10 @@
         "no-inferrable-types"
       ]
     }
+  },
+  "fmt": {
+    "lineWidth": 80,
+    "semiColons": true,
+    "singleQuote": true
   }
 }
