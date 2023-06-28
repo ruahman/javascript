@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
+const config = require('./config');
 
 var server = http.createServer(function (req, res) {
   let parsedURL = url.parse(req.url, true);
@@ -66,6 +67,8 @@ let router = {
   sample: handlers.sample,
 };
 
-server.listen(3000, function () {
-  console.log('we are running server on port 3000');
+server.listen(config.port, function () {
+  console.log(
+    `we are running server on port ${config.port} in ${config.envName} mode`
+  );
 });
