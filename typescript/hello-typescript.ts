@@ -1,4 +1,4 @@
-console.log("hello world");
+console.log('hello world');
 
 function testAdd(x: number, y: number) {
   return x + y;
@@ -9,7 +9,7 @@ testAdd(1, 2);
 // this causes problems in javascript
 //testAdd("1","2");
 
-const message: string = "Hello, World!";
+const message: string = 'Hello, World!';
 console.log(message);
 
 interface Product {
