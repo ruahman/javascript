@@ -1,3 +1,3 @@
 if (import.meta.main) {
-  console.log('Hello deno');
+  console.log('Hello deno change');
 }

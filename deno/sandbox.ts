@@ -9,7 +9,7 @@ console.log(`textData: ${textData}`);
 
 // write file
 const encoder = new TextEncoder();
-const text = 'Hello again from diego';
+const text = 'Hello again from diegox';
 await Deno.writeFile('readme.txt', encoder.encode(text));
 
 // fetch
