@@ -1,9 +1,62 @@
 const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 
-var server = http.createServer(function (req, res) {
+// instantiate http server
+var httpServer = http.createServer(function (req, res) {
+  unifiedServer(req, res);
+});
+
+// handlers for our application
+let handlers = {};
+handlers.sample = function (data, callback) {
+  callback(406, { name: 'sample handler' });
+};
+
+handlers.ping = function (data, callback) {
+  callback(200);
+};
+
+handlers.notFound = function (data, callback) {
+  callback(404);
+};
+
+// routes that map to our handlers
+let router = {
+  sample: handlers.sample,
+  ping: handlers.ping,
+};
+
+// start http server
+httpServer.listen(config.httpPort, function () {
+  console.log(
+    `we are running server on port ${config.httpPort} in ${config.envName} mode`
+  );
+});
+
+// setup https server
+let httpsServerOptions = {
+  key: fs.readFileSync('./https/key.pem'),
+  cert: fs.readFileSync('./https/cert.pem'),
+};
+
+// instantiate https server
+var httpsServer = https.createServer(httpsServerOptions, function (req, res) {
+  unifiedServer(req, res);
+});
+
+// start http server
+httpsServer.listen(config.httpsPort, function () {
+  console.log(
+    `we are running server on port ${config.httpsPort} in ${config.envName} mode`
+  );
+});
+
+// all the server logic for both http and https
+let unifiedServer = function (req, res) {
   let parsedURL = url.parse(req.url, true);
   let path = parsedURL.pathname;
   let trimmedPath = path.replace(/^\/+|\/+$/g, '');
@@ -52,23 +105,4 @@ var server = http.createServer(function (req, res) {
       console.log('response: ', statusCode, payload);
     });
   });
-});
-
-let handlers = {};
-handlers.sample = function (data, callback) {
-  callback(406, { name: 'sample handler' });
 };
-
-handlers.notFound = function (data, callback) {
-  callback(404);
-};
-
-let router = {
-  sample: handlers.sample,
-};
-
-server.listen(config.port, function () {
-  console.log(
-    `we are running server on port ${config.port} in ${config.envName} mode`
-  );
-});
