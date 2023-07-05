@@ -5,50 +5,38 @@ const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const _data = require('./lib/data');
+const handlers = require('./lib/handlers');
 
-_data.create('test', 'newFile', { foo: 'bar' }, function (err) {
+_data.create('test', 'newFile', { foo: 'bar' }, function(err) {
   console.log('this was the error', err);
 });
 
-_data.read('test', 'newFile', function (err, data) {
+_data.read('test', 'newFile', function(err, data) {
   console.log('this was the error', err, 'and this was the data', data);
 });
 
-_data.update('test', 'newFile', { fizz: 'buzz' }, function (err) {
+_data.update('test', 'newFile', { fizz: 'buzz' }, function(err) {
   console.log('this was the error', err);
 });
 
-_data.delete('test', 'newFile', function (err) {
+_data.delete('test', 'newFile', function(err) {
   console.log('this was the error', err);
 });
 
 // instantiate http server
-var httpServer = http.createServer(function (req, res) {
+var httpServer = http.createServer(function(req, res) {
   unifiedServer(req, res);
 });
-
-// handlers for our application
-let handlers = {};
-handlers.sample = function (data, callback) {
-  callback(406, { name: 'sample handler' });
-};
-
-handlers.ping = function (data, callback) {
-  callback(200);
-};
-
-handlers.notFound = function (data, callback) {
-  callback(404);
-};
 
 // routes that map to our handlers
 let router = {
   sample: handlers.sample,
   ping: handlers.ping,
+  users: handlers.users,
 };
 
 // start http server
-httpServer.listen(config.httpPort, function () {
+httpServer.listen(config.httpPort, function() {
   console.log(
     `we are running server on port ${config.httpPort} in ${config.envName} mode`
   );
@@ -61,19 +49,19 @@ let httpsServerOptions = {
 };
 
 // instantiate https server
-var httpsServer = https.createServer(httpsServerOptions, function (req, res) {
+var httpsServer = https.createServer(httpsServerOptions, function(req, res) {
   unifiedServer(req, res);
 });
 
 // start http server
-httpsServer.listen(config.httpsPort, function () {
+httpsServer.listen(config.httpsPort, function() {
   console.log(
     `we are running server on port ${config.httpsPort} in ${config.envName} mode`
   );
 });
 
 // all the server logic for both http and https
-let unifiedServer = function (req, res) {
+let unifiedServer = function(req, res) {
   let parsedURL = url.parse(req.url, true);
   let path = parsedURL.pathname;
   let trimmedPath = path.replace(/^\/+|\/+$/g, '');
@@ -108,7 +96,7 @@ let unifiedServer = function (req, res) {
       payload: buffer,
     };
 
-    choosenHandler(data, function (statusCode, payload) {
+    choosenHandler(data, function(statusCode, payload) {
       statusCode = typeof statusCode == 'number' ? statusCode : 200;
       payload = typeof payload == 'object' ? payload : {};
 
