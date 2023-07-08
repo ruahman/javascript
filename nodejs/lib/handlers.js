@@ -58,4 +58,14 @@ handlers._users.post = function(data, callback) {
 handlers._users.put = function(data, callback) { };
 handlers._users.delete = function(data, callback) { };
 
+handlers.tokens = function(data, callback) {
+  handlers._tokens[data.method](data, callback);
+};
+
+handlers._tokens = {};
+handlers._tokens.post = function(data, callback) {
+  var tokenId = helpers.createRandomString(200);
+  var expires = Date.now() + 1000 * 60 * 60;
+};
+
 module.exports = handlers;

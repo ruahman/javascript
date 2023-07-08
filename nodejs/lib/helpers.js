@@ -21,4 +21,6 @@ helpers.parseJsonToObject = function(str) {
   }
 };
 
+helpers.createRandomString = function(strLength) { };
+
 module.exports = helpers;
