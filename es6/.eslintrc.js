@@ -3,9 +3,11 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  extends: 'eslint:recommended',
+  extends: "eslint:recommended",
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: "latest",
+    sourceType: "module",
+    allowImportExportEverywhere: true,
   },
   rules: {},
 };
