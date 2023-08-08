@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test view</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{ counter }}</div>
+      <div v-bind:title="hover">hover over me</div>
+      <button v-on:click="increment">increment {{inc}}</button>
+      <div>
+        <input type="text" v-model="inputText" />
+        <p>{{ inputText }}</p>
+      </div>
+      <div v-if="visable">show me</div>
+      <div>
+        <ul>
+          <li v-for="item in items">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
