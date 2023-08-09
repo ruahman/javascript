@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test view</title>
+    <link rel="icon" href="/logo.svg" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +19,27 @@
       <div>
         <ul>
           <li v-for="item in items">{{ item }}</li>
+        <ul>
+          <li v-for="(item, idx) in items">{{ item }}:{{ idx }}</li>
         </ul>
       </div>
+      <span v-html="html"></span>
+      <span v-for="number in 20">{{ number }}</span>
+      <p v-for="(k,v) in dog">{{ k }}:{{ v }}</p>
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>{{ selected }}</span>
+      <p>Who is this message for?</p>
+      <input type="checkbox" id="questions" value="Questions Team" v-model="checkedOptions" />
+      <input type="checkbox" id="comments" value="comments" v-model="checkedOptions" />
+      <p>selectd: {{ checkedOptions }}</p>
+      <input type="radio" id="one" value="one" v-model="picked" />
+      <input type="radio" id="two" value="two" v-model="picked" />
+      <input type="radio" id="three" value="three" v-model="picked" />
+      <p>{{ picked }}</p>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="script.js"></script>

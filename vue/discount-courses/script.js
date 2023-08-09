@@ -13,10 +13,25 @@ const app = Vue.createApp({
       inputText: "input text",
       visable: false,
       items: ["item1", "item2", "item3"],
+      html: "<h1>hello world</h1>",
+      value: 0,
+      dog: {
+        breed: "dog",
+        age: 5,
+        color: "black",
+      },
+      selected: "A",
+      options: [
+        { text: "One", value: "A" },
+        { text: "Two", value: "B" },
+        { text: "Three", value: "C" },
+      ],
+      checkedOptions: [],
+      picked: "",
     };
   },
   created() {
-    console.log("created: ", this.valueToReturn);
+    console.log("created: ", this.value);
   },
   mounted() {
     setInterval(() => {
@@ -33,3 +48,14 @@ const app = Vue.createApp({
 const appInstance = app.mount("#app");
 
 console.log(appInstance.valueToReturn);
+
+appInstance.value = 555;
+console.log("$data: ", appInstance.$data.value);
+
+console.log(appInstance.inc);
+
+appInstance.increment();
+appInstance.increment();
+appInstance.increment();
+
+console.log(appInstance.inc);
