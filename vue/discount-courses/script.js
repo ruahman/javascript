@@ -30,6 +30,11 @@ const app = Vue.createApp({
       picked: "",
     };
   },
+  computed: {
+    computedProperty() {
+      return "inc: " + this.inc;
+    },
+  },
   created() {
     console.log("created: ", this.value);
   },
@@ -43,6 +48,21 @@ const app = Vue.createApp({
       this.inc++;
     },
   },
+});
+
+app.component("test-component", {
+  data() {
+    return {
+      propertyName: 1,
+    };
+  },
+  props: ["title"],
+  template: `
+    <button v-on:click="propertyName++; $emit('increase')">
+      <slot></slot>
+      click {{title}} {{propertyName}} 
+    </button>
+  `,
 });
 
 const appInstance = app.mount("#app");

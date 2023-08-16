@@ -40,6 +40,11 @@
       <input type="radio" id="two" value="two" v-model="picked" />
       <input type="radio" id="three" value="three" v-model="picked" />
       <p>{{ picked }}</p>
+      <test-component title="foobar" @increase="inc = inc + 2">
+        slot goes here
+      </test-component>
+      {{ inc }}
+      {{ computedProperty }}
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="script.js"></script>
