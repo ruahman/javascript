@@ -14,7 +14,7 @@ const app = Vue.createApp({
       visable: false,
       items: ["item1", "item2", "item3"],
       html: "<h1>hello world</h1>",
-      value: 0,
+      value_x: 0,
       dog: {
         breed: "dog",
         age: 5,
@@ -63,6 +63,27 @@ app.component("test-component", {
       click {{title}} {{propertyName}} 
     </button>
   `,
+});
+
+app.directive("focus", {
+  mounted(el) {
+    el.focus();
+  },
+});
+
+app.directive("arguments", {
+  mounted(el, binding, vnode) {
+    console.log(binding.value);
+    el.innerHTML =
+      "value: " +
+      binding.arg +
+      "<br/>" +
+      binding.value +
+      "<br/>" +
+      // JSON.stringify(binding) +
+      "<br/>" +
+      JSON.stringify(binding.modifiers);
+  },
 });
 
 const appInstance = app.mount("#app");
