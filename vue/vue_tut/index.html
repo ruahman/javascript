@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test view</title>
     <link rel="icon" href="/logo.svg" />
+    <style>
+      .red {
+        color: blue;
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <div>{{ counter }}</div>
+      <div :class="cssClass" @click="toogle">{{ counter }}</div>
       <div v-bind:title="hover">hover over me</div>
       <button v-on:click="increment">increment {{inc}}</button>
       <div>
@@ -49,6 +55,19 @@
       <input v-focus />
       <br/>
       <span v-arguments:foo.bar="baz"></span>
+      <ul>
+        <li v-for="assignment in assignments.filter(a => !a.checked)" :key="assignment.id">
+          <label>
+            {{assignment.text}}
+            <input type="checkbox" v-model="assignment.checked">
+          </label>
+        </li>
+      </ul>
+      <ul>
+        <li v-for="assignment in completedAssignments" :key="assignment.id">
+          {{assignment.text}}
+        </li>
+      </ul>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="script.js"></script>

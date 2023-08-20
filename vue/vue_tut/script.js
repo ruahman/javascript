@@ -7,6 +7,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      cssClass: "red",
       counter: 1,
       inc: 1,
       hover: "hover me",
@@ -26,6 +27,11 @@ const app = Vue.createApp({
         { text: "Two", value: "B" },
         { text: "Three", value: "C" },
       ],
+      assignments: [
+        { id: 1, text: "task 1", checked: false },
+        { id: 2, text: "task 2", checked: false },
+        { id: 3, text: "task 3", checked: false },
+      ],
       checkedOptions: [],
       picked: "",
     };
@@ -33,6 +39,9 @@ const app = Vue.createApp({
   computed: {
     computedProperty() {
       return "inc: " + this.inc;
+    },
+    completedAssignments() {
+      return this.assignments.filter((assignment) => assignment.checked);
     },
   },
   created() {
@@ -46,6 +55,9 @@ const app = Vue.createApp({
   methods: {
     increment() {
       this.inc++;
+    },
+    toogle() {
+      alert("toogle");
     },
   },
 });
