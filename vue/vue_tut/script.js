@@ -1,9 +1,3 @@
-// const RootComponent = {};
-
-// const app = Vue.createApp(RootComponent);
-
-// const rootComponent = app.mount("#app");
-
 const app = Vue.createApp({
   data() {
     return {
@@ -59,6 +53,9 @@ const app = Vue.createApp({
     toogle() {
       alert("toogle");
     },
+    message(msg) {
+      alert(msg);
+    },
   },
 });
 
@@ -75,6 +72,33 @@ app.component("test-component", {
       click {{title}} {{propertyName}} 
     </button>
   `,
+});
+
+app.component("test-component2", {
+  props: {
+    title: {
+      type: String,
+      default: "default title",
+    },
+  },
+  template: `
+    <button>{{title}}</button>
+  `,
+});
+
+app.component("test-submit", {
+  emits: ["submit"],
+  template: `
+    <form @submit.prevent="onSubmit">
+      <input v-model="message" />
+      <button type="submit">Submit</button>
+    </form>
+  `,
+  methods: {
+    onSubmit() {
+      this.$emit("message", this.message);
+    },
+  },
 });
 
 app.directive("focus", {
