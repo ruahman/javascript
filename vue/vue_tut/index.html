@@ -70,6 +70,13 @@
       </ul>
       <test-component2></test-component2>
       <test-submit @message="message"></test-submit>
+      <test-model v-model="testModel"></test-model>{{ testModel }}
+      <test-slots>
+        <p>default slot</p>
+        <template #test>
+          <p>test slot</p>
+        </template>
+      </test-slots>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="script.js"></script>

@@ -28,6 +28,7 @@ const app = Vue.createApp({
       ],
       checkedOptions: [],
       picked: "",
+      testModel: 0,
     };
   },
   computed: {
@@ -99,6 +100,25 @@ app.component("test-submit", {
       this.$emit("message", this.message);
     },
   },
+});
+
+app.component("test-model", {
+  props: ["modelValue"],
+  template: `
+    <button @click="$emit('update:modelValue', modelValue + 1)">click</button>
+  `,
+});
+
+app.component("test-slots", {
+  template: `
+    <div>
+      <slot></slot>
+      <div v-if="$slots.test">
+        <span>foobar</span>
+        <slot name="test"></slot>
+      </div>
+    </div>
+  `,
 });
 
 app.directive("focus", {
