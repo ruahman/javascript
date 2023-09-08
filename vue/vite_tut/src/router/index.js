@@ -5,6 +5,7 @@ import ComposableView from "@/views/ComposableView.vue";
 import CompositionApiView from "@/views/CompositionApiView.vue";
 import ProvideAndInjectView from "@/views/ProvideAndInjectView.vue";
 import StoresView from "@/views/StoresView.vue";
+import CounterView from "@/views/CounterView.vue";
 
 let routes = [
   {
@@ -36,6 +37,11 @@ let routes = [
     path: "/store",
     name: "store",
     component: StoresView,
+  },
+  {
+    path: "/counter",
+    name: "counter",
+    component: CounterView,
   },
 ];
 

@@ -5,6 +5,7 @@
   <router-link to="/composable">Composable</router-link> |
   <router-link to="/provide-and-inject">Provide and Inject</router-link> |
   <router-link to="/store">store</router-link> |
+  <router-link to="/counter">counter</router-link> |
 
   <router-view></router-view>
 </template>
