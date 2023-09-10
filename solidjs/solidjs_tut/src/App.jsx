@@ -1,10 +1,11 @@
-import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createSignal } from "solid-js";
+import solidLogo from "./assets/solid.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Card from "./components/Card";
 
 function App() {
-  const [count, setCount] = createSignal(0)
+  const [count, setCount] = createSignal(0);
 
   return (
     <>
@@ -17,19 +18,20 @@ function App() {
         </a>
       </div>
       <h1>Vite + Solid</h1>
+      <Card />
       <div class="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count()}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p class="read-the-docs">
         Click on the Vite and Solid logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
