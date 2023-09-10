@@ -4,6 +4,11 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    environment: "happy-dom",
+    globals: true,
+    root: fileURLToPath(new URL("./src", import.meta.url)),
+  },
   plugins: [vue()],
   resolve: {
     alias: {

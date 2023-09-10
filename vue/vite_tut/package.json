@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "pinia": "^2.1.6",
@@ -15,6 +16,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.5"
+    "@vue/test-utils": "next",
+    "happy-dom": "^11.0.2",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.4"
   }
 }
