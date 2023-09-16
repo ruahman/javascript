@@ -7,6 +7,7 @@ import About from "./screens/About";
 import Contact from "./screens/Contact";
 import Products from "./screens/Products";
 import Product from "./screens/Product";
+import Stores from "./screens/Stores";
 
 function App() {
   return (
@@ -20,12 +21,14 @@ function App() {
       <Counter />
       <A href="/">Home</A> |<A href="/about">About</A> |
       <A href="/contact">Contact</A> |<A href="/products">Products</A> |
+      <A href="/stores">Stores</A>
       <Routes>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/products" component={Products} />
         <Route path="/product/:id" component={Product} />
+        <Route path="/stores" component={Stores} />
       </Routes>
     </div>
   );
