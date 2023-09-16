@@ -6,6 +6,7 @@
   <router-link to="/provide-and-inject">Provide and Inject</router-link> |
   <router-link to="/store">store</router-link> |
   <router-link to="/counter">counter</router-link> |
+  <router-link to="/modal">modal</router-link> |
 
   <router-view></router-view>
 </template>

@@ -6,6 +6,7 @@ import CompositionApiView from "@/views/CompositionApiView.vue";
 import ProvideAndInjectView from "@/views/ProvideAndInjectView.vue";
 import StoresView from "@/views/StoresView.vue";
 import CounterView from "@/views/CounterView.vue";
+import ModalView from "@/views/ModalView.vue";
 
 let routes = [
   {
@@ -42,6 +43,11 @@ let routes = [
     path: "/counter",
     name: "counter",
     component: CounterView,
+  },
+  {
+    path: "/modal",
+    name: "modal",
+    component: ModalView,
   },
 ];
 
