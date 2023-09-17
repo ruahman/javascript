@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { For, createEffect } from "solid-js";
 import { createStore } from "solid-js/store";
 
 export default function Stores() {
