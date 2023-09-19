@@ -2,12 +2,14 @@
 // var is are hoisted to the top, which means you can use a variable before it is delared
 // eslint-disable-next-line
 var variableNumber = 2;
+
 // eslint-disable-next-line
 var float = 3.12;
+
 // eslint-disable-next-line
 var int = 23;
 // eslint-disable-next-line
-var variableString = "Hello World";
+var variableString = 'Hello World';
 
 // undefined is when nothing gets assigned to a variable.
 // a variable without a value
@@ -20,12 +22,12 @@ var myNull = null;
 // let is scoped to the block
 // eslint-disable-next-line
 if (true) {
-  let scoped = "scoped";
+  let scoped = 'scoped';
   console.log(scoped);
 }
 
 // const cannot be reassigned
-const myName = "Diego";
+const myName = 'Diego';
 
 // cant do this
 // myName = 'Diego';
