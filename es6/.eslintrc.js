@@ -9,5 +9,7 @@ module.exports = {
     sourceType: "module",
     allowImportExportEverywhere: true,
   },
-  rules: {},
+  rules: {
+    "no-unused-vars"": "off",
+  },
 };
