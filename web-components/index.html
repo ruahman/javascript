@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <title>Web Components</title>
+    <script defer type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <h1>this should not change</h1>
+    <todo-item>
+      item 1
+      <span slot="description">blblabla</span>
+    </todo-item>
+    <todo-item>
+      item 2
+      <span slot="description">blblabla</span>
+    </todo-item>
+    <todo-item>
+      item 3
+      <slot slot="description">blblabla</slot>
+    </todo-item>
+  </body>
+</html>

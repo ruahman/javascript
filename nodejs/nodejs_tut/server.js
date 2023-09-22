@@ -24,11 +24,13 @@ const server = http.createServer((req, res) => {
 
     // data comes as a stream so that we can respond to it faster
     req.on('data', (chunk) => {
+      console.log('on');
       body.push(chunk);
     });
 
     // we are done streaming all the data
     req.on('end', () => {
+      console.log('end');
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split('=')[1];
       console.log('message', message);
