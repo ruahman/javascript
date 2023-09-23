@@ -1,3 +1,4 @@
+// create a template element
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
@@ -21,23 +22,32 @@ template.innerHTML = `
 class TodoItem extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.appendChild(template.content.cloneNode(true));
-    this.$checkbox = shadow.querySelector("input");
   }
 
+  // tell the browser which attributes to watch
   static get observedAttributes() {
     return ["checked"];
   }
 
-  attributeChangedCallback(name, _, newValue) {
+  // every time the attribute changes, this method is called
+  attributeChangedCallback(name, oldValue, newValue) {
     if (name === "checked") {
-      this.updateChecked(newValue);
+      if (oldValue !== newValue) {
+        this.updateChecked(newValue);
+      }
     }
   }
 
+  // called when the element is added to the DOM
   connectedCallback() {
     console.log("connected");
+
+    // close means that the shadow dom is not accessible from outside
+    const shadow = this.attachShadow({ mode: "closed" });
+
+    shadow.appendChild(template.content.cloneNode(true));
+
+    this.$checkbox = shadow.querySelector("input");
   }
 
   disconnectedCallback() {
