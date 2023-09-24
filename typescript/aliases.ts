@@ -35,3 +35,8 @@ input = 100; // valid
 input = "Hi"; // valid
 
 // input = false; // Compiler error
+type Optional<T> = T | null | undefined;
+
+const optional: Optional<number> = null;
+const optional2: Optional<number> = undefined;
+const optional3: Optional<number> = 42;
