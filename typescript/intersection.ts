@@ -17,6 +17,7 @@ interface Contact {
   phone: string;
 }
 
+// can mix object but not extend
 type Employee = Identity & Contact;
 type Customer = BusinessPartner & Contact;
 
@@ -32,4 +33,31 @@ let c: Customer = {
   credit: 1000000,
   email: "sales@abcinc.com",
   phone: "(408)-897-5735",
+};
+
+type TechBaseEvent = {
+  title: string;
+  description: string;
+  date: Date;
+  capacity: number;
+  rsvp: number;
+  kind: string;
+};
+
+type Conference = TechBaseEvent & {
+  location: string;
+  price: number;
+  talks: string[];
+};
+
+type Meetup = TechBaseEvent & {
+  location: string;
+  price: string;
+  talks: string[];
+};
+
+type Webinar = TechBaseEvent & {
+  url: string;
+  price?: number;
+  talks: string[];
 };

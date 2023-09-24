@@ -1,11 +1,14 @@
+// specify the return type
 function getTime(): number {
   return new Date().getTime();
 }
 
+// void return type
 function printHello(): void {
   console.log("void");
 }
 
+// specify the parameter types
 function multiply(a: number, b: number): number {
   return a * b;
 }
@@ -33,3 +36,11 @@ function devide({
 function addRest(a: number, b: number, ...rest: number[]): number {
   return a + b + rest.reduce((p, c) => p + c, 0);
 }
+
+type Result = {
+  title: string;
+  url: string;
+};
+
+// this just delares a function without implementation
+declare function search(query: string, tags: string[]): Result;

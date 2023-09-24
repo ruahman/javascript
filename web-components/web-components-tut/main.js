@@ -50,6 +50,7 @@ class TodoItem extends HTMLElement {
     this.$checkbox = shadow.querySelector("input");
   }
 
+  // called every time the element is removed from the DOM
   disconnectedCallback() {
     console.log("disconnected");
   }

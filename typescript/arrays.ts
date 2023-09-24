@@ -1,11 +1,11 @@
 const names: string[] = [];
 names.push("Diego");
 
-// readonly
+// readonly array, cant push to this
 const names2: readonly string[] = ["diego"];
 //   names2.push("andy");
 
-// type inference
+//  you can type inference an array
 const numbers = [1, 2, 3];
 numbers.push(4);
 

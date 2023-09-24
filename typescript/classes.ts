@@ -18,7 +18,9 @@ interface Shape {
   getArea: () => number;
 }
 
+// a class can implement a interface
 class Rectangle implements Shape {
+  // this is a shortcut to create properties
   public constructor(
     protected readonly width: number,
     protected readonly height: number
@@ -43,13 +45,15 @@ class Square extends Rectangle {
   }
 }
 
-// abstract class
+// abstract class, you cant create instances of this class
 abstract class Polygon {
   public abstract getArea(): number;
   public toString(): string {
     return "this is a polygon";
   }
 }
+
+// let test: Polygon = new Polygon(); // error
 
 class Rectange2 extends Polygon {
   public constructor(
@@ -62,6 +66,9 @@ class Rectange2 extends Polygon {
     return this.width * this.height;
   }
 }
+
+// this works
+let test2: Polygon = new Rectange2(2, 3);
 
 // getters and setters
 
@@ -335,3 +342,16 @@ let jane2 = new Contractor("Jane", "Doe", 100, 160);
 
 console.log(john1.compensationStatement());
 console.log(jane2.compensationStatement());
+
+// private fields
+
+class Article {
+  // this is a private field
+  #title: string;
+  constructor(title: string) {
+    this.#title = title;
+  }
+  getTitle(): string {
+    return this.#title;
+  }
+}
