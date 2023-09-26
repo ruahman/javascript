@@ -17,9 +17,10 @@ v = true;
 const simpleNumber: number = 312;
 
 // arrays
+// eslint-disable-next-line
 const mynames: string[] = ["John", "Jane", "Peter", "David", "Mary"];
 
-// objects
+// objects, object leterals
 let person: {
   name: string;
   age: number;
@@ -57,8 +58,8 @@ let myemployee2: {
 };
 
 // function
-let greeting: (name: string) => string;
-greeting = function (name: string) {
+// eslint-disable-next-line
+const greeting: (name: string) => string = function (name: string) {
   return `Hi ${name}`;
 };
 
