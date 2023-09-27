@@ -31,6 +31,8 @@ person = {
   age: 25,
 };
 
+let { age }: { age: number } = person;
+
 let myemployee: {
   firstName: string;
   lastName: string;

@@ -35,3 +35,9 @@ let color: [number, number, number] = [255, 0, 0];
 let bgColor, headerColor: [number, number, number, number?];
 bgColor = [0, 255, 255, 0.5];
 headerColor = [0, 255, 255];
+
+// you can also try type alias for tuples
+
+type Drink = [string, boolean, number];
+
+const coke: Drink = ["coke", true, 200];

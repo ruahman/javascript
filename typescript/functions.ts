@@ -44,3 +44,16 @@ type Result = {
 
 // this just delares a function without implementation
 declare function search(query: string, tags: string[]): Result;
+
+// deconstruct objects
+// here is how I can type anotate when I deconstruct an object
+const logWeather = ({
+  date,
+  weather,
+}: {
+  date: Date;
+  weather: string;
+}): void => {
+  console.log(date);
+  console.log(weather);
+};
