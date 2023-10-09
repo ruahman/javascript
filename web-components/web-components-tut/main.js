@@ -24,7 +24,7 @@ class TodoItem extends HTMLElement {
     super();
   }
 
-  // tell the browser which attributes to watch
+  // tell the browser which attributes we want to observe
   static get observedAttributes() {
     return ["checked"];
   }
