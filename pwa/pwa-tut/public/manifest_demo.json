@@ -1,0 +1,14 @@
+{
+  "name": "Sweety - Activity Tracker", # what shows up on splach screen
+  "short_name": "Sweety", # what shows up below icon
+  "start_url": "/index.htm", # which page to load at startup
+  "scope": ".", # which pages are included in our pwa experience
+  "display": "standalone", # make this look like a standalone app
+  "background_color": "#fff", # background color while loading the splash screen
+  "theme_color": "#3F51B5", # top bar color
+  "description": "foobar", # description of you app when you hover over it???
+  "dir": "ltr", # text direction
+  "lang": "en-US", # main languege of your app
+  "orientation": "portrait-primary", # set it to portrait mode
+  "icons": [], # icons for home screen, the device chooses the best icon for the device
+}
