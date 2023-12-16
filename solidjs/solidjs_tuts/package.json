@@ -1,5 +1,5 @@
 {
-  "name": "solidjs_tut",
+  "name": "solidjs_tuts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "bunx --bun vite preview"
   },
   "dependencies": {
+    "@solidjs/router": "^0.10.3",
     "solid-js": "^1.8.7"
   },
   "devDependencies": {
