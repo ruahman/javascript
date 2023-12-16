@@ -14,6 +14,8 @@ function App(props: any) {
         <a href="/dynamic">Dynamic</a>
         <a href="/portal">Portal</a>
         <a href="/error">Error</a>
+        <a href="/onmount">OnMount</a>
+        <a href="/event">Event</a>
       </nav>
       <h1>Welcome to Solidjs tuts</h1>
       {props.children}

@@ -29,6 +29,7 @@ export function Counter() {
 
   const interval = setInterval(() => setCount((count) => count + 1), 1000);
 
+  // when component if removed run onCleanup
   onCleanup(() => clearInterval(interval));
 
   return (

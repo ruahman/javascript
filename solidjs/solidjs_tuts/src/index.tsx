@@ -14,6 +14,8 @@ import { SwitchScreen } from "./screens/Switch.tsx";
 import { DynamicScreen } from "./screens/Dynamic.tsx";
 import { PortalScreen } from "./screens/Portal.tsx";
 import { ErrorBoundryScreen } from "./screens/ErrorBoundry.tsx";
+import { OnMount } from "./screens/OnMount.tsx";
+import { Event } from "./screens/Event.tsx";
 
 const root = document.getElementById("root");
 
@@ -30,6 +32,8 @@ render(
       <Route path="/dynamic" component={DynamicScreen} />
       <Route path="/portal" component={PortalScreen} />
       <Route path="/error" component={ErrorBoundryScreen} />
+      <Route path="/onmount" component={OnMount} />
+      <Route path="/event" component={Event} />
     </Router>
   ),
   root!,
