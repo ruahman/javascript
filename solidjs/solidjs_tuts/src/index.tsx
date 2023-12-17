@@ -29,6 +29,13 @@ import { CreateStore } from "./screens/CreateStore.tsx";
 import { Produce } from "./screens/Produce.tsx";
 import { CounterContext } from "./screens/CounterContext.tsx";
 import { CounterNoContext } from "./screens/CounterNoContext.tsx";
+import { Batching } from "./screens/Batching.tsx";
+import { Untrack } from "./screens/Untrack.tsx";
+import { On } from "./screens/On.tsx";
+import { Lazy } from "./screens/Lazy.tsx";
+import { Resource } from "./screens/Resource.tsx";
+import { Suspence } from "./screens/Suspence.tsx";
+import { Effects } from "./screens/Effects.tsx";
 
 const root = document.getElementById("root");
 
@@ -37,6 +44,7 @@ render(
     <Router root={App}>
       <Route path="/" component={Home} />
       <Route path="/hello-world" component={HelloWorld} />
+      <Route path="/effects" component={Effects} />
       <Route path="/svg" component={SVG} />
       <Route path="/show" component={ShowControlFlow} />
       <Route path="/for" component={ForScreen} />
@@ -60,6 +68,12 @@ render(
       <Route path="/produce" component={Produce} />
       <Route path="/counter-context" component={CounterContext} />
       <Route path="/counter-no-context" component={CounterNoContext} />
+      <Route path="/batching" component={Batching} />
+      <Route path="/untrack" component={Untrack} />
+      <Route path="/on" component={On} />
+      <Route path="/lazy" component={Lazy} />
+      <Route path="/resource" component={Resource} />
+      <Route path="/suspence" component={Suspence} />
     </Router>
   ),
   root!,

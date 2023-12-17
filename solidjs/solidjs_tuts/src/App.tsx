@@ -6,6 +6,7 @@ function App(props: any) {
       <nav>
         <a href="/">Home</a>
         <a href="/hello-world">HelloWorld</a>
+        <a href="/effects">Effects</a>
         <a href="/svg">SVG</a>
         <a href="/show">Show</a>
         <a href="/for">For</a>
@@ -29,6 +30,12 @@ function App(props: any) {
         <a href="/produce">Produce</a>
         <a href="/counter-context">CounterContext</a>
         <a href="/counter-no-context">CounterNoContext</a>
+        <a href="/batching">Batching</a>
+        <a href="/untrack">Untrack</a>
+        <a href="/lazy">Lazy</a>
+        <a href="/on">On</a>
+        <a href="/resource">Resource</a>
+        <a href="/suspence">Suspence</a>
       </nav>
       <h1>Welcome to Solidjs tuts</h1>
       {props.children}
