@@ -1,6 +1,5 @@
 import styles from "./App.module.css";
 import { Routes, Route, A } from "@solidjs/router";
-import { HelloWorld } from "./screens/HelloWorld";
 import Products from "./screens/Products";
 import Product from "./screens/Product";
 import Stores from "./screens/Stores";
@@ -15,13 +14,10 @@ function App() {
     <CartContextProvider>
       <div class={styles.root}>
         <h1>Vite + Solid</h1>
-        <A href="/">HelloWorld</A> |
-        <A href="/products">Products</A> |
-        <A href="/stores">Stores</A> | <A href="/effects">Effects</A> |
-        <A href="/context">Context</A> | <A href="/components">Components</A> |
-        <A href="/derived">Derived</A>
+        <A href="/products">Products</A> |<A href="/stores">Stores</A> |{" "}
+        <A href="/effects">Effects</A> |<A href="/context">Context</A> |{" "}
+        <A href="/components">Components</A> |<A href="/derived">Derived</A>
         <Routes>
-          <Route path="/" component={HelloWorld} />
           <Route path="/products" component={Products} />
           <Route path="/product/:id" component={Product} />
           <Route path="/stores" component={Stores} />
