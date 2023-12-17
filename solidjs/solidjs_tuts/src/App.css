@@ -29,3 +29,7 @@
 nav a {
   margin-right: 1rem;
 }
+
+nav {
+  word-wrap: break-word;
+}

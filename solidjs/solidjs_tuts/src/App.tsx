@@ -16,6 +16,19 @@ function App(props: any) {
         <a href="/error">Error</a>
         <a href="/onmount">OnMount</a>
         <a href="/event">Event</a>
+        <a href="/style">Style</a>
+        <a href="/class-list">ClassList</a>
+        <a href="/ref">Ref</a>
+        <a href="/spread">Spread</a>
+        <a href="/use">Use</a>
+        <a href="/default-props">DefaultProps</a>
+        <a href="/split-props">SplitProps</a>
+        <a href="/children-prop">ChildrenProp</a>
+        <a href="/nested-reactivity">NestedReactivity</a>
+        <a href="/create-store">CreateStore</a>
+        <a href="/produce">Produce</a>
+        <a href="/counter-context">CounterContext</a>
+        <a href="/counter-no-context">CounterNoContext</a>
       </nav>
       <h1>Welcome to Solidjs tuts</h1>
       {props.children}
