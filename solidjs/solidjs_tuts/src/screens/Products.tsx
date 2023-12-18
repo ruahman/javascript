@@ -6,7 +6,7 @@ async function fetchProducts() {
   return res.json();
 }
 
-export default function Products() {
+export function Products() {
   const [products] = createResource(fetchProducts);
 
   return (
@@ -16,9 +16,9 @@ export default function Products() {
       <Show when={products.error}>Error: {products.error.message}</Show>
       <Show when={products()} fallback={<p>loading....</p>}>
         <ul>
-          {products().map((product) => (
+          {products().map((product: any) => (
             <li>
-              <A href={"/product/" + product.id}>{product.title}</A>
+              <A href={"/products/" + product.id}>{product.title}</A>
             </li>
           ))}
         </ul>

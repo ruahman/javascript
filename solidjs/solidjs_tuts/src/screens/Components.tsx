@@ -1,7 +1,7 @@
-import Card from "../components/Card";
-import Counter from "../components/Counter";
+import { Card } from "../components/Card";
+import { Counter } from "../components/Counter";
 
-export default function Components() {
+export function Components() {
   return (
     <>
       <Card title="hello prop one">

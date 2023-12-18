@@ -1,9 +1,9 @@
-import { useContext, For } from "solid-js";
-import { CartContext, useCartContext } from "../context/CartContextProvider";
+import { For } from "solid-js";
+import { CartContextProvider, useCart } from "../context/cart";
 
-export default function Context() {
-  //const { items, setItems } = useContext(CartContext);
-  const { items, setItems } = useCartContext();
+function Cart() {
+  //@ts-ignore
+  const [items, setItems] = useCart();
 
   function addItem() {
     setItems([...items, { title: "bar", price: 2 }]);
@@ -21,5 +21,13 @@ export default function Context() {
       </For>
       <button onClick={addItem}>add item</button>
     </>
+  );
+}
+
+export function CartContext() {
+  return (
+    <CartContextProvider>
+      <Cart />
+    </CartContextProvider>
   );
 }

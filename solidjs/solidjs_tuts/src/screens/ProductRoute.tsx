@@ -1,12 +1,13 @@
 import { useParams } from "@solidjs/router";
 import { createResource, Show } from "solid-js";
 
-async function fetchProduct(id) {
+async function fetchProduct(id: string) {
   const res = await fetch("https://fakestoreapi.com/products/" + id);
   return res.json();
 }
 
-export default function Product() {
+export function Product() {
+  // get param from route
   const params = useParams();
 
   // pass in a signal that will signal when to fetch again
