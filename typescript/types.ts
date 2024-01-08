@@ -1,84 +1,68 @@
-// string
-const firstName: string = "Dylan";
+export function types() {
+  // string
+  const firstName: string = "Dylan";
+  console.log("testing types");
 
-let firstName2 = "Dylan"; // inferred to type string
-firstName2 = "andy"; // attempts to re-assign the value to a different type
+  //firstName = "John";
+  console.log("...cant change const");
 
-// boolean
-const u = true;
+  //firstName2 = 3;
+  console.log("...cant change type");
 
-// any
-let v: any = true;
-v = "string"; // no error as it can be "any" type
-v = 123;
-v = true;
+  let firstName2 = "Dylan"; // inferred to type string
+  console.log("...inferred type");
 
-// number
-const simpleNumber: number = 312;
+  // boolean
+  const u = true;
+  console.log("...boolean type");
 
-// arrays
-// eslint-disable-next-line
-const mynames: string[] = ["John", "Jane", "Peter", "David", "Mary"];
+  // any
+  let v: any = true;
+  v = "string"; // no error as it can be "any" type
+  v = 123;
+  v = true;
+  console.log("...any type");
 
-// objects, object leterals
-let person: {
-  name: string;
-  age: number;
-};
+  // number
+  const simpleNumber: number = 312;
+  console.log("...number type");
 
-person = {
-  name: "John",
-  age: 25,
-};
+  // arrays
+  const mynames: string[] = ["Jhn", "Jane", "Peter", "David", "Mary"];
+  console.log("...array type");
 
-let { age }: { age: number } = person;
+  // objects, object leterals
+  let person: {
+    name: string;
+    age: number;
+  };
 
-let myemployee: {
-  firstName: string;
-  lastName: string;
-  age: number;
-  jobTitle: string;
-};
+  person = {
+    name: "John",
+    age: 25,
+  };
+  console.log("...object type");
 
-myemployee = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 25,
-  jobTitle: "Web Developer",
-};
+  let { age }: { age: number } = person;
+  console.log("...object destructuring");
 
-let myemployee2: {
-  firstName: string;
-  lastName: string;
-  age: number;
-  jobTitle: string;
-} = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 25,
-  jobTitle: "Web Developer",
-};
+  let employe: {
+    firstName: string;
+    lastName: string;
+    age: number;
+    jobTitle: string;
+  } = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 25,
+    jobTitle: "Web Developer",
+  };
+  console.log("...object initializing");
 
-// function
-// eslint-disable-next-line
-const greeting: (name: string) => string = function (name: string) {
-  return `Hi ${name}`;
-};
+  let greeting: (name: string) => string;
 
-// void
-// this is just for void fuctions
-function log(message: string): void {
-  console.log(message);
+  greeting = function (name: string) {
+    return `Hi ${name}`;
+  };
+  console.log("...function type");
 }
-
-// never
-// function never returns because it throws an exception or infinite loop
-function raiseError(message: string): never {
-  throw new Error(message);
-}
-
-let loop = function forever(): never {
-  while (true) {
-    console.log("Hello");
-  }
-};

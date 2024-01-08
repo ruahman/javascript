@@ -1,4 +1,4 @@
-const url = "https://jsonplaceholder.typicode.com/todos/1";
+const url = `https://jsonplaceholder.typicode.com/todos/1`;
 
 interface Todo {
   userId: number;

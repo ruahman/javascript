@@ -57,3 +57,21 @@ const logWeather = ({
   console.log(date);
   console.log(weather);
 };
+
+// void
+// this is just for void fuctions
+function log(message: string): void {
+  console.log(message);
+}
+
+// never
+// function never returns because it throws an exception or infinite loop
+function raiseError(message: string): never {
+  throw new Error(message);
+}
+
+let loop = function forever(): never {
+  while (true) {
+    console.log("Hello");
+  }
+};
