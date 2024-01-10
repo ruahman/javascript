@@ -1,4 +1,4 @@
-export function types() {
+export function types(expect) {
   // string
   const firstName: string = "Dylan";
   console.log("testing types");
@@ -16,6 +16,18 @@ export function types() {
   // boolean
   const u = true;
   console.log("...boolean type");
+
+  const isNull = null;
+  const isUndefined = undefined;
+  expect(isNull).toBeNull();
+  expect(isUndefined).toBeUndefined();
+  // null is not the same as undefined
+  expect(isNull).not.toBeUndefined();
+  expect(isUndefined).not.toBeNull();
+  // however, both null and undefined caluculate to false
+  expect(isNull).toBeFalsy();
+  expect(isUndefined).toBeFalsy();
+  console.log("...null and undefined types");
 
   // any
   let v: any;
