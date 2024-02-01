@@ -1,5 +1,7 @@
 import { html, css, LitElement, PropertyValues } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
+import { styleMap } from "lit/directives/style-map.js";
+import { animate } from "@lit-labs/motion";
 
 @customElement("motion-carousel")
 export class MotionCarousel extends LitElement {
@@ -28,7 +30,17 @@ export class MotionCarousel extends LitElement {
       width: 100%;
       height: 100%;
     }
+
+    .selected {
+      top: -100%;
+    }
   `;
+
+  @query('slot[name="selected"]', true)
+  private selectedSlot!: HTMLSlotElement;
+
+  @query('slot[name="previous"]', true)
+  private previousSlot!: HTMLSlotElement;
 
   private selectedInternal = 0;
   @property({ type: Number })
@@ -50,8 +62,22 @@ export class MotionCarousel extends LitElement {
     }
   }
 
+  // private updateSlots() {
+  //   this.children[this.previous]?.removeAttribute("slot");
+  //   this.children[this.selected]?.setAttribute("slot", "selected");
+  // }
+
   private updateSlots() {
-    this.children[this.previous]?.removeAttribute("slot");
+    // unset old slot state
+
+    this.selectedSlot.assignedElements()[0]?.removeAttribute("slot");
+
+    this.previousSlot.assignedElements()[0]?.removeAttribute("slot");
+
+    // set slots
+
+    this.children[this.previous]?.setAttribute("slot", "previous");
+
     this.children[this.selected]?.setAttribute("slot", "selected");
   }
 
@@ -68,13 +94,37 @@ export class MotionCarousel extends LitElement {
     this.dispatchEvent(change);
   }
 
+  private left = 0;
   render() {
-    if (this.hasValidSelected()) {
-      this.selectedInternal = this.selected;
-    }
+    const p = this.selectedInternal;
+    const s = (this.selectedInternal = this.hasValidSelected()
+      ? this.selected
+      : this.selectedInternal);
+    const shouldMove = this.hasUpdated && s !== p;
+    const atStart = p === 0;
+    const toStart = s === 0;
+    const atEnd = p === this.maxSelected;
+    const toEnd = s === this.maxSelected;
+    const shouldAdvance =
+      shouldMove && (atEnd ? toStart : atStart ? !toEnd : s > p);
+    const delta = (shouldMove ? Number(shouldAdvance) || -1 : 0) * 100;
+    this.left -= delta;
+    const animateLeft = `${this.left}%`;
+    const selectedLeft = `${-this.left}%`;
+    const previousLeft = `${-this.left - delta}%`;
     return html`
-      <div class="fit">
-        <slot name="selected" @click=${this.clickHandler}></slot>
+      <div
+        class="fit"
+        ${animate()}
+        @click=${this.clickHandler}
+        style=${styleMap({ left: animateLeft })}
+      >
+        <div class="fit" style=${styleMap({ left: previousLeft })}>
+          <slot name="previous"></slot>
+        </div>
+        <div class="fit selected" style=${styleMap({ left: selectedLeft })}>
+          <slot name="selected"></slot>
+        </div>
       </div>
     `;
   }
