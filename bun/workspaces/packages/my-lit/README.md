@@ -1,3 +1,0 @@
-# my-lit
-
-description
