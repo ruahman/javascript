@@ -1,43 +1,53 @@
-console.log("**** tuples ****");
+/* eslint-disable prefer-const */
 
-// define our tuple
-let ourTuple: [number, boolean, string];
-ourTuple = [33, true, "diego"];
-ourTuple.push("you can still do this");
+export default function tuples(expect: any) {
+  console.log("**** tuples ****");
 
-// readonly
-const ourReadOnlyTuple: readonly [number, boolean, string] = [5, false, "bob"];
-//   ourReadOnlyTuple.push("cant do this");
+  // define our tuple
+  const ourTuple: [number, boolean, string] = [33, true, "diego"];
+  expect(ourTuple).toEqual([33, true, "diego"]);
 
-// named tuples
-const graph: [x: number, y: number] = [56, 78];
-console.log("named tuple: ", graph);
+  // readonly
+  const ourReadOnlyTuple: readonly [number, boolean, string] = [
+    5,
+    false,
+    "bob",
+  ];
+  expect(ourReadOnlyTuple).toEqual([5, false, "bob"]);
 
-// destructing tuples
-const graph2: [number, number] = [34, 56];
-const [x, y] = graph2;
+  // named tuples
+  const graph: [x: number, y: number] = [56, 78];
+  console.log("named tuple: ", graph);
+  expect(graph).toEqual([56, 78]);
 
-// tuple array
-// deno-lint-ignore prefer-const
-let employee: [string, number][];
-employee = [
-  ["aaa", 1],
-  ["bbb", 34],
-];
-console.log("array of tuples: ", employee);
+  // destructing tuples
+  const graph2: [number, number] = [34, 56];
+  const [x, y] = graph2;
+  expect(x).toBe(34);
+  expect(y).toBe(56);
 
-let skill: [string, number];
-skill = ["Programming", 5];
+  // tuple array
+  let employee: [string, number][];
+  employee = [
+    ["aaa", 1],
+    ["bbb", 34],
+  ];
+  console.log("array of tuples: ", employee);
+  expect(employee.length).toBe(2);
+  expect(employee[0]).toEqual(["aaa", 1]);
+  expect(employee[1]).toEqual(["bbb", 34]);
 
-let color: [number, number, number] = [255, 0, 0];
+  // optional elements
+  let bgColor, headerColor: [number, number, number, number?];
+  bgColor = [0, 255, 255, 0.5];
+  headerColor = [0, 255, 255];
+  expect(bgColor).toEqual([0, 255, 255, 0.5]);
+  expect(headerColor).toEqual([0, 255, 255]);
 
-// optional elements
-let bgColor, headerColor: [number, number, number, number?];
-bgColor = [0, 255, 255, 0.5];
-headerColor = [0, 255, 255];
+  // you can also try type alias for tuples
 
-// you can also try type alias for tuples
+  type Drink = [string, boolean, number];
 
-type Drink = [string, boolean, number];
-
-const coke: Drink = ["coke", true, 200];
+  const coke: Drink = ["coke", true, 200];
+  expect(coke).toEqual(["coke", true, 200]);
+}

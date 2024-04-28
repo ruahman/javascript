@@ -1,4 +1,4 @@
-export default function objects() {
+export default function objects(expect: any) {
   console.log("**** objects ****");
 
   // you can spcify the type in objec
@@ -8,11 +8,15 @@ export default function objects() {
     year: 2009,
   };
 
+  expect(car.type).toBe("Toyota");
+
   // type inference
   const car2 = {
     type: "Ford",
   };
   car2.type = "Honda";
+
+  expect(car2.type).toBe("Honda");
 
   // optional property
   const car3: { type: string; milage?: number } = {
