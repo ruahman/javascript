@@ -1,10 +1,11 @@
-console.log("**** casting ****");
-// there are two ways to cast
+import { Expect } from "bun:test";
 
-// as
-const q: unknown = "hello world";
-console.log((q as string).length);
+export default function casting(expect: Expect) {
+  // as
+  const q: unknown = "hello world";
+  expect(q as string).toBeTypeOf("string");
 
-// <>
-const w: unknown = "hello world2";
-console.log((<string>w).length);
+  // <>
+  const w: unknown = "hello world2";
+  expect(<string>w).toBeTypeOf("string");
+}
