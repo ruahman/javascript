@@ -1,13 +1,19 @@
-let wcounter = 0;
+import { Expect } from "bun:test";
 
-while (wcounter < 5) {
-  console.log(wcounter);
-  wcounter++;
+export default function whileStatement(expect: Expect) {
+  let wcounter = 0;
+
+  while (wcounter < 5) {
+    console.log(wcounter);
+    wcounter++;
+  }
+  expect(wcounter).toBe(5);
+
+  let wi = 0;
+
+  do {
+    console.log(wi);
+    wi++;
+  } while (wi < 10);
+  expect(wi).toBe(10);
 }
-
-let wi = 0;
-
-do {
-  console.log(wi);
-  wi++;
-} while (wi < 10);

@@ -1,4 +1,21 @@
-// if the type is unknown then you can type cast it
-let xt: unknown = "777";
-let yt = xt as number;
-let zt = <number>xt;
+import { Expect } from "bun:test";
+
+export default function type_casting(expect: Expect) {
+  // if the type is unknown then you can type cast it
+  // const xt = "777";
+  // const yt = xt as number;
+  // expect(typeof yt).toBe("number");
+  interface Foo {
+    bar: number;
+    bas: string;
+  }
+  let foo = {} as Foo;
+  foo.bar = 123;
+  foo.bas = "hello";
+  expect(foo).toEqual({ bar: 123, bas: "hello" });
+  expect(typeof foo).toBe("object");
+
+  const fff: any = "hello";
+  const bar = <string>fff;
+  expect(typeof bar).toBe("string");
+}
