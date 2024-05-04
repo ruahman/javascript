@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function enums(expect: Expect) {
+export default function enums(expect: any) {
   console.log("**** enums ****");
 
   // numerical enums

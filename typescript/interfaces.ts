@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function interfaces(expect: Expect) {
+export default function interfaces(expect: any) {
   console.log("**** interfaces ****");
 
   // interfaces are simular to alias except it only applies to objects

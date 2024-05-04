@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function unions(expect: Expect) {
+export default function unions(expect: any) {
   // when a variable can have more than one variable type
   function printStatusCode(code: string | number) {
     console.log(code);

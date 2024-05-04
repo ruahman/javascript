@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function intersection(expect: Expect) {
+export default function intersection(expect: any) {
   // intersection types
 
   // creates a new type by combining other types

@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function aliases(expect: Expect) {
+export default function aliases(expect: any) {
   // alias is a way to create new types
 
   // create an alias for types

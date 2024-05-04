@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function optional_parameters(expect: Expect) {
+export default function optional_parameters(expect: any) {
   // optional must always be at the end
   function multiplyo(a: number, b: number, c?: number): number {
     if (typeof c !== "undefined") {

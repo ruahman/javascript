@@ -1,5 +1,3 @@
-/* eslint-disable prefer-const */
-
 export default function tuples(expect: any) {
   console.log("**** tuples ****");
 
@@ -27,8 +25,7 @@ export default function tuples(expect: any) {
   expect(y).toBe(56);
 
   // tuple array
-  let employee: [string, number][];
-  employee = [
+  const employee: [string, number][] = [
     ["aaa", 1],
     ["bbb", 34],
   ];
@@ -38,9 +35,9 @@ export default function tuples(expect: any) {
   expect(employee[1]).toEqual(["bbb", 34]);
 
   // optional elements
-  let bgColor, headerColor: [number, number, number, number?];
-  bgColor = [0, 255, 255, 0.5];
-  headerColor = [0, 255, 255];
+  type RGB = [number, number, number, number?];
+  const bgColor: RGB = [0, 255, 255, 0.5];
+  const headerColor: RGB = [0, 255, 255];
   expect(bgColor).toEqual([0, 255, 255, 0.5]);
   expect(headerColor).toEqual([0, 255, 255]);
 

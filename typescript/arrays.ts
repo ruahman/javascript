@@ -1,6 +1,4 @@
-import { Expect } from "bun:test";
-
-export default function arrays(expect: Expect) {
+export default function arrays(expect: any) {
   const names: string[] = [];
   names.push("Diego");
   expect(names).toContain("Diego");
