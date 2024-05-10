@@ -1,9 +1,9 @@
 version: '3'
 services:
+    stdin_open: true # docker run -i
   node:
     container_name: node
     image: node
-    stdin_open: true # docker run -i
     tty: true        # docker run -t
     # command: tail -f yarn.lock
     working_dir: /code
