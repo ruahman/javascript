@@ -8,6 +8,7 @@ export default function enums(expect: any) {
     West,
     South,
   }
+
   const currentDirection = CardinalDirections.North;
 
   expect(currentDirection).toBe(CardinalDirections.North);
