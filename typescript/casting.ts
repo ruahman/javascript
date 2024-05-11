@@ -1,7 +1,7 @@
 import { Expect } from "bun:test";
 
 export default function casting(expect: Expect) {
-  // as
+  // as to string
   const q: unknown = "hello world";
   expect(q as string).toBeTypeOf("string");
 
