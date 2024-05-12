@@ -1,6 +1,18 @@
 import { Expect } from "bun:test";
 
+// never is used to indicate that a function will never return
+
 export default function never(expect: Expect) {
+  // this should never return
+  function throwsError(msg: string): never {
+    throw new Error(msg);
+  }
+
+  // again this should never return
+  function infiniteLoop(): never {
+    while (true) {}
+  }
+
   type Bird = { kind: "bird"; wings: number; fly: () => void };
   type Fish = { kind: "fish"; fins: number; swim: () => void };
   type Dog = { kind: "dog"; tail: number; bark: () => void };
