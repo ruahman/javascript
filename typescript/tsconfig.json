@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext","dom"],
-    "module": "esnext",
-    "target": "esnext",
+    "lib": ["ESNext","dom"],  // libraries to include in compilation
+    "module": "esnext", // what module system to use
+    "target": "esnext",  // target javascript to compile to
+    "declaration": false, // generate declaration files .d.ts for typescript
+    "sourceMap": true, // generate source maps for debugging
     "moduleResolution": "bundler",
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,
@@ -14,10 +16,23 @@
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
+    "allowJs": true, // allow javascript files to be included in compilation
     "types": [
       "bun-types" // add Bun global
-   ],
-   "noImplicitAny": false,
+    ],
+    "noImplicitAny": false,
+    "exclude": ["node_modules"], // exclude node_modules from compiling and slowing us down
+    "outDir": "./dist", // output directory for compiled files 
+    "rootDir": "./src", // root directory for typescript files to compile 
+    "index": ".index.ts", // entry point for compilation
+    "removeComments": true, // remove comments from compiled files 
+    "noEmit": true, // do not emit compiled files 
+    "noEmitOnError": true, // do not emit compiled files if there are errors
+    "strict": true, // enable all strict type checking options 
+    // "noImplicitAny": true, // raise error on expressions and declarations with an implied 'any' type
+    // "strictNullChecks": true, // enable strict null checks 
+    "noUnusedLocals": true, // enable error reporting when not all local variables are used
+    "noUnusedParameters": true, // enable error reporting when not all parameters are used
+    "noImplicitReturns": true, // enable error reporting when not all code paths in function return a value
   }
 }
