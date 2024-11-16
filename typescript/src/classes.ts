@@ -3,18 +3,24 @@ import { Expect } from "bun:test";
 class Person {
   name: string;
   private readonly middle: string;
+  private readonly last: string;
 
-  public constructor(
-    name: string,
-    middle: string,
-    private lastname: string,
-  ) {
+  public constructor(name: string, middle: string, last: string) {
     this.name = name;
     this.middle = middle;
+    this.last = last;
+  }
+
+  public getmiddle() {
+    return this.middle;
   }
 
   public getname() {
     return this.name;
+  }
+
+  public getlast() {
+    return this.last;
   }
 }
 
@@ -101,11 +107,17 @@ class EmployeeStatic {
   private static headcount = 0;
 
   constructor(
-    private firstName: string,
+    readonly firstName: string,
     private lastName: string,
     private jobTitle: string,
   ) {
     EmployeeStatic.headcount++;
+    console.log(
+      this.firstName,
+      this.lastName,
+      this.jobTitle,
+      EmployeeStatic.headcount,
+    );
   }
 
   public static getHeadcount() {
@@ -180,8 +192,8 @@ export default function classes(expect: Expect) {
   expect(personGetSet.lastName).toBe("vila");
   expect(personGetSet.getFullName()).toBe("diego vila");
 
-  const _john = new EmployeeStatic("John", "Doe", "Front-end Developer");
-  const _jane = new EmployeeStatic("Jane", "Doe", "Back-end Developer");
+  new EmployeeStatic("John", "Doe", "Front-end Developer");
+  new EmployeeStatic("Jane", "Doe", "Back-end Developer");
 
   expect(EmployeeStatic.getHeadcount()).toBe(2);
 

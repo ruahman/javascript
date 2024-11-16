@@ -15,6 +15,6 @@ export default function for_statements(expect: Expect) {
     i++;
     if (i > 9) break;
   }
-  // @ts-expect-error should be 10
+
   expect(i).toBe(10);
 }

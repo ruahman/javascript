@@ -31,6 +31,7 @@ export default function aliases(expect: any) {
   type Combinable = number | string;
   let comb: Combinable = 0;
   expect(comb).toBeTypeOf("number");
+
   comb = "tes";
   expect(comb).toBe("tes");
   expect(comb).toBeTypeOf("string");
@@ -47,8 +48,10 @@ export default function aliases(expect: any) {
 
   const optional: Optional<number> = null;
   expect(optional).toBe(null);
+
   const optional2: Optional<number> = undefined;
   expect(optional2).toBe(undefined);
+
   const optional3: Optional<number> = 42;
   expect(optional3).toBe(42);
   expect(optional3).toBeTypeOf("number");
