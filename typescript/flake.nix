@@ -24,8 +24,41 @@
 
             ### zsh
             cat << EOF > .zshrc
+            git_status() {
+              branch=\$(git branch --show-current)
 
-            export PS1="%F{green}󰛦 (TypeScript):%F{blue}%c%F{white}$ "
+              # check if any files were modified
+              if [[ -n \$(git status --porcelain | grep '^ \?M') ]]; then
+                changes="*"
+              else
+                changes=""
+              fi
+
+              # Check if any files were added
+              if [[ -n \$(git status --porcelain | grep '^ \?A') ]]; then
+                added="+"
+              else
+                added=""
+              fi
+
+              if [[ -n \$(git status --porcelain | grep '^ \?D') ]]; then
+                deleted="-"
+              else
+                deleted=""
+              fi
+
+              if [[ -n \$(git status --porcelain | grep '^ \??') ]]; then
+                untracked="?"
+              else
+                untracked=""
+              fi
+
+
+              echo "%F{yellow}\$changes\$added\$deleted\$untracked %F{red}git(\$branch)"
+            } 
+
+            export PS1="%F{green}󰛦 (TypeScript):%F{blue}%c \$(git_status)%F{white}$ "
+
             EOF
 
             export SHELL=$(which zsh)

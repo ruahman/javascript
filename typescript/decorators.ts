@@ -1,4 +1,4 @@
-// you can only use this for class functions.
+// adfasf you can only use this for class functions.
 function myDecorator(
   target: any,
   propertyKey: string | symbol,

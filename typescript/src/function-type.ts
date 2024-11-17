@@ -1,5 +1,3 @@
-import { Expect } from "bun:test";
-
 export default function function_type(expect: any) {
   // setup function type
   let addtype: (x: number, y: number) => number;
