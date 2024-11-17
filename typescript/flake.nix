@@ -53,8 +53,13 @@
                 untracked=""
               fi
 
+              if git status | grep -q "Your branch is ahead"; then
+                ahead="" 
+              else
+                ahead=""
+              fi
 
-              echo "%F{yellow}\$changes\$added\$deleted\$untracked %F{red}git(\$branch)"
+              echo "%F{yellow}\$changes\$added\$deleted\$untracked %F{red}git(\$branch\$ahead)"
             } 
 
             export PS1="%F{green}󰛦 (TypeScript):%F{blue}%c \$(git_status)%F{white}$ "
