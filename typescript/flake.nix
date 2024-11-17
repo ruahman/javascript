@@ -62,8 +62,16 @@
               echo "%F{yellow}\$changes\$added\$deleted\$untracked %F{red}git(\$branch\$ahead)"
             } 
 
-            export PS1="%F{green}󰛦 (TypeScript):%F{blue}%c \$(git_status)%F{white}$ "
+            # Define a function to generate the prompt
+            function update_prompt {
+                local timestamp=\$(date +"%H:%M:%S") # Current time
+                local random_number=\$((RANDOM % 1000)) # Random number
+                # PROMPT="%F{cyan}[\$timestamp] %F{yellow}Random:\$random_number %F{blue}%~ %F{green}%# %F{reset}"
+                PROMPT="%F{green}󰛦 (TypeScript):%F{blue}%c \$(git_status)%F{white}$ "
+                export PS1=\$PROMPT
+            }
 
+            precmd_functions+=(update_prompt)
             EOF
 
             export SHELL=$(which zsh)
