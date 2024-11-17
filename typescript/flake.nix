@@ -59,7 +59,7 @@
                 ahead=""
               fi
 
-              echo "%F{yellow}\$changes\$added\$deleted\$untracked %F{red}git(\$branch\$ahead)"
+              echo "%F{yellow}\$changes\$added\$deleted\$(echo \$untracked)%F{red}git(\$branch%F{yellow}\$ahead%F{red})"
             } 
 
             # Define a function to generate the prompt
@@ -67,7 +67,7 @@
                 local timestamp=\$(date +"%H:%M:%S") # Current time
                 local random_number=\$((RANDOM % 1000)) # Random number
                 # PROMPT="%F{cyan}[\$timestamp] %F{yellow}Random:\$random_number %F{blue}%~ %F{green}%# %F{reset}"
-                PROMPT="%F{green}󰛦 (TypeScript):%F{blue}%c \$(git_status)%F{white}$ "
+                PROMPT="%F{green}󰛦 (%n):%F{blue}%c:%F{cyan}\$timestamp \$(git_status)%F{white}$ "
                 export PS1=\$PROMPT
             }
 
