@@ -16,6 +16,7 @@
       {
         devShells.default = with pkgs; mkShell {
           buildInputs = [
+            typescript-language-server
             bun
             zsh
           ];
