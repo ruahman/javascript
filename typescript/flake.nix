@@ -27,6 +27,13 @@
             if [ ! -f ".zshrc" ]; then
               cat << EOF > .zshrc
               git_status() {
+    
+                # Check if inside a Git repository
+                if ! git rev-parse --is-inside-work-tree &> /dev/null; then
+                    return 1  # Exit the function early with a non-zero exit code
+                fi
+
+                # get current branch
                 branch=\$(git branch --show-current)
 
                 # check if any files were modified
@@ -43,18 +50,21 @@
                   added=""
                 fi
 
+                # check if any files were deleted
                 if [[ -n \$(git status --porcelain | grep '^ \?D') ]]; then
                   deleted="-"
                 else
                   deleted=""
                 fi
 
+                # check if there are any untracked files
                 if [[ -n \$(git status --porcelain | grep '^ \??') ]]; then
                   untracked="?"
                 else
                   untracked=""
                 fi
 
+                # check if your branch is ahead
                 if git status | grep -q "Your branch is ahead"; then
                   ahead="" 
                 else
@@ -63,13 +73,29 @@
 
                 echo " %F{yellow}\$changes\$added\$deleted\$(echo \$untracked)%F{red}git(\$branch%F{yellow}\$ahead%F{red})"
               } 
+  
+              export start_path=\$PWD
+              relative_path() {
+                if [[ -z \$1 ]]; then
+                    echo "Usage: relative_path <target_path>"
+                    return 1
+                fi
+
+                # Get the relative path using realpath
+                if relative=\$(realpath --relative-to="\$(echo \$start_path)" "\$1" 2>/dev/null); then
+                    if [[ "\$relative" == "." ]]; then
+                        echo "~"
+                    else
+                        echo "~/\$relative"
+                    fi
+                else
+                    return 1
+                fi
+              }
 
               # Define a function to generate the prompt
               function update_prompt {
-                  local timestamp=\$(date +"%H:%M:%S") # Current time
-                  local random_number=\$((RANDOM % 1000)) # Random number
-                  # PROMPT="%F{cyan}[\$timestamp] %F{yellow}Random:\$random_number %F{blue}%~ %F{green}%# %F{reset}"
-                  PROMPT="%F{green}󰛦 (%n):%F{blue}%c:%F{cyan}\$timestamp\$(git_status)%F{white}$ "
+                  PROMPT="%F{green}󱄅 (%n@%M):%F{blue}\$(relative_path \$PWD)\$(git_status)%F{white}$ "
                   export PS1=\$PROMPT
               }
 
