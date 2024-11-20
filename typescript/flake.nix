@@ -77,7 +77,6 @@
               export start_path=\$PWD
               relative_path() {
                 if [[ -z \$1 ]]; then
-                    echo "Usage: relative_path <target_path>"
                     return 1
                 fi
 
@@ -103,9 +102,11 @@
             EOF
             fi
 
-            export SHELL=$(which zsh)
-            export ZDOTDIR=$PWD
-            exec zsh
+            if [ -t 1 ]; then
+              export SHELL=$(which zsh)
+              export ZDOTDIR=$PWD
+              exec zsh
+            fi
           '';
         };
       }
