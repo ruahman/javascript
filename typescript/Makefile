@@ -7,7 +7,7 @@ zshrc\:clean:
 	rm .zshrc
 
 node\:clean:
-	rm -rf node_modules
+	rm -rf .node_modules
 
 clean: zshrc\:clean node\:clean 
 
