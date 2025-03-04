@@ -1,0 +1,5 @@
+flake:
+  nix develop
+
+clean:
+  rm .vscode-js-debug flake.lock
