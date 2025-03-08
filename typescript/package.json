@@ -2,11 +2,18 @@
   "name": "typescript",
   "module": "index.ts",
   "scripts": {
+    "lint": "eslint"
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
     "bun-types": "latest",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
     "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.26.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

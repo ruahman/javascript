@@ -4,7 +4,7 @@ import { Expect } from "bun:test";
 export function types(expect: Expect) {
   // string
   const firstName: string = "Dylan";
-  console.log("testing types");
+  console.log("testing types", firstName);
 
   //firstName = "John";
 
