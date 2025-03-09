@@ -1,6 +1,6 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function whileStatement(expect: Expect) {
+export default function whileStatement() {
   let wcounter = 0;
 
   while (wcounter < 5) {
