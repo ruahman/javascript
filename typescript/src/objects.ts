@@ -1,4 +1,6 @@
-export default function objects(expect: any) {
+import { expect } from "bun:test";
+
+export default function objects() {
   console.log("**** objects ****");
 
   // you can spcify the type in objec
