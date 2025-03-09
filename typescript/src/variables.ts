@@ -1,6 +1,6 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function variables(expect: Expect) {
+export default function variables() {
   console.log("***** variables *****");
 
   //explicit

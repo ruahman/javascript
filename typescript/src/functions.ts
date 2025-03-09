@@ -1,7 +1,14 @@
-/* eslint-disable prefer-const */
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function functions(expect: Expect) {
+// this just delares a function without implementation
+declare function search(query: string, tags: string[]);
+
+export default function functions() {
+  // simple function
+  function add_test(a: number, b: number): number {
+    return a + b;
+  }
+
   type MyFunction = (a: number, b: number) => number;
   const add: MyFunction = (a, b) => a + b;
   expect(add(3, 4)).toBe(7);
@@ -56,8 +63,7 @@ export default function functions(expect: Expect) {
     url: string;
   };
 
-  // this just delares a function without implementation
-  declare function search(query: string, tags: string[]): Result;
+  // declare function search(query: string, tags: string[]): Result;
 
   // deconstruct objects
   // here is how I can type anotate when I deconstruct an object
@@ -84,7 +90,7 @@ export default function functions(expect: Expect) {
     throw new Error(message);
   }
 
-  let loop = function forever(): never {
+  const loop = function forever(): never {
     while (true) {
       console.log("Hello");
     }

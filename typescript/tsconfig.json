@@ -8,9 +8,7 @@
     "moduleResolution": "bundler",
     "moduleDetection": "force",
     "allowImportingTsExtensions": true,
-    "noEmit": true,
     "composite": true,
-    "strict": true,
     "downlevelIteration": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
@@ -31,7 +29,7 @@
     "strict": true, // enable all strict type checking options 
     // "noImplicitAny": true, // raise error on expressions and declarations with an implied 'any' type
     // "strictNullChecks": true, // enable strict null checks 
-    "noUnusedLocals": true, // enable error reporting when not all local variables are used
+    // "noUnusedLocals": true, // enable error reporting when not all local variables are used
     "noUnusedParameters": true, // enable error reporting when not all parameters are used
     "noImplicitReturns": true, // enable error reporting when not all code paths in function return a value
   }
