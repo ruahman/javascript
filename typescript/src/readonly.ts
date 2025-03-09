@@ -1,4 +1,6 @@
-export default function readonly(expect: any) {
+import { expect } from "bun:test";
+
+export default function readonly() {
   type User = {
     readonly _id: string; // this property is readonly and never changes once set
     name: string;
