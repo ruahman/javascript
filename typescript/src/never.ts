@@ -1,8 +1,8 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
 // never is used to indicate that a function will never return
 
-export default function never(expect: Expect) {
+export default function never() {
   // this should never return
   function throwsError(msg: string): never {
     throw new Error(msg);

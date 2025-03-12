@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export function types(expect: Expect) {
+export function types() {
   // string
   const firstName: string = "Dylan";
   console.log("testing types", firstName);

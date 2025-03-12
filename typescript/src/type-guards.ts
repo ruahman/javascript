@@ -1,6 +1,6 @@
 // you need type guards before doing an operation that is type specific
 
-function test(x: string | number | boolean | number[]) {
+export function type_guards(x: string | number | boolean | number[]) {
   if (typeof x == "string") {
     console.log(x[0]);
   }

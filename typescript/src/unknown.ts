@@ -1,6 +1,6 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function unknown(expect: Expect) {
+export default function unknown() {
   // unknow is perferable to any.
   // it forces you to check the type before using it.
 

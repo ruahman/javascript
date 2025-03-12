@@ -1,6 +1,6 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function typesAliases(expect: Expect) {
+export default function typesAliases() {
   type Employee = {
     name: string;
     age: number;

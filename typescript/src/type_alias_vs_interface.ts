@@ -1,6 +1,6 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function type_alias_vs_interface(expect: Expect) {
+export default function type_alias_vs_interface() {
   // interface is more suitable for describing object
   // use interfaces if you plan on extending
   // also if you are using classes, you can use interfaces
