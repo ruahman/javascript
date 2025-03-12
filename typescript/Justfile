@@ -1,5 +1,10 @@
+set positional-arguments
+
 flake:
   nix develop
+
+test arg:
+  bun test $1
 
 clean:
   rm .vscode-js-debug flake.lock

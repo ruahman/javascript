@@ -16,16 +16,19 @@
       {
         devShells.default = with pkgs; mkShell {
           buildInputs = [
+            bashInteractive
+            bash-completion
             typescript-language-server
             vscode-js-debug
             bun
           ];
-         
-          shellHook = ''
-            if [ ! -L .vscode-js-debug ]; then
-              ln -sf ${vscode-js-debug} .vscode-js-debug
-            fi
-          '';
+        
+          shell = pkgs.bashInteractive;
+          # shellHook = ''
+          #   if [ ! -L .vscode-js-debug ]; then
+          #     ln -sf ${vscode-js-debug} .vscode-js-debug
+          #   fi
+          # '';
         };
       }
     );

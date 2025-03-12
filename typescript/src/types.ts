@@ -53,7 +53,6 @@ export function types(expect: Expect) {
     age: number;
   };
 
-  // eslint-disable-next-line
   person = {
     name: "John",
     age: 25,
@@ -78,7 +77,6 @@ export function types(expect: Expect) {
 
   let greeting: (name: string) => string;
 
-  // eslint-disable-next-line
   greeting = function (name: string) {
     return `Hi ${name}`;
   };

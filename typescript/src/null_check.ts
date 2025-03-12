@@ -1,6 +1,8 @@
-import { Expect } from "bun:test";
+import { expect } from "bun:test";
 
-export default function null_check(expect: Expect) {
+// how to check for null
+
+export default function null_check() {
   console.log("**** null check ****");
 
   type TecEvent = {
