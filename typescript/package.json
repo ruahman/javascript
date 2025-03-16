@@ -1,22 +1,22 @@
 {
   "name": "typescript",
-  "module": "index.ts",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint"
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "exec": "ts-node",
+    "watch": "tsc --watch",
+    "lint": "biome check src",
+    "format": "biome check --write src"
   },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@typescript-eslint/eslint-plugin": "^8.26.0",
-    "@typescript-eslint/parser": "^8.26.0",
-    "bun-types": "latest",
-    "eslint": "^9.22.0",
-    "globals": "^16.0.0",
-    "prettier": "^3.1.1",
-    "typescript": "^5.3.3",
-    "typescript-eslint": "^8.26.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "type": "module"
+    "@types/node": "^22.13.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
 }

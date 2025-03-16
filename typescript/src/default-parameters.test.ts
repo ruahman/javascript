@@ -1,6 +1,6 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import defaultParameters from "./default-parameters";
 
 test("default parameters", () => {
-  defaultParameters(expect);
+	defaultParameters(expect);
 });

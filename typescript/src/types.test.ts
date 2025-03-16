@@ -1,6 +1,6 @@
-import { types } from "./types";
 import { expect, test } from "bun:test";
+import { types } from "./types";
 
 test("types", () => {
-  types();
+	types();
 });

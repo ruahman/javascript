@@ -1,6 +1,6 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import unknown from "./unknown";
 
 test("unknown", () => {
-  unknown();
+	unknown();
 });

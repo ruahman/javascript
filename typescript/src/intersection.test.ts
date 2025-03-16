@@ -1,6 +1,6 @@
-import { test, expect } from "bun:test";
+import { expect, test } from "bun:test";
 import intersection from "./intersection";
 
-test("intersection", function () {
-  intersection(expect);
+test("intersection", () => {
+	intersection(expect);
 });

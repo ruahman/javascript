@@ -20,15 +20,15 @@
             bash-completion
             typescript-language-server
             vscode-js-debug
-            bun
+            biome
+            nodejs
           ];
         
           shell = pkgs.bashInteractive;
-          # shellHook = ''
-          #   if [ ! -L .vscode-js-debug ]; then
-          #     ln -sf ${vscode-js-debug} .vscode-js-debug
-          #   fi
-          # '';
+          shellHook = ''
+            rm .vscode-js-debug
+            ln -sf ${vscode-js-debug} .vscode-js-debug
+          '';
         };
       }
     );
