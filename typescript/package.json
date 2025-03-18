@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "debug": "bun --inspect-bkr"
+    "debug": "bun --inspect-brk",
+    "lint": "biome check"
   },
   "devDependencies": {
     "@types/bun": "latest"
