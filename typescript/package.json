@@ -1,22 +1,16 @@
 {
   "name": "typescript",
-  "version": "1.0.0",
-  "main": "index.js",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "exec": "ts-node",
-    "watch": "tsc --watch",
-    "lint": "biome check src",
-    "format": "biome check --write src"
+    "debug": "bun --inspect-bkr"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "@types/node": "^22.13.10",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }
+

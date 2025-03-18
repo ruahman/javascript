@@ -19,15 +19,13 @@
             bashInteractive
             bash-completion
             typescript-language-server
-            vscode-js-debug
             biome
-            nodejs
+            bun
           ];
         
           shell = pkgs.bashInteractive;
           shellHook = ''
-            rm .vscode-js-debug
-            ln -sf ${vscode-js-debug} .vscode-js-debug
+            echo "Hello Bun  "
           '';
         };
       }

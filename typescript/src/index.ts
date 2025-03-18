@@ -1,9 +1,11 @@
-const assert = require("node:assert");
+import { expect, test } from "bun:test";
 
-export function index() {
-	const message: string = "Hello, TypeScript!";
-
-	console.log(message);
-	console.log("From index()");
-	assert.strictEqual(4, 4);
+function index(): void {
+  const test: number = 22;
+  console.log(test);
+  console.log("hello world");
+  console.log("From index()");
+  expect(2 + 2).toBe(4);
 }
+
+index();
