@@ -18,13 +18,16 @@
           buildInputs = [
             bashInteractive
             bash-completion
+            nodejs
+            nodePackages.ts-node
             typescript-language-server
+            vscode-js-debug
             biome
-            bun
           ];
         
           shell = pkgs.bashInteractive;
           shellHook = ''
+            ln -sf ${vscode-js-debug} .vscode-js-debug
             echo "Hello Bun  "
           '';
         };
