@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "exec": "ts-node",
-    "debug": "node --inspect-brk"
+    "debug": "node --inspect-brk",
+    "lint": "biome check"
   },
   "author": "",
   "license": "ISC",
