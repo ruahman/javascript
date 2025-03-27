@@ -1,12 +1,11 @@
 {
   "name": "typescript",
   "version": "1.0.0",
-  "description": "To install dependencies:",
-  "main": "index.js",
+  "description": "typescript tutorial",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "exec": "ts-node"
+    "exec": "ts-node",
+    "debug": "node --inspect-brk"
   },
   "author": "",
   "license": "ISC",

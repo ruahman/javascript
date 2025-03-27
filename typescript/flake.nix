@@ -19,7 +19,6 @@
             bashInteractive
             bash-completion
             nodejs
-            nodePackages.ts-node
             typescript-language-server
             vscode-js-debug
             biome
@@ -28,7 +27,7 @@
           shell = pkgs.bashInteractive;
           shellHook = ''
             ln -sf ${vscode-js-debug} .vscode-js-debug
-            echo "Hello Bun  "
+            echo "Hello Typescript  "
           '';
         };
       }
