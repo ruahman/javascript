@@ -4,6 +4,7 @@
   "description": "typescript tutorial",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc --watch",
     "exec": "ts-node",
     "debug": "node --inspect-brk",
     "lint": "biome check"
