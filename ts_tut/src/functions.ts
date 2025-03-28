@@ -1,21 +1,24 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
-// this just delares a function without implementation
-declare function search(query: string, tags: string[]);
+// this provides type information for function
+type Result = {
+  title: string;
+  url: string;
+};
+
+declare function search(query: string, tags: string[]): Result;
+
+function add(a: number, b: number): number {
+  return a + b;
+}
 
 export default function functions() {
-  // simple function
-  function add_test(a: number, b: number): number {
-    return a + b;
-  }
+  const result = add(2, 3);
+  assert.strictEqual(result, 5);
 
   type MyFunction = (a: number, b: number) => number;
-  const add: MyFunction = (a, b) => a + b;
-  expect(add(3, 4)).toBe(7);
-
-  type MyFunctionInterface = (a: number, b: number) => number;
-  const add2: MyFunctionInterface = (a, b) => a + b;
-  expect(add2(3, 4)).toBe(7);
+  const addMyFunc: MyFunction = (a, b) => a + b;
+  assert.strictEqual(addMyFunc(3, 4), 7);
 
   // specify the return type
   function getTime(): number {
@@ -25,11 +28,6 @@ export default function functions() {
   // void return type
   function printHello(): void {
     console.log("void");
-  }
-
-  // specify the parameter types
-  function multiply(a: number, b: number): number {
-    return a * b;
   }
 
   // optional parameters
@@ -42,7 +40,8 @@ export default function functions() {
     return value ** exponent;
   }
 
-  function devide({
+  // parameter deconsruct
+  function divide({
     dividen,
     divisor,
   }: {
@@ -55,13 +54,6 @@ export default function functions() {
   function addRest(a: number, b: number, ...rest: number[]): number {
     return a + b + rest.reduce((p, c) => p + c, 0);
   }
-
-  type Result = {
-    title: string;
-    url: string;
-  };
-
-  // declare function search(query: string, tags: string[]): Result;
 
   // deconstruct objects
   // here is how I can type anotate when I deconstruct an object
@@ -88,9 +80,9 @@ export default function functions() {
     throw new Error(message);
   }
 
-  const loop = function forever(): never {
+  function forever(): never {
     while (true) {
       console.log("Hello");
     }
-  };
+  }
 }
