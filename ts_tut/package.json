@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "exec": "ts-node",
+    "exec:": "node --require ts-node/register",
+    "test": "node --require ts-node/register --test",
     "debug": "node --inspect-brk",
     "lint": "biome check"
   },

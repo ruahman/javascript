@@ -1,31 +1,42 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 export default function variables() {
   console.log("***** variables *****");
 
+  let temperature = 6; // infer type
+
+  // temperature = "warm"; // error
+  assert.strictEqual(temperature, 6);
+
+  const humidity = 79; // can not reasign
+
+  let endtime: Date;
+  endtime = new Date(); // you can assign this latter
+
   //explicit
   const fistname: string = "diego";
-  expect(fistname).toBe("diego");
+  assert.strictEqual(fistname, "diego");
 
   //implicit
   const fistname1 = "Diego";
-  expect(fistname1).toBe("Diego");
+  assert.strictEqual(fistname1, "Diego");
 
-  //any
+  // any
   const json: any = JSON.parse("55");
   console.log(typeof json);
-  expect(typeof json).toBe("number");
+  assert.strictEqual(typeof json, "number");
 
   let v: any = true;
-  expect(v).toBe(true);
+  assert.strictEqual(v, true);
+
   v = "string";
-  expect(v).toBe("string");
+  assert.strictEqual(v, "string");
 
   // basic types
   const id: number = 5;
   const company: string = "acme";
   const isPublished: boolean = true;
-  expect(id).toBe(5);
-  expect(company).toBe("acme");
-  expect(isPublished).toBe(true);
+  assert.strictEqual(id, 5);
+  assert.strictEqual(company, "acme");
+  assert.strictEqual(isPublished, true);
 }
