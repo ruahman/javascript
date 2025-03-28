@@ -131,3 +131,5 @@ dist
 
 typescript/.vscode-js-debug
 typescript/.direnv
+ts_tut/.direnv
+ts_tut/.vscode-js-debug
