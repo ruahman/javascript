@@ -1,7 +1,7 @@
-import { expect, test } from "bun:test";
+import { test } from "node:test";
 
 import arrays from "./arrays";
 
 test("arrays", () => {
-  arrays(expect);
+  arrays();
 });

@@ -1,4 +1,4 @@
-import { expect, test } from "bun:test";
+import { test } from "node:test";
 import objects from "./objects";
 
 test("Objects", () => {

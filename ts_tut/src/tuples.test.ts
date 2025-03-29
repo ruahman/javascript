@@ -1,7 +1,7 @@
-import { expect, test } from "bun:test";
+import { test } from "node:test";
 
 import tuples from "./tuples";
 
 test("Tuples", () => {
-  tuples(expect);
+  tuples();
 });

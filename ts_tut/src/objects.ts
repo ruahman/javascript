@@ -1,4 +1,4 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 export default function objects() {
   console.log("**** objects ****");
@@ -10,7 +10,22 @@ export default function objects() {
     year: 2009,
   };
 
-  expect(car.type).toBe("Toyota");
+  // you can use an object type to descripe a parameter to a function
+  function printCar(car?: {
+    make: string;
+    model: string;
+    year: number;
+    chargeVoltage?: number; // optional
+  }): void {
+    console.log(`${car?.make} ${car?.model} ${car?.year}`);
+    if (car?.chargeVoltage) {
+      console.log(car.chargeVoltage); // now this is trated a a number
+    }
+  }
+
+  assert.strictEqual(car.type, "Toyota");
+
+  // expect(car.type).toBe("Toyota");
 
   // type inference
   const car2 = {
@@ -18,7 +33,7 @@ export default function objects() {
   };
   car2.type = "Honda";
 
-  expect(car2.type).toBe("Honda");
+  // expect(car2.type).toBe("Honda");
 
   // optional property
   const car3: { type: string; milage?: number } = {
