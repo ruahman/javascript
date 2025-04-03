@@ -1,0 +1,14 @@
+{
+  "name": "creative_coding",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx live-server . -p 3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

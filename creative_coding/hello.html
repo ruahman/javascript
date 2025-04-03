@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <canvas width="600" height="600"></canvas>
+  <script>
+    let canvas = document.querySelector('canvas');
+    console.log(canvas);
+    let context = canvas.getContext('2d');
+    console.log(context);
+    context.fillStyle = 'blue';
+    context.fillRect(100, 100, 400, 400);
+
+    let x = 5;
+    function doSomeThing(param) {
+      console.log(param)
+    }
+    doSomeThing("do something");
+  </script>
+</body>
+
+</html>

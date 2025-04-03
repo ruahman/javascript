@@ -133,3 +133,5 @@ typescript/.vscode-js-debug
 typescript/.direnv
 ts_tut/.direnv
 ts_tut/.vscode-js-debug
+creative_coding/.direnv
+creative_coding/.vscode-js-debug
