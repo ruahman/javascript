@@ -1,8 +1,7 @@
-/* eslint-disable */
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 export function types() {
-  // string
+  // explicit type string
   const firstName: string = "Dylan";
   console.log("testing types", firstName);
 
@@ -10,29 +9,29 @@ export function types() {
 
   console.log("...cant change const");
 
-  //firstName2 = 3;
-  console.log("...cant change type");
-
+  // implicit type
   const firstName2 = "Dylan";
   console.log("...inferred type");
+
+  // typescript will throw error is data types do not match
+  // let firstNameLet = "Dylin";
+  // firstNameLet = 33;
+
+  // unable to inffer
+  const json = JSON.parse("55"); // we don't know what the type will be
+  console.log("typeof json: ", typeof json);
 
   // boolean
   const u = true;
   console.log("...boolean type");
 
+  // undefined and null
   const isNull = null;
   const isUndefined = undefined;
-  expect(isNull).toBeNull();
-  expect(isUndefined).toBeUndefined();
-  // null is not the same as undefined
-  expect(isNull).not.toBeUndefined();
-  expect(isUndefined).not.toBeNull();
-  // however, both null and undefined caluculate to false
-  expect(isNull).toBeFalsy();
-  expect(isUndefined).toBeFalsy();
   console.log("...null and undefined types");
 
   // any
+  // any: is a type that disable type checking
   let v: any;
   v = "string"; // no error as it can be "any" type
   v = 123;
