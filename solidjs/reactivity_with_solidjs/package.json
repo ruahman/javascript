@@ -1,0 +1,12 @@
+{
+  "name": "reactivity_with_solidjs",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "let UI respond to changes to data",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

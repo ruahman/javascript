@@ -135,3 +135,6 @@ ts_tut/.direnv
 ts_tut/.vscode-js-debug
 creative_coding/.direnv
 creative_coding/.vscode-js-debug
+solidjs/reactivity_with_solidjs/.direnv/bin
+solidjs/reactivity_with_solidjs/.direnv
+solidjs/reactivity_with_solidjs/.vscode-js-debug
