@@ -138,3 +138,6 @@ creative_coding/.vscode-js-debug
 solidjs/reactivity_with_solidjs/.direnv/bin
 solidjs/reactivity_with_solidjs/.direnv
 solidjs/reactivity_with_solidjs/.vscode-js-debug
+js_tut/.direnv
+js_tut/.envrc
+js_tut/.vscode-js-debug
