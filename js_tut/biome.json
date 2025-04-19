@@ -18,7 +18,24 @@
   },
   "linter": {
     "enabled": true,
-    "rules": {}
+    "rules": {
+      "style": {
+        "noVar": "off",
+        "useConst": "off",
+        "useSingleVarDeclarator": "off"
+      },
+      "correctness": {
+        "noConstantCondition": "off",
+        "noInnerDeclarations": "off",
+        "noInvalidUseBeforeDeclaration": "off"
+      },
+      "suspicious": {
+        "noRedeclare": "off"
+      },
+      "complexity": {
+        "noUselessLoneBlockStatements": "off"
+      }
+    }
   },
   "javascript": {
     "formatter": {

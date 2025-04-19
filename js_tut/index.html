@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript tutorial</title>
+</head>
+
+<body>
+  <h2>My First JavaScript</h2>
+
+  <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+    Click me to display Date and Time.</button>
+
+  <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>
+    Click Me!</button>
+
+  <button type="button" onclick="document.getElementById('demo').style.fontSize='95px'">
+    Click Me!</button>
+
+  <button type="button" onclick="document.getElementById('demo').style.display='none'">
+    Click Me!</button>
+
+  <button type="button" onclick="document.getElementById('demo').style.display='block'">
+    Click Me!</button>
+
+  <button type="button" onclick="myFunction()">Try it</button>
+
+
+  <p id="demo"></p>
+
+  <script>
+    document.getElementById("demo").innerHTML = "My First JavaScript";
+    function myFunction() {
+      document.getElementById("demo").innerHTML = "Paragraph changed.";
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,35 +1,90 @@
-// var is scoped to the function
-// var is are hoisted to the top, which means you can use a variable before it is delared
-// eslint-disable-next-line
-var variableNumber = 2;
+import assert from "node:assert";
 
-// eslint-disable-next-line
-var float = 3.12;
+export function variables() {
+  let x = 5;
+  let y = 6;
+  let z = x + y;
 
-// eslint-disable-next-line
-var int = 23;
-// eslint-disable-next-line
-var variableString = 'Hello World';
+  const x1 = 5;
+  const y1 = 6;
+  const z1 = x + y;
 
-// undefined is when nothing gets assigned to a variable.
-// a variable without a value
-// eslint-disable-next-line
-var myUndefined;
-// null is explicitly assigned to a variable.
-// eslint-disable-next-line
-var myNull = null;
+  const price1 = 5;
+  const price2 = 6;
+  let total = price1 + price2;
 
-// let is scoped to the block
-// eslint-disable-next-line
-if (true) {
-  let scoped = 'scoped';
-  console.log(scoped);
+  // after the declaration, the variable has no value (technically it is undefined)
+  let carName1;
+  assert.equal(carName1, undefined);
+
+  let person = "John Doe",
+    carName = "Volvo",
+    price = 200;
+
+  // you can redeclare the varable with var
+  // kinda shadow
+  var carName2 = "Volvo";
+  var carName2;
+
+  // you can not redeclare a varable with let or const
+  // let carName = "Volvo";
+  // let carName;
+
+  // you can have dolar signs
+  let $ = "Hello World";
+  let $$$ = 2;
+  let $myMoney = 5;
+
+  // Variables declared with varinside a { } block can be accessed from outside the block:
+  // var only gives function scope
+  {
+    var xxxx = 2;
+  }
+  assert.equal(xxxx, 2);
+
+  // however let has block scope
+  {
+    let yyyy = "you cant see me";
+  }
+  // this will cause an error
+  // assert.ok(yyyy);
+
+  // variable defined with var are hoisted to the top and can be initialized at any time
+  carNameVar = "volvo";
+  var carNameVar;
+
+  // var is scoped to the function
+  // var is are hoisted to the top, which means you can use a variable before it is delared
+  variableNumber = 666;
+  assert.equal(variableNumber, 666);
+  var variableNumber = 2;
+  assert.equal(variableNumber, 2);
+
+  var float = 3.12;
+
+  var int = 23;
+  var variableString = "Hello World";
+
+  // undefined is when nothing gets assigned to a variable.
+  // a variable without a value
+  var myUndefined;
+  assert.ok(!myUndefined, "this should be undefined");
+
+  // null is explicitly assigned to a variable.
+  var myNull = null;
+  assert.ok(!myNull, "this should be null");
+
+  // let is scoped to the block
+  {
+    let scoped = "scoped";
+    assert.equal(scoped, "scoped");
+  }
+  // this will cause a problem
+  // console.log(scoped);
+
+  // const cannot be reassigned
+  const myName = "Diego";
+
+  // cant do this
+  // myName = 'Diego';
 }
-
-// const cannot be reassigned
-const myName = 'Diego';
-
-// cant do this
-// myName = 'Diego';
-
-console.log(myName);

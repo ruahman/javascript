@@ -1,5 +1,7 @@
-import { test, expect } from 'bun:test';
+import { test } from "node:test";
 
-test('test', () => {
-  expect(1).toBe(1);
+import { variables } from "./variables.js";
+
+test("variables", () => {
+  variables();
 });
