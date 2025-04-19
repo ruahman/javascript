@@ -57,8 +57,8 @@ export function variables() {
   // var is are hoisted to the top, which means you can use a variable before it is delared
   variableNumber = 666;
   assert.equal(variableNumber, 666);
-  var variableNumber = 2;
-  assert.equal(variableNumber, 2);
+  var variableNumber;
+  assert.equal(variableNumber, 666);
 
   var float = 3.12;
 
@@ -87,4 +87,31 @@ export function variables() {
 
   // cant do this
   // myName = 'Diego';
+
+  // const is a little misleading, it does not define a constant value.
+  // it defines a constant reference to a value
+
+  // You can create a constant array:
+  const cars = ["Saab", "Volvo", "BMW"];
+
+  // You can change an element:
+  cars[0] = "Toyota";
+
+  // You can add an element:
+  cars.push("Audi");
+
+  // but you can't reassign the array
+  // cars = ["Toyota", "Volvo", "Audi"];
+
+  // You can create a const object:
+  const car = { type: "Fiat", model: "500", color: "white" };
+
+  // You can change a property:
+  car.color = "red";
+
+  // You can add a property:
+  car.owner = "Johnson";
+
+  // but you can't reassign an object
+  // car = { type: "Volvo", model: "EX60", color: "red" };
 }
