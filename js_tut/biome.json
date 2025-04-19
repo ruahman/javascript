@@ -9,7 +9,8 @@
     "ignoreUnknown": true,
     "ignore": [
       "node_modules",
-      ".vscode-js-debug"
+      ".vscode-js-debug",
+      ".direnv"
     ]
   },
   "formatter": {
