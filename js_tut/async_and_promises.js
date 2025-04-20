@@ -1,11 +1,11 @@
 setTimeout(() => {
-  console.log('I execute first.');
+  console.log("I execute first.");
 }, 1000);
 
 const fetchData = async () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('Done!');
+      resolve("Done!");
     }, 1500);
   });
 };

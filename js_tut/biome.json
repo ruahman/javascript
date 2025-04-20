@@ -7,11 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      "node_modules",
-      ".vscode-js-debug",
-      ".direnv"
-    ]
+    "ignore": ["node_modules", ".vscode-js-debug", ".direnv", "./biome.json"]
   },
   "formatter": {
     "enabled": true,
@@ -26,7 +22,10 @@
       "style": {
         "noVar": "off",
         "useConst": "off",
-        "useSingleVarDeclarator": "off"
+        "useSingleVarDeclarator": "off",
+        "useNumberNamespace": "off",
+        "useTemplate": "off",
+        "useExponentiationOperator": "off"
       },
       "correctness": {
         "noConstantCondition": "off",
@@ -34,10 +33,18 @@
         "noInvalidUseBeforeDeclaration": "off"
       },
       "suspicious": {
-        "noRedeclare": "off"
+        "noRedeclare": "off",
+        "noDoubleEquals": "off",
+        "noSelfCompare": "off"
       },
       "complexity": {
-        "noUselessLoneBlockStatements": "off"
+        "noUselessLoneBlockStatements": "off",
+        "useArrowFunction": "off",
+        "noForEach": "off",
+        "useLiteralKeys": "off"
+      },
+      "performance": {
+        "noDelete": "off"
       }
     }
   },

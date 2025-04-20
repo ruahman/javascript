@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node --test",
+    "debug": "node --inspect-brk",
     "lint": "biome check",
     "dev": "npx live-server . -p 3000"
   },

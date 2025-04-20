@@ -18,7 +18,7 @@ const message = () => {
 export default message;
 
 // import from name exports
-import { name, age } from "./person.js";
+import { age, name } from "./person.js";
 
 // import from default
 import message from "./message.js";

@@ -1,39 +1,43 @@
-let hobbies = ['cooking', 'sports', 'coding'];
+import assert from "node:assert";
 
-// spread an array
-let newHobbies = [...hobbies, 'reading'];
+export function spreadAndRest() {
+  let hobbies = ["cooking", "sports", "coding"];
 
-console.log(hobbies);
-console.log(newHobbies);
+  // spread an array
+  let newHobbies = [...hobbies, "reading"];
 
-const deconstructArray = (arg1, arg2, arg3) => {
-  console.log(arg1, arg2, arg3);
-};
+  console.log(hobbies);
+  console.log(newHobbies);
 
-// deconstruct an array as parameters to a function
-deconstructArray(...hobbies);
+  const deconstructArray = (arg1, arg2, arg3) => {
+    console.log(arg1, arg2, arg3);
+  };
 
-const toArray = (...args) => {
-  console.log(args);
-};
+  // deconstruct an array as parameters to a function
+  deconstructArray(...hobbies);
 
-toArray(1, 2, 3, 4);
+  const toArray = (...args) => {
+    console.log(args);
+  };
 
-let person = {
-  name: 'Diego',
-  age: 42,
-};
+  toArray(1, 2, 3, 4);
 
-// spread an object
-let newPerson = { ...person, sex: 'male' };
-console.log(newPerson);
+  let person = {
+    name: "Diego",
+    age: 42,
+  };
 
-// deconstruct an object
-const { name, age } = person;
-console.log(name, age);
+  // spread an object
+  let newPerson = { ...person, sex: "male" };
+  console.log(newPerson);
 
-const printName = ({ name, age }) => {
+  // deconstruct an object
+  const { name, age } = person;
   console.log(name, age);
-};
 
-printName(person);
+  const printName = ({ name, age }) => {
+    console.log(name, age);
+  };
+
+  printName(person);
+}

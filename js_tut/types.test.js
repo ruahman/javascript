@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import { types } from "./types.js";
 
-test("numbers", () => {
+test("types", () => {
   types();
 });

@@ -114,4 +114,14 @@ export function variables() {
 
   // but you can't reassign an object
   // car = { type: "Volvo", model: "EX60", color: "red" };
+
+  // it preferable to use var for function variable and only use let for block variables
+  var str = "all work and no play make jaka a dull dull boy";
+  {
+    let prefix, rest;
+    prefix = str.slice(0, 3);
+    rest = str.slice(3);
+    str = prefix.toUpperCase() + rest;
+  }
+  console.log(str);
 }
