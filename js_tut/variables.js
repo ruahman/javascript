@@ -1,5 +1,9 @@
 import assert from "node:assert";
 
+// var is function scoped
+// let and const is block scoped
+// const means referece can not change, it is a ready only reference
+
 export function variables() {
   let x = 5;
   let y = 6;
@@ -8,6 +12,11 @@ export function variables() {
   const x1 = 5;
   const y1 = 6;
   const z1 = x + y;
+
+  // bigint
+  // bigint type stores whole numbers whose values are greater than 253 – 1.
+  // A big integer literal has the n character at the end of an integer
+  let pageView = 9007199254740991n;
 
   const price1 = 5;
   const price2 = 6;

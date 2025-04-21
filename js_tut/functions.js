@@ -5,8 +5,24 @@ import assert from "node:assert";
 // Because of this JavaScript functions can be called before they are declared
 // Arrow functions are not hoisted, they must be defined before they can be used
 
+// in javascript you can use a function before declaring it.
+showMe();
+function showMe() {
+  console.log("show mae");
+}
+// this feature is called hoisting.
+// The javaScript engine move the function declaration to the top of the code
+// before executing it
+
 function defualtParam(x, y, z = 66) {
   console.log(x, y, z);
+}
+
+// Function hoisting allows you to call a function before declaring it
+
+// rest parameter
+function multiply(...nums) {
+  return nums.reduce((total, number) => total * number);
 }
 
 function myAwesomeFunction() {
@@ -126,6 +142,14 @@ export function functions() {
   var x = sum(4, 9, 16, 25, 29, 100, 66, 77);
   assert.equal(x, 326);
 
+  // object deconstruct parameters
+  function addUser({ firstName = "foo", lastName = "bar" }) {
+    return `${firstName} ${lastName}`;
+  }
+
+  assert.equal(addUser({ firstName: "Diego", lastName: "Vila" }), "Diego Vila");
+  assert.equal(addUser({}), "foo bar");
+
   // call
   function fullNameCityCountry(city, country) {
     return `${this.firstName} ${this.lastName} ${city} ${country}`;
@@ -169,4 +193,6 @@ export function functions() {
 
   let fullNameBind = fullNameCityCountry.bind(person3);
   assert.equal(fullNameBind("Chicago", "USA"), "Alice Vila Chicago USA");
+
+  assert.equal(multiply(2, 3, 4), 24);
 }

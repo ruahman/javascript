@@ -243,6 +243,15 @@ export function arrays() {
   // array destructing
   var fruits = ["Bananas", "Oranges", "Apples", "Mangos"];
 
+  var [f1, f2, f3, f4, f5 = "default fruit"] = fruits;
+  assert.equal(f1, "Bananas");
+  assert.equal(f5, "default fruit");
+
+  var fruits = ["Bananas", "Oranges", "Apples", "Mangos", "jojo"];
+  var [f1, f2, f3, f4, f5 = "default fruit"] = fruits;
+  assert.equal(f1, "Bananas");
+  assert.equal(f5, "jojo");
+
   // Destructuring
   let [fruit1, fruit2] = fruits;
   assert.equal(fruit1, "Bananas");

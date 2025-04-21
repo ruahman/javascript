@@ -35,7 +35,8 @@
       "suspicious": {
         "noRedeclare": "off",
         "noDoubleEquals": "off",
-        "noSelfCompare": "off"
+        "noSelfCompare": "off",
+        "noGlobalIsNan": "off"
       },
       "complexity": {
         "noUselessLoneBlockStatements": "off",

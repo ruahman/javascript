@@ -76,6 +76,10 @@ export function objects() {
   // you can delete a property
   delete personWithFunc.id;
 
+  // check if property exists
+  assert.ok(!("id" in personWithFunc));
+  assert.ok("firstName" in personWithFunc);
+
   // nested objects
   var myObj = {
     name: "John",
@@ -136,6 +140,28 @@ export function objects() {
   let { firstName: name } = person;
   assert.equal(name, "John");
 
+  var NestedPerson = {
+    first: "Diego",
+    last: "Vila",
+    address: {
+      street: "Carr 465 1.9 km",
+      city: "Aguadilla",
+      state: "PR",
+      zip: 60603,
+    },
+  };
+
+  let {
+    first,
+    last,
+    address: { street, city, state, zip },
+  } = NestedPerson;
+
+  assert.deepStrictEqual(
+    [first, last, street, city, state, zip],
+    ["Diego", "Vila", "Carr 465 1.9 km", "Aguadilla", "PR", 60603],
+  );
+
   // getters and setters
   var person = {
     firstName: "John",
@@ -156,6 +182,10 @@ export function objects() {
   assert.equal(person.lang, "en");
 
   // symbol
+  //
+  // The Symbol function create a new unique value every time you call it.
+  assert.notEqual(Symbol(), Symbol());
+
   var person = {
     firstName: "John",
     lastName: "Doe",

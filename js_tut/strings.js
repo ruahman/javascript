@@ -5,7 +5,7 @@ export function strings() {
   console.log("diego".length);
   console.log("diego".toUpperCase());
 
-  // template stirngs
+  // template stirngs, template literals
 
   let firstName = "John";
   let lastName = "Doe";
@@ -24,6 +24,11 @@ export function strings() {
 brown fox
 jumps over
 the lazy dog`;
+
+  var myNewList = `<ul>
+      <li>foo</li>
+      <li>bar</li>
+    </ul>`;
 
   // slice
   var text = "Apple, Banana, Kiwi";
@@ -77,8 +82,13 @@ the lazy dog`;
   assert.equal(parseInt("-10"), -10);
   assert.equal(parseInt("-10.33"), -10);
   assert.equal(parseInt("10"), 10);
+  assert.equal(parseInt("ten"), NaN);
+  assert.ok(isNaN("ten"));
+  assert.ok(!isNaN(10));
 
   // parseFloat
   assert.equal(parseFloat("-10.33"), -10.33);
   assert.equal(parseFloat("-10"), -10.0);
+  assert.equal(parseFloat("negative ten"), NaN);
+  assert.ok(isNaN("negative ten"));
 }
