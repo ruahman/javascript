@@ -217,4 +217,30 @@ export function objects() {
   // values
   var values = Object.values(person);
   assert.deepStrictEqual(values, ["John", "Doe", 50, "blue"]);
+
+  // inheritenc
+  function Animal(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  Animal.prototype.makeNoise = function () {
+    console.log("generic noise");
+  };
+
+  function Dog(name, age, breed) {
+    // this is how you can inherit
+    Animal.call(this, name, age);
+    this.breed = breed;
+  }
+  // inherit methods from prototype
+  Dog.prototype = Object.create(Animal.prototype);
+  // take out Animal constuctor and replace it with Dog constuctor
+  Dog.prototype.constructor = Dog;
+
+  var oynx = new Dog("oynx", 8, "thai ridge back");
+  assert.equal(oynx.name, "oynx");
+  assert.equal(oynx.age, 8);
+  assert.equal(oynx.breed, "thai ridge back");
+
+  oynx.makeNoise();
 }

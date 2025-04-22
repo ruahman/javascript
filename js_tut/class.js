@@ -1,5 +1,7 @@
 import assert from "node:assert";
 
+// classes is just syntax sugar over objects constructors and prototypes
+
 export function classes() {
   class Car {
     // private property
@@ -69,4 +71,41 @@ export function classes() {
 
   deepJS.ask("howdy");
   reactJS.ask("whatsup");
+
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    // this is put on the prototype object
+    greeting() {
+      console.log("greetings....");
+    }
+  }
+
+  class Employee extends Person {
+    constructor(name, age, position) {
+      super(name, age); // sort of like Person.call(...)
+      this.position = position;
+    }
+    testGreeting() {
+      console.log("barb is calling");
+    }
+    static sayHi() {
+      console.log("hi static");
+    }
+  }
+
+  var bob = new Person("bob", 41);
+  assert.equal(bob.name, "bob");
+  assert.equal(bob.age, 41);
+  bob.greeting();
+
+  var barb = new Employee("Barb", 27, "dev");
+  assert.equal(barb.name, "Barb");
+  assert.equal(barb.age, 27);
+  assert.equal(barb.position, "dev");
+  barb.testGreeting();
+
+  Employee.sayHi();
 }
