@@ -1,5 +1,7 @@
 import assert from "node:assert";
 
+// every element is unique
+
 export function sets() {
   var letters = new Set(["a", "b", "c"]);
   letters.add("a");

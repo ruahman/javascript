@@ -22,6 +22,27 @@ export async function promises() {
 
   // run when any one of promises complete
   Promise.any([myPromise1, myPromise2]).then((x) => {
-    console.log(x);
+    console.log("Promise.any: ", x);
   });
+
+  const testPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("promise OK!");
+    }, 1000);
+  });
+
+  testPromise
+    .then((resolveMessage) => {
+      console.log(`Looks like: ${resolveMessage}`);
+    })
+    // incase reject is called instead
+    .catch((rejectMessage) => {
+      console.log(`Error: ${rejectMessage}`);
+    });
+
+  const p1 = Promise.resolve("A");
+  const p2 = Promise.resolve("B");
+  const p3 = Promise.resolve("C");
+
+  Promise.all([p1, p2, p3]).then((data) => console.log("Promise.all: ", data));
 }
