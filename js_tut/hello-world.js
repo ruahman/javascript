@@ -11,5 +11,6 @@ export function whoAmI(name, nickName, age) {
   console.log(`
     Hi, I'm ${name} (aki ${nickName})
     and I'm ${age} years old.
+    dieog was here
   `);
 }
