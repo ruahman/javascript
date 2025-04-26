@@ -1,3 +1,9 @@
+// modules all variables are hidden in module
+// if you want to expose them then you need to export them.
+// to run this script as a module you need to specify the javascript engine if
+// you are going to import it as a module.
+// otherwise all the varailbe that you define here will be in global scope
+
 // named export
 export const name = "Jesse";
 export const age = 40;
@@ -18,6 +24,7 @@ const message = () => {
 export default message;
 
 // import from name exports
+// you need to specify .js because technically you are specifying a URL
 import { age, name } from "./person.js";
 
 // import from default

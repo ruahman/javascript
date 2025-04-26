@@ -30,6 +30,7 @@ function myAwesomeFunction() {
 }
 
 // arrow functions
+// the this object is different when arrow functions,
 let myFunction = (a, b) => a * b;
 
 // With a regular function "this" represents the object that calls the function:
