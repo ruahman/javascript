@@ -4,11 +4,25 @@ import assert from "node:assert";
 
 export function classes() {
   class Car {
+    static maxAge = 777;
+
+    static {
+      // run once to setup static variables
+      Car.maxAge = 666;
+    }
+
+    // public properties
+    myPublicField = "Hello World";
+
     // private property
-    #counter = 0;
+    #counter;
+
+    #private;
     constructor(name, year) {
       this.name = name;
       this.year = year;
+      this.#private = 34;
+      this.#counter = 0;
     }
     // private method
     #foo() {
@@ -22,6 +36,8 @@ export function classes() {
   }
 
   const myCar = new Car("Ford", 2014);
+  // console.log(myCar.#counter); // doesn't work
+  console.log(Car.maxAge); // use static
 
   console.log("My car is " + myCar.age() + " years old.");
 

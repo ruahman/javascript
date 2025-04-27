@@ -133,4 +133,9 @@ export function variables() {
     str = prefix.toUpperCase() + rest;
   }
   console.log(str);
+
+  // coalaescing
+  const value = null;
+  const result = value ?? "no value";
+  console.log(result);
 }

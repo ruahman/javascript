@@ -45,4 +45,38 @@ export async function promises() {
   const p3 = Promise.resolve("C");
 
   Promise.all([p1, p2, p3]).then((data) => console.log("Promise.all: ", data));
+
+  function giveMeHello(ok) {
+    return new Promise((resolve, reject) => {
+      if (ok) {
+        resolve("Hello");
+      } else {
+        reject("there was a problem");
+      }
+    });
+  }
+
+  var promise = giveMeHello(true);
+  promise
+    .then((message) => console.log(message))
+    .catch((error) => console.log(error));
+
+  var promise = giveMeHello(false);
+  promise
+    .then((message) => console.log(message))
+    .catch((error) => console.log(error));
+
+  try {
+    let res = await giveMeHello(true);
+    console.log("await ", res);
+  } catch (e) {
+    console.log("try ", e);
+  }
+
+  try {
+    let res = await giveMeHello(false);
+    console.log("await ", res);
+  } catch (e) {
+    console.log("try ", e);
+  }
 }

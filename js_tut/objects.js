@@ -243,4 +243,24 @@ export function objects() {
   assert.equal(oynx.breed, "thai ridge back");
 
   oynx.makeNoise();
+
+  // optional chaining
+  var namex;
+  console.log(namex?.toUpperCase() ?? "No name"); // this won't cause any problems
+
+  const users = [
+    { name: "John", address: { city: "New York" } },
+    { name: "Alex" },
+    { name: "Diego", address: { country: "USA" } },
+  ];
+
+  for (let user of users) {
+    const city = user.address?.city?.toUpperCase() ?? "I got nothing";
+    console.log(city);
+  }
+
+  // Weak References:
+  // var objectx = {};
+  // var ws = new WeakSet(objectx);
+  // object = null;
 }
