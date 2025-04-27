@@ -27,8 +27,7 @@
         
           shell = pkgs.bashInteractive;
           shellHook = ''
-            rm .vscode-js-debug
-            ln -sf ${vscode-js-debug} .vscode-js-debug
+            export VSCODE_JS_DEBUG=${vscode-js-debug}
             echo "Hello Javascript  "
           '';
         };
