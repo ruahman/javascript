@@ -1,5 +1,10 @@
+// before thing is rendered
+// process it with a function
+
 export function tag_templates() {
-  // post process the string
+  // post process the string,
+  // you get an array of strings and values
+  // you will aloway have one more i the strings array than values
   function tag(strings, ...values) {
     console.log("strings.length ", strings.length);
     console.log("values.length ", values.length);
@@ -22,6 +27,22 @@ export function tag_templates() {
     return res;
   }
 
-  let name = "diego";
+  var name = "diego";
   console.log(bold`hello world ${name}`);
+  console.log("---------------");
+
+  function upper(strings, ...values) {
+    var ret = "";
+    for (let i = 0; i < strings.length; i++) {
+      if (i > 0) {
+        ret += String(values[i - 1]).toUpperCase();
+      }
+      ret += strings[i];
+    }
+    return ret;
+  }
+
+  var name = "diego";
+  var twitter = "ruahman";
+  console.log(upper`${name}:${twitter}`);
 }
