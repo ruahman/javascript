@@ -8,7 +8,8 @@
     "test": "node --test",
     "debug": "node --inspect-brk",
     "lint": "biome check",
-    "dev": "npx live-server . -p 3000"
+    "dev": "npx live-server . -p 3000",
+    "clear": "rm -rf node_module package-lock.json"
   },
   "keywords": [],
   "author": "",
