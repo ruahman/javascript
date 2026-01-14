@@ -1,5 +1,6 @@
 {
   "name": "ts_tut",
+  "type": "module",
   "version": "1.0.0",
   "description": "typescript tutorial",
   "scripts": {
@@ -8,13 +9,13 @@
     "exec:": "node --require ts-node/register",
     "test": "node --require ts-node/register --test",
     "debug": "node --inspect-brk",
-    "lint": "biome check"
+    "lint": "biome check",
+    "tsx": "node --no-warnings=ExperimentalWarning --experimental-transform-types"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.13.13",
-    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   }
 }
