@@ -7,6 +7,7 @@ import assert from "node:assert";
 
 // in javascript you can use a function before declaring it.
 showMe();
+
 function showMe() {
   console.log("show mae");
 }
