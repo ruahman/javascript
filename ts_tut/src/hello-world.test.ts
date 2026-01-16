@@ -1,6 +1,7 @@
-import { test } from "bun:test";
-import { hello_world } from "./hello-world";
+import { test } from "node:test";
+import assert from "node:assert";
+import { hello } from "./hello-world.ts";
 
 test("hello world", () => {
-  hello_world();
+  assert.equal(hello(), "hello world");
 });

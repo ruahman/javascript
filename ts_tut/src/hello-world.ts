@@ -1,5 +1,7 @@
-export function hello_world() {
-  console.log("hello world");
+export function hello(): string {
+  return "hello world";
 }
 
-hello_world();
+if (import.meta.main) {
+  console.log("execute `npm run test src/hello-world.test.ts`");
+}
