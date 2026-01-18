@@ -1,4 +1,6 @@
-export default function aliases(expect: any) {
+import assert from "node:assert";
+
+export default function aliases() {
   // alias is a way to create new types
 
   // create an alias for types
@@ -23,36 +25,38 @@ export default function aliases(expect: any) {
     model: carModel,
   };
 
-  expect(car.year).toBe(2001);
-  expect(car.type).toBe("Toyota");
-  expect(car.model).toBe("Carola");
+  assert.equal(car.year, 2001);
+
+  assert.equal(car.type, "Toyota");
+
+  assert.equal(car.model, "Carola");
 
   // you can make aliases for unions
   type Combinable = number | string;
   let comb: Combinable = 0;
-  expect(comb).toBeTypeOf("number");
+  assert(typeof comb == "number");
 
   comb = "tes";
-  expect(comb).toBe("tes");
-  expect(comb).toBeTypeOf("string");
+  assert.equal(comb, "tes");
+  assert(typeof comb === "string");
 
   type alphanumeric = string | number;
   let input: alphanumeric;
   input = 100; // valid
-  expect(input).toBeTypeOf("number");
+  assert(typeof input === "number");
+
   input = "Hi"; // valid
-  expect(input).toBeTypeOf("string");
+  assert(typeof input === "string");
 
   // input = false; // Compiler error
   type Optional<T> = T | null | undefined;
 
   const optional: Optional<number> = null;
-  expect(optional).toBe(null);
+  assert(optional === null);
 
   const optional2: Optional<number> = undefined;
-  expect(optional2).toBe(undefined);
+  assert(optional2 === undefined);
 
   const optional3: Optional<number> = 42;
-  expect(optional3).toBe(42);
-  expect(optional3).toBeTypeOf("number");
+  assert(optional3 === 42);
 }

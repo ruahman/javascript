@@ -1,5 +1,3 @@
-import assert from "node:assert";
-
 export function types() {
   // explicit type string
   const firstName: string = "Dylan";
@@ -11,7 +9,7 @@ export function types() {
 
   // implicit type
   const firstName2 = "Dylan";
-  console.log("...inferred type");
+  console.log("...inferred type ", firstName2);
 
   // typescript will throw error is data types do not match
   // let firstNameLet = "Dylin";
@@ -78,4 +76,9 @@ export function types() {
 
   greeting = (name: string) => `Hi ${name}`;
   console.log("...function type");
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("if you want to see the tests");
+  console.log("run: npm run test src/types.test.ts");
 }

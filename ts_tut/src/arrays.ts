@@ -20,3 +20,8 @@ export default function arrays() {
   a.push(66);
   assert.deepEqual(a, [1, 2, 3, 4, 5, 66]);
 }
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("if you want to see the tests");
+  console.log("run: npm run test src/arrays.test.ts");
+}

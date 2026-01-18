@@ -13,6 +13,12 @@ function add(a: number, b: number): number {
 }
 
 export default function functions() {
+  const circ = (diameter: number) => {
+    return diameter * Math.PI;
+  };
+
+  console.log(circ(33));
+
   const result = add(2, 3);
   assert.strictEqual(result, 5);
 
