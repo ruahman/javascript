@@ -14,3 +14,8 @@ export function whoAmI(name, nickName, age) {
     dieog was here
   `);
 }
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  hello_world();
+  whoAmI();
+}

@@ -1,0 +1,8 @@
+run name:
+  node {{name}}.js
+
+test name='*':
+  npm run test {{name}}.test.js
+
+clean:
+  npm run clean
