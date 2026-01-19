@@ -1,0 +1,5 @@
+run name:
+  npm run exec src/{{name}}.ts
+
+test name='*':
+  npm run test src/{{name}}.test.ts
