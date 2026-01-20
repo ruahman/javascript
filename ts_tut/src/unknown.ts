@@ -1,4 +1,4 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 export default function unknown() {
   // unknow is perferable to any.
@@ -10,13 +10,15 @@ export default function unknown() {
   // unless you check the type first
   if (typeof value === "number") {
     const a = value + 10;
-    expect(a).toBe(20);
+    // expect(a).toBe(20);
+    assert.equal(a, 20);
   }
 
   value = "hello";
 
   if (typeof value === "string") {
     const b = value + "10";
-    expect(b).toBe("hello10");
+    // expect(b).toBe("hello10");
+    assert.equal(b, "hello10");
   }
 }

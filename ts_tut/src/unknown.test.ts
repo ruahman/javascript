@@ -1,5 +1,6 @@
-import { expect, test } from "bun:test";
-import unknown from "./unknown";
+import { test } from "node:test";
+
+import unknown from "./unknown.ts";
 
 test("unknown", () => {
   unknown();
