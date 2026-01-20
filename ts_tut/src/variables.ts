@@ -40,3 +40,7 @@ export default function variables() {
   assert.strictEqual(company, "acme");
   assert.strictEqual(isPublished, true);
 }
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("run `npm run test src/variables.test.ts");
+}
