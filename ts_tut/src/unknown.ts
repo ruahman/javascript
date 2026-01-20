@@ -22,3 +22,7 @@ export default function unknown() {
     assert.equal(b, "hello10");
   }
 }
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("npm run test src/unknown.test.ts");
+}
