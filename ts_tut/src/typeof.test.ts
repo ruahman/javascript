@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import typeOf from "./typeof";
+import { test } from "node:test";
+import typeOf from "./typeof.ts";
 
 test("typeof", () => {
-  typeOf(expect);
+  typeOf();
 });
