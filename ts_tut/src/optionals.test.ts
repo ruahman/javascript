@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import optional_parameters from "./optionals";
+import { test } from "node:test";
+import optional_parameters from "./optionals.ts";
 
 test("optional_parameters", () => {
-  optional_parameters(expect);
+  optional_parameters();
 });

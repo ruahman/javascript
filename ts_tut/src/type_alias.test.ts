@@ -1,5 +1,5 @@
-import { expect, test } from "bun:test";
-import typeAliases from "./type_alias";
+import { test } from "node:test";
+import typeAliases from "./type_alias.ts";
 
 test("Type Aliases", () => {
   typeAliases();

@@ -1,6 +1,6 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
-export default function unions() {
+export default function () {
   // when a variable can have more than one variable type
   function printStatusCode(code: string | number) {
     console.log(code);
@@ -11,12 +11,12 @@ export default function unions() {
   let result: number | string;
 
   result = 10; // OK
-  expect(result).toBe(10);
+  assert.equal(result, 10);
 
   result = "Hi"; // also OK
-  expect(result).toBe("Hi");
+  assert.equal(result, "Hi");
 
-  function addUnions(a: number | string, b: number | string) {
+  function addUnions(a: number | string, b: number | string): number | string {
     if (typeof a === "number" && typeof b === "number") {
       return a + b;
     }
@@ -26,18 +26,26 @@ export default function unions() {
     throw new Error("Parameters must be numbers or strings");
   }
 
-  expect(addUnions(10, 20)).toBe(30);
-  expect(addUnions("Hello", "World")).toBe("HelloWorld");
+  assert.equal(addUnions(10, 20), 30);
+  assert.equal(addUnions("Hello", "World"), "HelloWorld");
 
   // union with string literals
   type MouseEvent = "click" | "dblclick" | "mouseup" | "mousedown";
+
   let mouseEvent: MouseEvent = "click"; // valid
-  expect(mouseEvent).toBe("click");
+  assert.equal(mouseEvent, "click");
+
   mouseEvent = "dblclick"; // valid
-  expect(mouseEvent).toBe("dblclick");
+  assert.equal(mouseEvent, "dblclick");
+
   mouseEvent = "mouseup"; // valid
-  expect(mouseEvent).toBe("mouseup");
+  assert.equal(mouseEvent, "mouseup");
+
   mouseEvent = "mousedown"; // valid
-  expect(mouseEvent).toBe("mousedown");
-  // mouseEvent = "mouseover"; // compiler error
+  assert.equal(mouseEvent, "mousedown");
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("if you want to see the tests");
+  console.log("run: just test unions");
 }

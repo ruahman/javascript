@@ -1,15 +1,8 @@
 # typescript
 
-To install dependencies:
+To setup typescript
 
 ```bash
-bun install
+npm init -y
+npx tsc --init
 ```
-
-To run:
-
-```bash
-bun run src/index.ts
-```
-
-This project was created using `bun init` in bun v1.2.5. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

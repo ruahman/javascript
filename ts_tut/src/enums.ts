@@ -1,4 +1,6 @@
-export default function enums(expect: any) {
+import assert from "node:assert";
+
+export default function () {
   console.log("**** enums ****");
 
   // numerical enums
@@ -11,8 +13,10 @@ export default function enums(expect: any) {
 
   const currentDirection = CardinalDirections.North;
 
-  expect(currentDirection).toBe(CardinalDirections.North);
-  expect(currentDirection).toBe(0);
+  assert(currentDirection === CardinalDirections.North);
+  // expect(currentDirection).toBe(CardinalDirections.North);
+  assert(currentDirection === 0);
+  // expect(currentDirection).toBe(0);
 
   // string enums
   enum CardinalDirectionsStr {
@@ -22,8 +26,8 @@ export default function enums(expect: any) {
     South = "south",
   }
   const testCardianl = CardinalDirectionsStr.East;
-  expect(testCardianl).toBe(CardinalDirectionsStr.East);
-  expect(testCardianl.toString()).toEqual("east");
+  assert(testCardianl === CardinalDirectionsStr.East);
+  assert(testCardianl.toString() === "east");
 
   enum Month {
     Jan = 0,
@@ -40,8 +44,8 @@ export default function enums(expect: any) {
     Dec = 11,
   }
   const currentMonth = Month.Jan;
-  expect(currentMonth).toBe(Month.Jan);
-  expect(currentMonth).toBe(0);
+  assert.equal(currentMonth, Month.Jan);
+  assert.equal(currentMonth, 0);
 
   enum Month2 {
     Jan = 1,
@@ -58,8 +62,8 @@ export default function enums(expect: any) {
     Dec = 12,
   }
   const currentMonth2 = Month2.Jan;
-  expect(currentMonth2).toBe(Month2.Jan);
-  expect(currentMonth2).toBe(1);
+  assert.equal(currentMonth2, Month2.Jan);
+  assert.equal(currentMonth2, 1);
 
   enum Roles {
     PILOT = "pilot",
@@ -69,6 +73,11 @@ export default function enums(expect: any) {
   }
 
   const role = Roles.PILOT;
-  expect(role).toBe(Roles.PILOT);
-  expect(role.toString()).toBe("pilot");
+  assert.equal(role, Roles.PILOT);
+  assert.equal(role.toString(), "pilot");
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("if you want to see the tests");
+  console.log("run: just test enums");
 }

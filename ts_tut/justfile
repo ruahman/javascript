@@ -1,3 +1,6 @@
+check name:
+  npm run check src/{{name}}.ts
+
 build name:
   npm run build src/{{name}}.ts
 

@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import interfaces from "./interfaces";
+import { test } from "node:test";
+import interfaces from "./interfaces.ts";
 
 test("interfaces", () => {
-  interfaces(expect);
+  interfaces();
 });

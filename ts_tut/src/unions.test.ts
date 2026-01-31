@@ -1,5 +1,5 @@
-import { expect, test } from "bun:test";
-import unions from "./unions";
+import { test } from "node:test";
+import unions from "./unions.ts";
 
 test("unions", () => {
   unions();

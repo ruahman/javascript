@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function arrays() {
+export default function () {
   const names: string[] = [];
   names.push("Diego");
   assert.ok(names.includes("Diego"));
@@ -18,7 +18,13 @@ export default function arrays() {
   // simple array
   const a: number[] = [1, 2, 3, 4, 5];
   a.push(66);
+  // the all have to be of the same type
+  // a.push("66");
   assert.deepEqual(a, [1, 2, 3, 4, 5, 66]);
+
+  a.forEach((x) => {
+    console.log(x);
+  });
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

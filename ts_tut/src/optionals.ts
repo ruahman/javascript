@@ -1,4 +1,6 @@
-export default function optional_parameters(expect: any) {
+import assert from "node:assert";
+
+export default function () {
   // optional must always be at the end
   function multiplyo(a: number, b: number, c?: number): number {
     if (typeof c !== "undefined") {
@@ -8,7 +10,7 @@ export default function optional_parameters(expect: any) {
   }
 
   const reso = multiplyo(1, 2, 3);
-  expect(reso).toBe(6);
+  assert.equal(reso, 6);
 
   type Article = {
     title: string;
@@ -25,12 +27,13 @@ export default function optional_parameters(expect: any) {
     return 0;
   }
   let res = isArticleInStock({ title: "TypeScript", price: 100, vat: 0.2 });
-  expect(res).toBe(0);
+  assert.equal(res, 0);
+
   res = isArticleInStock({
     title: "TypeScript",
     price: 100,
     vat: 0.2,
     stock: 10,
   });
-  expect(res).toBe(10);
+  assert.equal(res, 10);
 }

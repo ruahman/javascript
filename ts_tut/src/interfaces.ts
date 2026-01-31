@@ -1,4 +1,6 @@
-export default function interfaces(expect: any) {
+import assert from "node:assert";
+
+export default function () {
   console.log("**** interfaces ****");
 
   // interfaces are simular to alias except it only applies to objects
@@ -12,8 +14,8 @@ export default function interfaces(expect: any) {
     width: 55,
   };
 
-  expect(rectange.height).toBe(23);
-  expect(rectange.width).toBe(55);
+  assert.equal(rectange.height, 23);
+  assert.equal(rectange.width, 55);
 
   // extended interfaces
   interface ColoredRectangle extends Rectangle {
@@ -26,14 +28,7 @@ export default function interfaces(expect: any) {
     color: "blue",
   };
 
-  expect(colorRec.color).toBe("blue");
-
-  // interfaces function
-  type MathFunc = (x: number, y: number) => number;
-
-  const add: MathFunc = (x: number, y: number): number => x + y;
-
-  expect(add(3, 4)).toBe(7);
+  assert.equal(colorRec.color, "blue");
 
   // problem interfaces solve
   interface Product {
@@ -50,16 +45,16 @@ export default function interfaces(expect: any) {
     };
   }
   const product = getProduct(1);
-  expect(product.id).toBe(1);
-  expect(product.name).toBe("Awesome Gadget 1");
-  expect(product.price).toBe(99.5);
+  assert.equal(product.id, 1);
+  assert.equal(product.name, "Awesome Gadget 1");
+  assert.equal(product.price, 99.5);
 
-  interface Person {
+  interface Person1 {
     firstName: string;
     lastName: string;
   }
 
-  function getFullName(person: Person) {
+  function getFullName(person: Person1) {
     return `${person.firstName} ${person.lastName}`;
   }
 
@@ -68,7 +63,7 @@ export default function interfaces(expect: any) {
     lastName: "Doe",
   };
 
-  console.log(getFullName(john));
+  assert.equal(getFullName(john), "John Doe");
 
   // this also works
   const jane = {
@@ -79,21 +74,31 @@ export default function interfaces(expect: any) {
   };
 
   const fullName = getFullName(jane);
-  console.log(fullName); // Jane Doe
+  assert.equal(fullName, "Jane Doe");
 
   // optional properties
-  interface Person {
+  interface Person2 {
     firstName: string;
     middleName?: string;
     lastName: string;
   }
 
-  function getFullName2(person: Person) {
+  function getFullName2(person: Person2) {
     if (person.middleName) {
       return `${person.firstName} ${person.middleName} ${person.lastName}`;
     }
     return `${person.firstName} ${person.lastName}`;
   }
+
+  assert.equal(
+    getFullName2({ firstName: "diego", lastName: "vila" }),
+    "diego vila",
+  );
+
+  assert.equal(
+    getFullName2({ firstName: "diego", middleName: "ramon", lastName: "vila" }),
+    "diego ramon vila",
+  );
 
   // readonly properties
   interface Person {
@@ -124,15 +129,18 @@ export default function interfaces(expect: any) {
     toJSON(): string;
   }
 
-  class Person implements Json {
+  class Person3 implements Json {
     constructor(
       private firstName: string,
       private lastName: string,
     ) {}
     toJSON(): string {
-      return "hello world";
+      return `hello world: ${this.firstName} ${this.lastName}`;
     }
   }
+
+  const person = new Person3("diego", "vila");
+  assert.equal(person.toJSON(), "hello world: diego vila");
 
   // extend interfaces
 
@@ -143,14 +151,6 @@ export default function interfaces(expect: any) {
 
   interface FutureMailable extends Mailable {
     later(email: string, after: number): boolean;
-  }
-
-  interface A {
-    a(): void;
-  }
-
-  interface B extends A {
-    b(): void;
   }
 
   class Mail implements FutureMailable {
@@ -167,4 +167,26 @@ export default function interfaces(expect: any) {
       return true;
     }
   }
+
+  const mail = new Mail();
+  assert.equal(mail.later("dego_vila@yahoo", 7), true);
+
+  interface A {
+    a(): void;
+  }
+
+  interface B extends A {
+    b(): void;
+  }
+
+  const test: B = {
+    a() {
+      console.log("func a");
+    },
+    b() {
+      console.log("func b");
+    },
+  };
+  test.a();
+  test.b();
 }

@@ -1,4 +1,6 @@
-export function types() {
+import assert from "node:assert";
+
+export default function () {
   // explicit type string
   const firstName: string = "Dylan";
   console.log("testing types", firstName);
@@ -21,15 +23,16 @@ export function types() {
 
   // boolean
   const u = true;
-  console.log("...boolean type");
+  console.log("...boolean type", u);
 
   // undefined and null
   const isNull = null;
   const isUndefined = undefined;
-  console.log("...null and undefined types");
+  console.log("...null and undefined types", isNull, isUndefined);
 
   // any
   // any: is a type that disable type checking
+  // you can asign anthing to it
   let v: any;
   v = "string"; // no error as it can be "any" type
   v = 123;
@@ -38,11 +41,11 @@ export function types() {
 
   // number
   const simpleNumber: number = 312;
-  console.log("...number type");
+  console.log("...number type: ", simpleNumber);
 
   // arrays
   const mynames: string[] = ["Jhn", "Jane", "Peter", "David", "Mary"];
-  console.log("...array type");
+  console.log("...array type ", mynames);
 
   // objects, object leterals
   let person: {
@@ -57,7 +60,7 @@ export function types() {
   console.log("...object type");
 
   const { age }: { age: number } = person;
-  console.log("...object destructuring");
+  console.log("...object destructuring", age);
 
   const employe: {
     firstName: string;
@@ -70,12 +73,21 @@ export function types() {
     age: 25,
     jobTitle: "Web Developer",
   };
-  console.log("...object initializing");
+  console.log("...object initializing", employe);
 
   let greeting: (name: string) => string;
 
   greeting = (name: string) => `Hi ${name}`;
   console.log("...function type");
+
+  // this can be a string or null
+  let testNull: string | null;
+
+  testNull = "foo";
+  assert.equal(typeof testNull, "string");
+
+  testNull = null;
+  assert.equal(typeof testNull, "object");
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

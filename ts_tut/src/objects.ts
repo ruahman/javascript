@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function objects() {
+export default function () {
   console.log("**** objects ****");
 
   // you can spcify the type in objec
@@ -23,9 +23,7 @@ export default function objects() {
     }
   }
 
-  assert.strictEqual(car.type, "Toyota");
-
-  // expect(car.type).toBe("Toyota");
+  assert.equal(car.type, "Toyota");
 
   // type inference
   const car2 = {
@@ -33,7 +31,7 @@ export default function objects() {
   };
   car2.type = "Honda";
 
-  // expect(car2.type).toBe("Honda");
+  assert.equal(car2.type, "Honda");
 
   // optional property
   const car3: { type: string; milage?: number } = {
@@ -46,4 +44,9 @@ export default function objects() {
   const nameAgeMap: { [index: string]: number } = {};
   nameAgeMap.randomName = 123;
   nameAgeMap.testName = 345;
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("if you want to see the tests");
+  console.log("run: just test objects");
 }
