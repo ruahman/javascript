@@ -60,3 +60,8 @@ export default function aliases() {
   const optional3: Optional<number> = 42;
   assert(optional3 === 42);
 }
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  console.log("if you want to see the tests");
+  console.log("run: just test aliases");
+}
