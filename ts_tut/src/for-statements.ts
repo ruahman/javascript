@@ -1,6 +1,6 @@
-import type { Expect } from "bun:test";
+import assert from "node:assert";
 
-export default function for_statements(expect: Expect) {
+export default function for_statements() {
   // for (;;) {
   //   console.log("infinate loop");
   // }
@@ -16,5 +16,5 @@ export default function for_statements(expect: Expect) {
     if (i > 9) break;
   }
 
-  expect(i).toBe(10);
+  assert.equal(i, 10);
 }

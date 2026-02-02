@@ -1,6 +1,6 @@
-import type { Expect } from "bun:test";
+import assert from "node:assert";
 
-export default function if_statements(expect: Expect) {
+export default function if_statements() {
   const max = 100;
   let counter = 99;
 
@@ -10,13 +10,13 @@ export default function if_statements(expect: Expect) {
     counter = 1;
   }
 
-  expect(counter).toBe(100);
+  assert.equal(counter, 100);
 
   // ternery operator
   let tcounter = 0;
   const res = ++tcounter > 10 ? "over" : "under";
 
-  expect(res).toBe("under");
+  assert.equal(res, "under");
 
   let discount: number;
   const itemCount = 11;
@@ -30,5 +30,5 @@ export default function if_statements(expect: Expect) {
   }
 
   console.log(`You got ${discount}% discount. `);
-  expect(discount).toBe(15);
+  assert.equal(discount, 15);
 }

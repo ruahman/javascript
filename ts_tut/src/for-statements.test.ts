@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import forStatements from "./for-statements";
+import { test } from "node:test";
+import forStatements from "./for-statements.ts";
 
 test("for statements", () => {
-  forStatements(expect);
+  forStatements();
 });

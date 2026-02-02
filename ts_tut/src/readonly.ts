@@ -1,4 +1,4 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 export default function readonly() {
   type User = {
@@ -15,7 +15,5 @@ export default function readonly() {
     isActive: true,
   };
 
-  expect(user._id).toBe("123");
-
-  //user._id = "456"; // Compiler error
+  assert.equal(user._id, "123");
 }

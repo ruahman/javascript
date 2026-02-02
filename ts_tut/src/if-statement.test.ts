@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import if_statement from "./if-statements";
+import { test } from "node:test";
+import if_statement from "./if-statements.ts";
 
 test("if statement", () => {
-  if_statement(expect);
+  if_statement();
 });
