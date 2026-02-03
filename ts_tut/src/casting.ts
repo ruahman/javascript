@@ -1,13 +1,13 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
-export default function casting() {
+export default function () {
   // as to string
   const q: unknown = "hello world";
-  expect(q as string).toBeTypeOf("string");
+  assert.equal(typeof q as string, "string");
   const humid3 = 79 as number;
-  expect(humid3).toBeTypeOf("number");
+  assert.equal(typeof humid3, "number");
 
   // <>
   const w: unknown = "hello world2";
-  expect(<string>w).toBeTypeOf("string");
+  assert.equal(typeof (<string>w), "string");
 }

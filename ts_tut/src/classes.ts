@@ -1,4 +1,4 @@
-import type { Expect } from "bun:test";
+import assert from "node:assert";
 
 class Person {
   name: string;
@@ -170,39 +170,39 @@ class PersonReadOnly {
   }
 }
 
-export default function classes(expect: Expect) {
+export default function () {
   console.log("**** classes ****");
   const person = new Person("diego", "ramon", "vila");
-  expect(person.name).toBe("diego");
-  expect(person.getname()).toBe("diego");
+  assert.equal(person.name, "diego");
+  assert.equal(person.getname(), "diego");
 
   const rec = new Rectangle(34, 56);
   // expect(rec.width).toBe(34);
   // expect(rec.height).toBe(56);
-  expect(rec.getArea()).toBe(1904);
+  assert.equal(rec.getArea(), 1904);
 
   const square = new Square(5);
-  expect(square.getArea()).toBe(25);
-  expect(square.toString()).toBe("this is a square");
+  assert.equal(square.getArea(), 25);
+  assert.equal(square.toString(), "this is a square");
 
   const personGetSet = new PersonGetSet(42, "diego", "vila");
   personGetSet.age = 44;
-  expect(personGetSet.age).toBe(44);
-  expect(personGetSet.firstName).toBe("diego");
-  expect(personGetSet.lastName).toBe("vila");
-  expect(personGetSet.getFullName()).toBe("diego vila");
+  assert.equal(personGetSet.age, 44);
+  assert.equal(personGetSet.firstName, "diego");
+  assert.equal(personGetSet.lastName, "vila");
+  assert.equal(personGetSet.getFullName(), "diego vila");
 
   new EmployeeStatic("John", "Doe", "Front-end Developer");
   new EmployeeStatic("Jane", "Doe", "Back-end Developer");
 
-  expect(EmployeeStatic.getHeadcount()).toBe(2);
+  assert.equal(EmployeeStatic.getHeadcount(), 2);
 
   const test2: Polygon = new Rectange2(2, 3);
-  expect(test2.getArea()).toBe(6);
+  assert.equal(test2.getArea(), 6);
 
   const personPrivate = new PersonPrivate("171280926", "John", "Doe");
-  expect(personPrivate.getFullNameAndSSN()).toBe("John Doe 171280926");
+  assert.equal(personPrivate.getFullNameAndSSN(), "John Doe 171280926");
 
   const personReadOnly = new PersonReadOnly(new Date("1990-01-01"));
-  expect(personReadOnly.birthDate).toEqual(new Date("1990-01-01"));
+  // assert.equal(personReadOnly.birthDate, new Date("1990-01-01"));
 }

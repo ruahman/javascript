@@ -1,6 +1,6 @@
-import { test } from "bun:test";
+import { test } from "node:test";
 
-import casting from "./casting";
+import casting from "./casting.ts";
 
 test("casting", () => {
   casting();

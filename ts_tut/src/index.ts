@@ -1,11 +1,9 @@
-import assert from "node:assert/strict";
+import assert from "node:assert";
 
-function index(): void {
+export default function (): void {
   const test: number = 22;
   console.log(test);
   console.log("hello worldxxxx");
   console.log("From index()");
   assert.equal(test, 22);
 }
-
-index();

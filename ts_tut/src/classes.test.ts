@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import classes from "./classes";
+import { test } from "node:test";
+import classes from "./classes.ts";
 
 test("classes", () => {
-  classes(expect);
+  classes();
 });
