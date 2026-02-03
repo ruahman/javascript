@@ -1,6 +1,6 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
-export default function type_alias_vs_interface() {
+export default function () {
   // interface is more suitable for describing object
   // use interfaces if you plan on extending
   // also if you are using classes, you can use interfaces
@@ -20,9 +20,9 @@ export default function type_alias_vs_interface() {
     programmer: true,
   };
 
-  expect(diego.programmer).toBe(true);
-  expect(diego.hungry).toBe(true);
-  expect(diego.name).toBe("Diego");
+  assert.equal(diego.programmer, true);
+  assert.equal(diego.hungry, true);
+  assert.equal(diego.name, "Diego");
 
   // you can use interface to describe function,
   // but it's ackward to use interface to describe function
@@ -32,7 +32,7 @@ export default function type_alias_vs_interface() {
     return `Hello ${name}`;
   };
 
-  expect(greating("Diego")).toBe("Hello Diego");
+  assert.equal(greating("Diego"), "Hello Diego");
 
   // type alias is more suitable for describing function
   type Greating2 = (name: string) => string;
@@ -41,7 +41,7 @@ export default function type_alias_vs_interface() {
     return `Hello ${name}`;
   };
 
-  expect(greating2("Diego")).toBe("Hello Diego");
+  assert.equal(greating2("Diego"), "Hello Diego");
 
   // you can also extent interfaces
   // all interfaces with the same name will be merged,
@@ -65,9 +65,9 @@ export default function type_alias_vs_interface() {
     age: 18,
   };
 
-  expect(personExtend.firstName).toBe("Diego");
-  expect(personExtend.lastName).toBe("Lee");
-  expect(personExtend.age).toBe(18);
+  assert.equal(personExtend.firstName, "Diego");
+  assert.equal(personExtend.lastName, "Lee");
+  assert.equal(personExtend.age, 18);
 
   // you can type basic values
   type Name = string;
@@ -104,10 +104,10 @@ export default function type_alias_vs_interface() {
     superPower: "fly",
   };
 
-  expect(superPerson.first).toBe("Super Andy");
-  expect(superPerson.last).toBe("Lee");
-  expect(superPerson.years).toBe(18);
-  expect(superPerson.superPower).toBe("fly");
+  assert.equal(superPerson.first, "Super Andy");
+  assert.equal(superPerson.last, "Lee");
+  assert.equal(superPerson.years, 18);
+  assert.equal(superPerson.superPower, "fly");
 
   // union
   type SpecialOrNormalPerson = SpecialPerson | Person2;
