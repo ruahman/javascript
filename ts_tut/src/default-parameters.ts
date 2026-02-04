@@ -1,10 +1,10 @@
-import type { Expect } from "bun:test";
+import assert from "node:assert";
 
 function applyDiscount(price: number, discount = 0.05) {
   return price * (1 - discount);
 }
 
-export default function default_parameters(expect: Expect) {
-  expect(applyDiscount(100)).toBe(95);
-  expect(applyDiscount(100, 0.1)).toBe(90);
+export default function () {
+  assert.equal(applyDiscount(100), 95);
+  assert.equal(applyDiscount(100, 0.1), 90);
 }
