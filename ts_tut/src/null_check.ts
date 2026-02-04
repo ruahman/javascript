@@ -1,4 +1,4 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 // how to check for null
 
@@ -17,18 +17,15 @@ export default function null_check() {
       console.log("No event");
     } else {
       console.log(tecEvent.name);
-      expect(tecEvent.name).toBe("TypeScript");
+      assert.equal(tecEvent.name, "TypeScript");
     }
 
     // tecEvent.name; // error
 
     // if you dont check with if you can use optional chaining
-    console.log(tecEvent?.name);
-    expect(tecEvent?.name).toBe("TypeScript");
-    console.log(tecEvent?.speaker);
-    expect(tecEvent?.speaker).toBe("John Doe");
-    console.log(tecEvent?.time);
-    expect(tecEvent?.time).toBe(10);
+    assert.equal(tecEvent?.name, "TypeScript");
+    assert.equal(tecEvent?.speaker, "John Doe");
+    assert.equal(tecEvent?.time, 10);
   }
 
   // printEvent(null);
