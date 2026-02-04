@@ -1,9 +1,10 @@
-import { expect, test } from "bun:test";
+import { test } from "node:test";
+import assert from "node:assert";
 
-import { getTotal } from "./rest-parameters.ts";
+import getTotal from "./rest-parameters.ts";
 
 test("test rest parameters", () => {
-  expect(getTotal(1, 2, 3)).toBe(6);
-  expect(getTotal(1, 2)).toBe(3);
-  expect(getTotal(1, 2, 3, 4, 5)).toBe(15);
+  assert.equal(getTotal(1, 2, 3), 6);
+  assert.equal(getTotal(1, 2), 3);
+  assert.equal(getTotal(1, 2, 3, 4, 5), 15);
 });
