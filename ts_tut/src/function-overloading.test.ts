@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import function_overloading from "./function-overloading";
+import { test } from "node:test";
+import function_overloading from "./function-overloading.ts";
 
 test("function overloading", () => {
-  function_overloading(expect);
+  function_overloading();
 });

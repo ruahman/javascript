@@ -1,6 +1,6 @@
-import type { Expect } from "bun:test";
+import assert from "node:assert";
 
-export default function function_overloading(expect: Expect) {
+export default function function_overloading() {
   // there is no such thing as function overloading in javascript,
   // but typescript allows us to do this
 
@@ -10,6 +10,6 @@ export default function function_overloading(expect: Expect) {
     return a + b;
   }
 
-  expect(addo(1, 2)).toBe(3);
-  expect(addo("1", "2")).toBe("12");
+  assert.equal(addo(1, 2), 3);
+  assert.equal(addo("1", "2"), "12");
 }
