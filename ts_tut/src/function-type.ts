@@ -1,4 +1,6 @@
-export default function function_type(expect: any) {
+import assert from "node:assert/strict";
+
+export default function function_type() {
   // setup function type
   let addtype: (x: number, y: number) => number;
 
@@ -6,7 +8,8 @@ export default function function_type(expect: any) {
     return x + y;
   };
 
-  expect(addtype(1, 2)).toBe(3);
+  // expect(addtype(1, 2)).toBe(3);
+  assert.equal(addtype(1, 2), 3);
 
   // setup function type with alias
   type Add = (x: number, y: number) => number;
@@ -15,5 +18,6 @@ export default function function_type(expect: any) {
     return x + y;
   };
 
-  expect(addtype2(1, 2)).toBe(3);
+  // expect(addtype2(1, 2)).toBe(3);
+  assert.equal(addtype2(1, 2), 3);
 }

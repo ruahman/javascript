@@ -1,3 +1,7 @@
+set dotenv-load
+
+set shell := ["powershell", "-Command"]
+
 check name:
   npm run check src/{{name}}.ts
 
