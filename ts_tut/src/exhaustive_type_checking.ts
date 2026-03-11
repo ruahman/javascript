@@ -1,4 +1,6 @@
-export default function exhaustive_type_checking(expect: any) {
+import assert from "node:assert";
+
+export default function exhaustive_type_checking() {
   type Circle = {
     kind: "circle";
     radius: number;
@@ -38,9 +40,9 @@ export default function exhaustive_type_checking(expect: any) {
   const square: Square = { kind: "square", size: 5 };
   const rectangle: Rectangle = { kind: "rectangle", width: 5, height: 5 };
   let res = area(circle);
-  expect(res).toBe(78.53981633974483);
+  assert.equal(res, 78.53981633974483);
   res = area(square);
-  expect(res).toBe(25);
+  assert.equal(res, 25);
   res = area(rectangle);
-  expect(res).toBe(25);
+  assert.equal(res, 25);
 }

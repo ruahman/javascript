@@ -1,5 +1,5 @@
-import { expect, test } from "bun:test";
-import never from "./never";
+import { test } from "node:test";
+import never from "./never.ts";
 
 test("never", () => {
   never();

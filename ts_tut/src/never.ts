@@ -1,4 +1,4 @@
-import { expect } from "bun:test";
+import assert from "node:assert";
 
 // never is used to indicate that a function will never return
 
@@ -47,7 +47,7 @@ export default function never() {
     },
   });
 
-  expect(res).toBe(2);
+  assert.equal(res, 2);
 
   type Currency = "USD" | "EUR" | "JPY" | "GBP";
 
@@ -68,5 +68,6 @@ export default function never() {
   }
 
   const symbol = currencyToSymbol("USD");
-  expect(symbol).toBe("$");
+  // expect(symbol).toBe("$");
+  assert.equal(symbol, "$");
 }
