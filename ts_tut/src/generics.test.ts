@@ -1,6 +1,6 @@
-import { expect, test } from "bun:test";
-import generics from "./generics";
+import { test } from "node:test";
+import generics from "./generics.ts";
 
 test("generics", () => {
-  generics(expect);
+  generics();
 });

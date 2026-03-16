@@ -1,4 +1,4 @@
-import type { Expect } from "bun:test";
+import assert from "node:assert";
 
 // generic function
 function createPairs<S, T>(v1: S, v2: T): [S, T] {
@@ -130,12 +130,12 @@ function getKey<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
 
-export default function generics(expect: Expect) {
-  expect(createPairs("hello", 42)).toEqual(["hello", 42]);
+export default function generics() {
+  assert.deepEqual(createPairs("hello", 42), ["hello", 42]);
 
   const value = new NameValue<number>("my name");
   value.setValue(10);
-  expect(value.toString()).toEqual("my name: 10");
+  assert.equal(value.toString(), "my name: 10");
 
   const numbersg = [1, 5, 7, 4, 2, 9];
   const colors = ["red", "green", "blue"];
@@ -144,19 +144,19 @@ export default function generics(expect: Expect) {
   console.log(getRandomElement<string>(colors));
 
   const personG = merge({ name: "Digeo" }, { age: 42 });
-  expect(personG).toEqual({ name: "Digeo", age: 42 });
+  assert.deepEqual(personG, { name: "Digeo", age: 42 });
 
   const stack = new Stack<number>(3);
   stack.push(1);
   stack.push(2);
   stack.push(3);
-  expect(stack.isFull()).toBe(true);
-  expect(stack.isEmpty()).toBe(false);
-  expect(stack.pop()).toBe(3);
-  expect(stack.pop()).toBe(2);
-  expect(stack.pop()).toBe(1);
-  expect(stack.isEmpty()).toBe(true);
-  expect(() => stack.pop()).toThrow("The stack is empty!");
+  assert.equal(stack.isFull(), true);
+  assert.equal(stack.isEmpty(), false);
+  assert.equal(stack.pop(), 3);
+  assert.equal(stack.pop(), 2);
+  assert.equal(stack.pop(), 1);
+  assert.equal(stack.isEmpty(), true);
+  assert.throws(() => stack.pop(), { message: "The stack is empty!" });
 
   const list = new List<number>();
 
@@ -164,17 +164,17 @@ export default function generics(expect: Expect) {
     list.add(i);
   }
 
-  expect(list.collection).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  expect(list.size).toBe(10);
+  assert.deepEqual(list.collection, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  assert.equal(list.size, 10);
 
   const obj = { name: "Diego", age: 42 };
-  expect(isAvailable(obj, "name")).toBe(true);
-  expect(isAvailable(obj, "age")).toBe(true);
-  expect(isAvailable(obj, "foo")).toBe(false);
+  assert.equal(isAvailable(obj, "name"), true);
+  assert.equal(isAvailable(obj, "age"), true);
+  assert.equal(isAvailable(obj, "foo"), false);
 
   // union arrays
   const arr1: Array<number | string | boolean> = [1, 2, 3, "hello", true];
-  expect(arr1).toEqual([1, 2, 3, "hello", true]);
+  assert.deepEqual(arr1, [1, 2, 3, "hello", true]);
 
   const fileFormats = {
     txt: "text/plain",
@@ -182,33 +182,33 @@ export default function generics(expect: Expect) {
     png: "image/png",
   };
 
-  expect(loadFile(fileFormats, "txt")).toBe("text/plain");
-  expect(loadFile(fileFormats, "jpg")).toBe("image/jpeg");
-  expect(loadFile(fileFormats, "png")).toBe("image/png");
-  expect(loadFile(fileFormats, "gif")).toBe("key not found!");
+  assert.equal(loadFile(fileFormats, "txt"), "text/plain");
+  assert.equal(loadFile(fileFormats, "jpg"), "image/jpeg");
+  assert.equal(loadFile(fileFormats, "png"), "image/png");
+  assert.equal(loadFile(fileFormats, "gif"), "key not found!");
 
-  expect(last([1, 2, 3])).toBe(3);
+  assert.equal(last([1, 2, 3]), 3);
 
-  expect(last<string>(["a", "b", "c"])).toBe("c");
+  assert.equal(last<string>(["a", "b", "c"]), "c");
 
   const tupple = makeTupple(5, "hello");
-  expect(tupple).toEqual([5, "hello"]);
+  assert.deepEqual(tupple, [5, "hello"]);
 
   const tupple2 = makeTupple<string, number>("hello", 5);
-  expect(tupple2).toEqual(["hello", 5]);
+  assert.deepEqual(tupple2, ["hello", 5]);
 
   const person = makePerson({ name: "Diego", age: 42 });
-  expect(person).toEqual({ name: "Diego", age: 42 });
+  assert.deepEqual(person, { name: "Diego", age: 42 });
 
   const person2 = makePerson({
     name: "Andy",
     age: 40,
   });
-  expect(person2).toEqual({ name: "Andy", age: 40 });
+  assert.deepEqual(person2, { name: "Andy", age: 40 });
 
   const res = getKey({ name: "Diego", age: 42 }, "name");
-  expect(res).toBe("Diego");
+  assert.equal(res, "Diego");
 
   const res2 = getKey({ name: "Diego", age: 42 }, "age");
-  expect(res2).toBe(42);
+  assert.equal(res2, 42);
 }

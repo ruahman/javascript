@@ -1,14 +1,14 @@
-import type { Expect } from "bun:test";
-import type { Article, ShipStorage } from "./custom_types.d";
+import assert from "node:assert";
+import type { Article, ShipStorage } from "./custom_types.d.ts";
 
-export default function custom_types(expect: Expect) {
+export default function custom_types() {
   // same as aliase
   const ship: ShipStorage = {
     max: 10,
     items: [{ weight: 1 }, { weight: 2 }],
   };
 
-  expect(ship).toEqual({
+  assert.deepEqual(ship, {
     max: 10,
     items: [{ weight: 1 }, { weight: 2 }],
   });
@@ -21,7 +21,7 @@ export default function custom_types(expect: Expect) {
     description: "Action movie",
   };
 
-  expect(movie).toEqual({
+  assert.deepEqual(movie, {
     title: "Die Hard",
     price: 10,
     var: 1,

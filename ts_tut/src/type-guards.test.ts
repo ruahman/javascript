@@ -1,6 +1,6 @@
-import { test } from "bun:test";
+import { test } from "node:test";
 
-import { type_guards } from "./type-guards";
+import { type_guards } from "./type-guards.ts";
 
 test("variables", () => {
   type_guards("test");
