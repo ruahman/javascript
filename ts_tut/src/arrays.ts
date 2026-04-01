@@ -5,7 +5,7 @@ export default function () {
   names.push("Diego");
   assert.ok(names.includes("Diego"));
 
-  // readonly array, cant push to this
+  // read only array, cant push to this
   const names2: readonly string[] = ["diego"];
   assert.ok(names2.includes("diego"));
   //   names2.push("andy");
@@ -22,6 +22,7 @@ export default function () {
   // a.push("66");
   assert.deepEqual(a, [1, 2, 3, 4, 5, 66]);
 
+  // traverse an array
   a.forEach((x) => {
     console.log(x);
   });
