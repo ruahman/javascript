@@ -1,29 +1,25 @@
 import assert from "node:assert";
 
+// types in typescript
 export default function () {
-  // explicit type string
+  // explicit type anotation
   const firstName: string = "Dylan";
-  console.log("testing types", firstName);
 
+  // consts can't be reassigned
   //firstName = "John";
-
-  console.log("...cant change const");
 
   // implicit type
   const firstName2 = "Dylan";
-  console.log("...inferred type ", firstName2);
 
-  // typescript will throw error is data types do not match
+  // typescript will throw error if types do not match
   // let firstNameLet = "Dylin";
   // firstNameLet = 33;
-
   // unable to inffer
   const json = JSON.parse("55"); // we don't know what the type will be
   console.log("typeof json: ", typeof json);
 
   // boolean
   const u = true;
-  console.log("...boolean type", u);
 
   // undefined and null
   const isNull = null;
