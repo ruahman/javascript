@@ -1,6 +1,8 @@
 import assert from "node:assert";
 
 // type aliases allow you to create a new type
+// they are generally used for unions, intersections, and mixins
+// use interfaces for objects
 
 export default function () {
   // type aliases allow you to create a new type

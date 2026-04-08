@@ -83,7 +83,7 @@ export default function generics() {
   const colors = ["red", "green", "blue"];
 
   // generics are also used in arrays
-  function getRandomElement<T>(items: T[]): T {
+  function getRandomElement<T>(items: T[]): T | undefined {
     const randomIndex = Math.floor(Math.random() * items.length);
     return items[randomIndex];
   }
@@ -221,7 +221,7 @@ export default function generics() {
   assert.equal(loadFile(fileFormats, "gif"), "key not found!");
 
   // generics in anoymous functions
-  const last = <T>(arr: Array<T>): T => {
+  const last = <T>(arr: Array<T>): T | undefined => {
     return arr[arr.length - 1];
   };
 
