@@ -57,6 +57,7 @@ function Confirm(message: string) {
   ) {
     const originalMethod = descriptor.value;
 
+    // Wrap the original method with the confirmation message
     descriptor.value = function (...args: any[]) {
       console.log(message);
       return originalMethod.apply(this, args);

@@ -14,7 +14,8 @@
     "test:tsx:debug": "node --import tsx --inspect-brk --test",
     "debug": "node --inspect-brk",
     "lint": "eslint",
-    "clean": "rimraf dist && rimraf node_modules && rimraf --glob src/*.d.ts"
+    "clean": "rimraf dist && rimraf --glob src/*.d.ts",
+    "clear": "npm run clean && rimraf node_modules"
   },
   "author": "",
   "license": "ISC",
