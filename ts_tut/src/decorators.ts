@@ -49,7 +49,20 @@ function Emoji() {
 }
 
 // method decorator
-// function Confirm() {}
+function Confirm(message: string) {
+  return function (
+    target: object,
+    key: string | symbol,
+    descriptor: PropertyDescriptor,
+  ) {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (...args: any[]) {
+      console.log(message);
+      return originalMethod.apply(this, args);
+    };
+  };
+}
 
 @Logger
 class User {
@@ -65,10 +78,13 @@ class User {
 class IceCream {
   @Emoji()
   flavor: string = "vanilla";
-  // toppings: string[] = [];
-  // addToppings(topping = "sprinkles") {
-  //   this.toppings.push(topping);
-  // }
+
+  toppings: string[] = [];
+
+  @Confirm("Are you sure you want to add this topping?")
+  addToppings(topping = "sprinkles") {
+    this.toppings.push(topping);
+  }
 }
 
 export default function () {
@@ -78,4 +94,7 @@ export default function () {
   console.log(iceCream.flavor);
   iceCream.flavor = "chocolate";
   console.log(iceCream.flavor);
+
+  iceCream.addToppings("sprinkles");
+  console.log(iceCream.toppings);
 }
