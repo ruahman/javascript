@@ -3,15 +3,17 @@ import assert from "node:assert";
 export default function variables() {
   console.log("***** variables *****");
 
-  let temperature = 6; // infer type
+  // infer type
+  let temperature = 6;
 
   // temperature = "warm"; // error
-  assert.strictEqual(temperature, 6);
+  assert.equal(temperature, 6);
 
   const humidity = 79; // can not reasign
 
+  // you can assign this latter
   let endtime: Date;
-  endtime = new Date(); // you can assign this latter
+  endtime = new Date();
 
   //explicit
   const fistname: string = "diego";
@@ -21,7 +23,7 @@ export default function variables() {
   const fistname1 = "Diego";
   assert.strictEqual(fistname1, "Diego");
 
-  // any
+  // any can be anything
   const json: any = JSON.parse("55");
   console.log(typeof json);
   assert.strictEqual(typeof json, "number");
@@ -29,6 +31,7 @@ export default function variables() {
   let v: any = true;
   assert.strictEqual(v, true);
 
+  // any can also be changed later
   v = "string";
   assert.strictEqual(v, "string");
 
@@ -42,5 +45,5 @@ export default function variables() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("run `npm run test src/variables.test.ts");
+  console.log("you need to run npm run test");
 }

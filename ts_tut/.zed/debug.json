@@ -1,0 +1,14 @@
+[
+  {
+    "adapter": "TypeScript",
+    "label": "Debug Node Tests (tsx)",
+    "request": "launch",
+    "type": "pwa-node",
+    "args": ["run", "debug"],
+    "cwd": "C:\\Users\\dego_\\source\\repos\\javascript\\ts_tut",
+    "runtimeExecutable": "$ZED_CUSTOM_TYPESCRIPT_RUNNER",
+    "env": {},
+    "runtimeArgs": ["--inspect-brk"],
+    "console": "integratedTerminal",
+  },
+]

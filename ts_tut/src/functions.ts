@@ -17,27 +17,29 @@ export default function functions() {
     return diameter * Math.PI;
   };
 
-  console.log(circ(33));
+  assert.equal(circ(33), 33 * Math.PI);
 
   const result = add(2, 3);
-  assert.strictEqual(result, 5);
+  assert.equal(result, 5);
 
+  // make a function type
   type MyFunction = (a: number, b: number) => number;
   const addMyFunc: MyFunction = (a, b) => a + b;
-  assert.strictEqual(addMyFunc(3, 4), 7);
+  assert.equal(addMyFunc(3, 4), 7);
 
   // specify the return type
   function getTime(): number {
     return new Date().getTime();
   }
 
-  // void return type
+  // void returns nothing
   function printHello(): void {
     console.log("void");
   }
 
   // optional parameters
   function addx(a: number, b: number, c?: number): number {
+    // if c is not provided, default to 0
     return a + b + (c || 0);
   }
 
@@ -57,6 +59,7 @@ export default function functions() {
     return dividen / divisor;
   }
 
+  // rest parameters
   function addRest(a: number, b: number, ...rest: number[]): number {
     return a + b + rest.reduce((p, c) => p + c, 0);
   }
@@ -80,8 +83,7 @@ export default function functions() {
     console.log(message);
   }
 
-  // never
-  // function never returns because it throws an exception or infinite loop
+  // never function never returns because it always throws an exception or infinite loop
   function raiseError(message: string): never {
     throw new Error(message);
   }

@@ -3,6 +3,27 @@ import assert from "node:assert";
 export default function () {
   console.log("**** enums ****");
 
+  enum Direction {
+    Up, // 0
+    Down, // 1
+    Left, // 2
+    Right, // 3
+  }
+
+  const myDirection = Direction.Up;
+  assert.equal(myDirection, Direction.Up);
+  assert.equal(myDirection, 0);
+
+  // String enum (preferred — more readable in logs)
+  enum Status {
+    Pending = "PENDING",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+  }
+
+  let s: Status = Status.Active;
+  assert.equal(s, Status.Active);
+
   // numerical enums
   enum CardinalDirections {
     North = 0,

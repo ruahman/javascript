@@ -1,9 +1,9 @@
 import assert from "node:assert";
 
-export default function unknown() {
-  // unknow is perferable to any.
-  // it forces you to check the type before using it.
+// safer alternative to any
+// it forces you to check the type before using it.
 
+export default function unknown() {
   let value: unknown = 10;
 
   // unlike any, you can't access any properties on an unknown type

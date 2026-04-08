@@ -1,5 +1,7 @@
 import assert from "node:assert";
 
+// Intersctions combines types
+
 export default function () {
   // intersection types
 
@@ -113,6 +115,15 @@ export default function () {
     talks: ["batman", "superman"],
   };
   assert(webinar.title === "goto");
+
+  // Intersection — combines types
+  type Admin = { role: string };
+  type User = { name: string };
+  type AdminUser = Admin & User;
+
+  const admin: AdminUser = { role: "admin", name: "Alice" };
+  assert.equal(admin.role, "admin");
+  assert.equal(admin.name, "Alice");
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

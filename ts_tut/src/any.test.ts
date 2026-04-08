@@ -1,5 +1,5 @@
 import { test } from "node:test";
-import { anytype } from "./anytype.ts";
+import { anytype } from "./any.ts";
 
 test("anytype", () => {
   anytype();

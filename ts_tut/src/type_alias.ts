@@ -1,12 +1,16 @@
 import assert from "node:assert";
 
+// type aliases allow you to create a new type
+
 export default function () {
+  // type aliases allow you to create a new type
   type Employee = {
     name: string;
     age: number;
     job: string;
   };
 
+  // make an instance of the new type
   const employee: Employee = {
     name: "Lee",
     age: 30,
@@ -20,9 +24,9 @@ export default function () {
   // expect(employee.age).toBe(30);
   // expect(employee.job).toBe("Developer");
 
+  // type aliases are good for unions
   type Locations = "Seattle" | "New York" | "Los Angeles";
   const loc: Locations = "Seattle";
-  // expect(loc).toBe("Seattle");
 
   // extend / mix types together
   type StaffMember = {
@@ -32,7 +36,7 @@ export default function () {
     type?: string;
   };
 
-  // sort of like a mixin
+  // you cna mix types, sort of like a mixin
   type StaffMemberWithId = {
     id: number;
   } & StaffMember;
@@ -44,10 +48,10 @@ export default function () {
     role: "Developer",
   };
 
-  // expect(staffMember.id).toBe(1);
-  // expect(staffMember.name).toBe("Lee");
-  // expect(staffMember.salary).toBe(100000);
-  // expect(staffMember.role).toBe("Developer");
+  assert.equal(staffMember.id, 1);
+  assert.equal(staffMember.name, "Lee");
+  assert.equal(staffMember.salary, 100000);
+  assert.equal(staffMember.role, "Developer");
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

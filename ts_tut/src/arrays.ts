@@ -1,6 +1,9 @@
 import assert from "node:assert";
 
+// an array is a collection of values of the same type
+
 export default function () {
+  // you can push later to an array
   const names: string[] = [];
   names.push("Diego");
   assert.ok(names.includes("Diego"));
@@ -18,7 +21,8 @@ export default function () {
   // simple array
   const a: number[] = [1, 2, 3, 4, 5];
   a.push(66);
-  // the all have to be of the same type
+
+  // the all items in array must be of the same type
   // a.push("66");
   assert.deepEqual(a, [1, 2, 3, 4, 5, 66]);
 

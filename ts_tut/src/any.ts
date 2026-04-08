@@ -1,5 +1,8 @@
+// any type opts out of type checking
+
 export function anytype() {
-  console.log("anytype test");
+  console.log("**** any ****");
+
   // it can be any type in the future
   let age: any = 25;
   console.log(age);

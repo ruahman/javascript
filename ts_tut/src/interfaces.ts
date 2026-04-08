@@ -1,7 +1,34 @@
 import assert from "node:assert";
 
+// interfaces are similar to type aliases, except you can inherit from them
+
 export default function () {
   console.log("**** interfaces ****");
+
+  interface Product1 {
+    id: number;
+    name: string;
+    price: number;
+    description?: string; // optional
+    readonly sku: string; // read-only
+  }
+
+  const laptop: Product1 = {
+    id: 1,
+    name: "MacBook",
+    price: 1999,
+    sku: "MBP-001",
+  };
+
+  assert.equal(laptop.name, "MacBook");
+  assert.equal(laptop.sku, "MBP-001");
+  assert.equal(laptop.price, 1999);
+  assert.equal(laptop.id, 1);
+
+  // Extending interfaces
+  interface DigitalProduct extends Product {
+    downloadUrl: string;
+  }
 
   // interfaces are simular to alias except it only applies to objects
   interface Rectangle {
@@ -9,6 +36,7 @@ export default function () {
     width: number;
   }
 
+  // you created an object through an interface
   const rectange: Rectangle = {
     height: 23,
     width: 55,
@@ -17,7 +45,7 @@ export default function () {
   assert.equal(rectange.height, 23);
   assert.equal(rectange.width, 55);
 
-  // extended interfaces
+  // you can extended interfaces
   interface ColoredRectangle extends Rectangle {
     color: string;
   }
@@ -66,6 +94,7 @@ export default function () {
   assert.equal(getFullName(john), "John Doe");
 
   // this also works
+  // as long as object matches the interface
   const jane = {
     firstName: "Jane",
     middleName: "K.",
