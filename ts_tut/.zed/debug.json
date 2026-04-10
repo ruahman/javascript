@@ -1,14 +1,15 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
 [
   {
-    "adapter": "TypeScript",
-    "label": "Debug Node Tests (tsx)",
+    "adapter": "JavaScript",
+    "label": "Debug TypeScript (tsx)",
+    "type": "node",
     "request": "launch",
-    "type": "pwa-node",
-    "args": ["run", "debug"],
-    "cwd": "C:\\Users\\dego_\\source\\repos\\javascript\\ts_tut",
-    "runtimeExecutable": "$ZED_CUSTOM_TYPESCRIPT_RUNNER",
-    "env": {},
-    "runtimeArgs": ["--inspect-brk"],
-    "console": "integratedTerminal",
+    "runtimeArgs": ["--import", "tsx"],
+    "program": "$ZED_FILE",
+    "skipFiles": ["<node_internals>/**"],
   },
 ]
