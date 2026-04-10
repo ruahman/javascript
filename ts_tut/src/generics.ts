@@ -211,7 +211,10 @@ export default function generics() {
     [key: string]: string;
   };
 
-  function loadFile<F extends URLList>(fileFomate: F, key: string): string {
+  function loadFile<F extends URLList>(
+    fileFomate: F,
+    key: string,
+  ): string | undefined {
     return key in fileFomate ? fileFomate[key] : "key not found!";
   }
 

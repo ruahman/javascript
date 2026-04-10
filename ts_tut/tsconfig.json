@@ -14,7 +14,7 @@
     "types": ["node"],
     // and npm install -D @types/node
     "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "noEmit": true, // need this in order to import ts files directly
 
     // Other Outputs
     "sourceMap": true,
@@ -48,4 +48,5 @@
     // Object.defineProperty on instances, which would shadow prototype getter/setters
     "useDefineForClassFields": false,
   },
+  "exclude": ["eslint.config.ts"],
 }
