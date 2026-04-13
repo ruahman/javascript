@@ -2,6 +2,7 @@ import assert from "node:assert";
 
 // safer alternative to any
 // it forces you to check the type before using it.
+// you don't know what's inside
 
 export default function unknown() {
   let value: unknown = 10;

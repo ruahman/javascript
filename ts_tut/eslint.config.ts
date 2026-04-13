@@ -9,6 +9,7 @@ export default defineConfig([
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-unsafe-function-type": "off",
       "prefer-const": "off",
+      "@typescript-eslint/no-namespace": "off",
     },
   },
 ]);

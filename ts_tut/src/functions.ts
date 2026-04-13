@@ -93,4 +93,23 @@ export default function functions() {
       console.log("Hello");
     }
   }
+
+  // overloading
+  function getItemLength(name: string): number;
+  function getItemLength(name: string[]): number;
+  function getItemLength(name: unknown): number {
+    if (Array.isArray(name)) {
+      return name.length;
+
+    }
+    else if(typeof name == "string") {
+      return name.length;
+    }
+
+    return 0;
+  }
+
+
+
+
 }
