@@ -29,8 +29,10 @@ const links = [
   { to: '/use-optimistic', label: 'useOptimistic' },
   { to: '/ref-as-prop', label: 'ref as prop' },
   // Other APIs
+  { to: '/signals', label: 'Preact Signals' },
   { to: '/portals', label: 'Portals' },
   { to: '/react-memo', label: 'React.memo' },
+  { to: '/react-compiler', label: 'React Compiler' },
   { to: '/error-boundary', label: 'Error Boundary' },
 ] as const
 

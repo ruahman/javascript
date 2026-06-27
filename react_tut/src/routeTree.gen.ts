@@ -26,8 +26,10 @@ import { Route as UseContextRouteImport } from './routes/use-context'
 import { Route as UseCallbackRouteImport } from './routes/use-callback'
 import { Route as UseActionStateRouteImport } from './routes/use-action-state'
 import { Route as SuspenseRouteImport } from './routes/suspense'
+import { Route as SignalsRouteImport } from './routes/signals'
 import { Route as RefAsPropRouteImport } from './routes/ref-as-prop'
 import { Route as ReactMemoRouteImport } from './routes/react-memo'
+import { Route as ReactCompilerRouteImport } from './routes/react-compiler'
 import { Route as PortalsRouteImport } from './routes/portals'
 import { Route as ErrorBoundaryRouteImport } from './routes/error-boundary'
 import { Route as CustomHooksRouteImport } from './routes/custom-hooks'
@@ -118,6 +120,11 @@ const SuspenseRoute = SuspenseRouteImport.update({
   path: '/suspense',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SignalsRoute = SignalsRouteImport.update({
+  id: '/signals',
+  path: '/signals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RefAsPropRoute = RefAsPropRouteImport.update({
   id: '/ref-as-prop',
   path: '/ref-as-prop',
@@ -126,6 +133,11 @@ const RefAsPropRoute = RefAsPropRouteImport.update({
 const ReactMemoRoute = ReactMemoRouteImport.update({
   id: '/react-memo',
   path: '/react-memo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReactCompilerRoute = ReactCompilerRouteImport.update({
+  id: '/react-compiler',
+  path: '/react-compiler',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortalsRoute = PortalsRouteImport.update({
@@ -154,8 +166,10 @@ export interface FileRoutesByFullPath {
   '/custom-hooks': typeof CustomHooksRoute
   '/error-boundary': typeof ErrorBoundaryRoute
   '/portals': typeof PortalsRoute
+  '/react-compiler': typeof ReactCompilerRoute
   '/react-memo': typeof ReactMemoRoute
   '/ref-as-prop': typeof RefAsPropRoute
+  '/signals': typeof SignalsRoute
   '/suspense': typeof SuspenseRoute
   '/use-action-state': typeof UseActionStateRoute
   '/use-callback': typeof UseCallbackRoute
@@ -179,8 +193,10 @@ export interface FileRoutesByTo {
   '/custom-hooks': typeof CustomHooksRoute
   '/error-boundary': typeof ErrorBoundaryRoute
   '/portals': typeof PortalsRoute
+  '/react-compiler': typeof ReactCompilerRoute
   '/react-memo': typeof ReactMemoRoute
   '/ref-as-prop': typeof RefAsPropRoute
+  '/signals': typeof SignalsRoute
   '/suspense': typeof SuspenseRoute
   '/use-action-state': typeof UseActionStateRoute
   '/use-callback': typeof UseCallbackRoute
@@ -205,8 +221,10 @@ export interface FileRoutesById {
   '/custom-hooks': typeof CustomHooksRoute
   '/error-boundary': typeof ErrorBoundaryRoute
   '/portals': typeof PortalsRoute
+  '/react-compiler': typeof ReactCompilerRoute
   '/react-memo': typeof ReactMemoRoute
   '/ref-as-prop': typeof RefAsPropRoute
+  '/signals': typeof SignalsRoute
   '/suspense': typeof SuspenseRoute
   '/use-action-state': typeof UseActionStateRoute
   '/use-callback': typeof UseCallbackRoute
@@ -232,8 +250,10 @@ export interface FileRouteTypes {
     | '/custom-hooks'
     | '/error-boundary'
     | '/portals'
+    | '/react-compiler'
     | '/react-memo'
     | '/ref-as-prop'
+    | '/signals'
     | '/suspense'
     | '/use-action-state'
     | '/use-callback'
@@ -257,8 +277,10 @@ export interface FileRouteTypes {
     | '/custom-hooks'
     | '/error-boundary'
     | '/portals'
+    | '/react-compiler'
     | '/react-memo'
     | '/ref-as-prop'
+    | '/signals'
     | '/suspense'
     | '/use-action-state'
     | '/use-callback'
@@ -282,8 +304,10 @@ export interface FileRouteTypes {
     | '/custom-hooks'
     | '/error-boundary'
     | '/portals'
+    | '/react-compiler'
     | '/react-memo'
     | '/ref-as-prop'
+    | '/signals'
     | '/suspense'
     | '/use-action-state'
     | '/use-callback'
@@ -308,8 +332,10 @@ export interface RootRouteChildren {
   CustomHooksRoute: typeof CustomHooksRoute
   ErrorBoundaryRoute: typeof ErrorBoundaryRoute
   PortalsRoute: typeof PortalsRoute
+  ReactCompilerRoute: typeof ReactCompilerRoute
   ReactMemoRoute: typeof ReactMemoRoute
   RefAsPropRoute: typeof RefAsPropRoute
+  SignalsRoute: typeof SignalsRoute
   SuspenseRoute: typeof SuspenseRoute
   UseActionStateRoute: typeof UseActionStateRoute
   UseCallbackRoute: typeof UseCallbackRoute
@@ -450,6 +476,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SuspenseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signals': {
+      id: '/signals'
+      path: '/signals'
+      fullPath: '/signals'
+      preLoaderRoute: typeof SignalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ref-as-prop': {
       id: '/ref-as-prop'
       path: '/ref-as-prop'
@@ -462,6 +495,13 @@ declare module '@tanstack/react-router' {
       path: '/react-memo'
       fullPath: '/react-memo'
       preLoaderRoute: typeof ReactMemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/react-compiler': {
+      id: '/react-compiler'
+      path: '/react-compiler'
+      fullPath: '/react-compiler'
+      preLoaderRoute: typeof ReactCompilerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portals': {
@@ -500,8 +540,10 @@ const rootRouteChildren: RootRouteChildren = {
   CustomHooksRoute: CustomHooksRoute,
   ErrorBoundaryRoute: ErrorBoundaryRoute,
   PortalsRoute: PortalsRoute,
+  ReactCompilerRoute: ReactCompilerRoute,
   ReactMemoRoute: ReactMemoRoute,
   RefAsPropRoute: RefAsPropRoute,
+  SignalsRoute: SignalsRoute,
   SuspenseRoute: SuspenseRoute,
   UseActionStateRoute: UseActionStateRoute,
   UseCallbackRoute: UseCallbackRoute,

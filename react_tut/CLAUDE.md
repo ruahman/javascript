@@ -32,3 +32,9 @@ npm run preview   # serve the production build locally
 **`use()` hook** — `use(promise)` must be inside a `<Suspense>` boundary. Promises passed to `use()` must be created outside render or cached (e.g. in a `Map`) — creating them inline causes re-fetching on every render.
 
 **`useDeferredValue` + `memo`** — `useDeferredValue` only prevents blocking the urgent update; the slow subtree still re-renders unless it is wrapped in `React.memo`. Both are needed together.
+
+## Third-party integrations
+
+**React Compiler** — enabled via `babel-plugin-react-compiler` in `vite.config.ts` (it runs *first* in the Babel `plugins` array, before the signals transform). It auto-memoizes components/hooks at build time, so new code generally does **not** need manual `useMemo` / `useCallback` / `React.memo` — the existing hook demos keep them only as teaching examples. Opt a component out with a `'use no memo'` directive on its first line. The `/react-compiler` page (`react-compiler.tsx`) demonstrates this. The compiler requires code to follow the Rules of React; rule-breaking components are silently skipped, not broken.
+
+**Preact Signals** (`signals.tsx`) — uses `@preact/signals-react`. Components track signal reads automatically because the `@preact/signals-react-transform` Babel plugin is wired into `@vitejs/plugin-react` in `vite.config.ts`. Without that plugin, reading `.value` in a component would not subscribe it to re-render. Signals are read/written via `.value`; `useSignal`/`useComputed` are the component-local variants.
