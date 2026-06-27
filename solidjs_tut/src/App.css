@@ -1,0 +1,187 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  text-align: left;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #161616;
+  border-right: 1px solid #2a2a2a;
+  flex-shrink: 0;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+}
+
+.sidebar-header {
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #a78bfa;
+  border-bottom: 1px solid #2a2a2a;
+  letter-spacing: -0.01em;
+}
+
+.nav-group {
+  margin-bottom: 0.1rem;
+}
+
+.nav-group-title {
+  font-size: 0.63rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #555;
+  padding: 0.7rem 1rem 0.2rem;
+  font-weight: 700;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.28rem 1rem;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.82rem;
+  border-left: 2px solid transparent;
+  transition: color 0.12s, background 0.12s;
+}
+
+.sidebar a:hover {
+  color: #eee;
+  background: #1f1f1f;
+}
+
+.sidebar a.active {
+  color: #a78bfa;
+  border-left-color: #a78bfa;
+  background: rgba(167, 139, 250, 0.09);
+}
+
+/* ── Main content ────────────────────────────────────── */
+
+.content {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  max-width: 860px;
+}
+
+/* ── Feature page helpers ────────────────────────────── */
+
+.api-tag {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.72rem;
+  background: rgba(167, 139, 250, 0.13);
+  color: #a78bfa;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+
+.desc {
+  color: #999;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.demo {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* ── Legacy component styles (used by Portal.tsx, Event.tsx, ClassList.tsx) ── */
+
+.app-container {
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.dark .popup {
+  color: #333;
+}
+
+.popup {
+  position: relative;
+  z-index: 2;
+  background: #ddd;
+  color: #333;
+  padding: 1rem;
+  min-height: 200px;
+  min-width: 200px;
+}
+
+.popup::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ddd transparent;
+}
+
+.mouse-position {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  background-color: #a78bfa;
+  color: white;
+  border-color: #a78bfa;
+}
+
+/* ── Light mode ──────────────────────────────────────── */
+
+@media (prefers-color-scheme: light) {
+  .sidebar {
+    background: #f7f7f7;
+    border-right-color: #e5e5e5;
+  }
+  .sidebar-header {
+    border-bottom-color: #e5e5e5;
+    color: #7c3aed;
+  }
+  .nav-group-title {
+    color: #aaa;
+  }
+  .sidebar a {
+    color: #555;
+  }
+  .sidebar a:hover {
+    color: #111;
+    background: #efefef;
+  }
+  .sidebar a.active {
+    color: #7c3aed;
+    border-left-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.07);
+  }
+  .demo {
+    background: #f5f5f5;
+    border-color: #e0e0e0;
+  }
+  .mouse-position {
+    border-color: #ccc;
+  }
+  .selected {
+    background-color: #7c3aed;
+  }
+}

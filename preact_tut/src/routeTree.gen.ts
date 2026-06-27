@@ -9,23 +9,40 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UseTransitionRouteImport } from './routes/use-transition'
 import { Route as UseStateRouteImport } from './routes/use-state'
+import { Route as UseSignalRouteImport } from './routes/use-signal'
 import { Route as UseRefRouteImport } from './routes/use-ref'
 import { Route as UseReducerRouteImport } from './routes/use-reducer'
 import { Route as UseMemoRouteImport } from './routes/use-memo'
+import { Route as UseLayoutEffectRouteImport } from './routes/use-layout-effect'
+import { Route as UseImperativeHandleRouteImport } from './routes/use-imperative-handle'
+import { Route as UseIdRouteImport } from './routes/use-id'
 import { Route as UseEffectRouteImport } from './routes/use-effect'
 import { Route as UseContextRouteImport } from './routes/use-context'
 import { Route as UseCallbackRouteImport } from './routes/use-callback'
+import { Route as SuspenseRouteImport } from './routes/suspense'
 import { Route as SignalsRouteImport } from './routes/signals'
 import { Route as PortalsRouteImport } from './routes/portals'
 import { Route as MemoRouteImport } from './routes/memo'
 import { Route as ForwardRefRouteImport } from './routes/forward-ref'
 import { Route as ErrorBoundaryRouteImport } from './routes/error-boundary'
+import { Route as CloneElementRouteImport } from './routes/clone-element'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UseTransitionRoute = UseTransitionRouteImport.update({
+  id: '/use-transition',
+  path: '/use-transition',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseStateRoute = UseStateRouteImport.update({
   id: '/use-state',
   path: '/use-state',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseSignalRoute = UseSignalRouteImport.update({
+  id: '/use-signal',
+  path: '/use-signal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UseRefRoute = UseRefRouteImport.update({
@@ -43,6 +60,21 @@ const UseMemoRoute = UseMemoRouteImport.update({
   path: '/use-memo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseLayoutEffectRoute = UseLayoutEffectRouteImport.update({
+  id: '/use-layout-effect',
+  path: '/use-layout-effect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseImperativeHandleRoute = UseImperativeHandleRouteImport.update({
+  id: '/use-imperative-handle',
+  path: '/use-imperative-handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseIdRoute = UseIdRouteImport.update({
+  id: '/use-id',
+  path: '/use-id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseEffectRoute = UseEffectRouteImport.update({
   id: '/use-effect',
   path: '/use-effect',
@@ -56,6 +88,11 @@ const UseContextRoute = UseContextRouteImport.update({
 const UseCallbackRoute = UseCallbackRouteImport.update({
   id: '/use-callback',
   path: '/use-callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuspenseRoute = SuspenseRouteImport.update({
+  id: '/suspense',
+  path: '/suspense',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignalsRoute = SignalsRouteImport.update({
@@ -83,6 +120,11 @@ const ErrorBoundaryRoute = ErrorBoundaryRouteImport.update({
   path: '/error-boundary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CloneElementRoute = CloneElementRouteImport.update({
+  id: '/clone-element',
+  path: '/clone-element',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -91,121 +133,184 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/clone-element': typeof CloneElementRoute
   '/error-boundary': typeof ErrorBoundaryRoute
   '/forward-ref': typeof ForwardRefRoute
   '/memo': typeof MemoRoute
   '/portals': typeof PortalsRoute
   '/signals': typeof SignalsRoute
+  '/suspense': typeof SuspenseRoute
   '/use-callback': typeof UseCallbackRoute
   '/use-context': typeof UseContextRoute
   '/use-effect': typeof UseEffectRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-layout-effect': typeof UseLayoutEffectRoute
   '/use-memo': typeof UseMemoRoute
   '/use-reducer': typeof UseReducerRoute
   '/use-ref': typeof UseRefRoute
+  '/use-signal': typeof UseSignalRoute
   '/use-state': typeof UseStateRoute
+  '/use-transition': typeof UseTransitionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/clone-element': typeof CloneElementRoute
   '/error-boundary': typeof ErrorBoundaryRoute
   '/forward-ref': typeof ForwardRefRoute
   '/memo': typeof MemoRoute
   '/portals': typeof PortalsRoute
   '/signals': typeof SignalsRoute
+  '/suspense': typeof SuspenseRoute
   '/use-callback': typeof UseCallbackRoute
   '/use-context': typeof UseContextRoute
   '/use-effect': typeof UseEffectRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-layout-effect': typeof UseLayoutEffectRoute
   '/use-memo': typeof UseMemoRoute
   '/use-reducer': typeof UseReducerRoute
   '/use-ref': typeof UseRefRoute
+  '/use-signal': typeof UseSignalRoute
   '/use-state': typeof UseStateRoute
+  '/use-transition': typeof UseTransitionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/clone-element': typeof CloneElementRoute
   '/error-boundary': typeof ErrorBoundaryRoute
   '/forward-ref': typeof ForwardRefRoute
   '/memo': typeof MemoRoute
   '/portals': typeof PortalsRoute
   '/signals': typeof SignalsRoute
+  '/suspense': typeof SuspenseRoute
   '/use-callback': typeof UseCallbackRoute
   '/use-context': typeof UseContextRoute
   '/use-effect': typeof UseEffectRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-layout-effect': typeof UseLayoutEffectRoute
   '/use-memo': typeof UseMemoRoute
   '/use-reducer': typeof UseReducerRoute
   '/use-ref': typeof UseRefRoute
+  '/use-signal': typeof UseSignalRoute
   '/use-state': typeof UseStateRoute
+  '/use-transition': typeof UseTransitionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/clone-element'
     | '/error-boundary'
     | '/forward-ref'
     | '/memo'
     | '/portals'
     | '/signals'
+    | '/suspense'
     | '/use-callback'
     | '/use-context'
     | '/use-effect'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-layout-effect'
     | '/use-memo'
     | '/use-reducer'
     | '/use-ref'
+    | '/use-signal'
     | '/use-state'
+    | '/use-transition'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/clone-element'
     | '/error-boundary'
     | '/forward-ref'
     | '/memo'
     | '/portals'
     | '/signals'
+    | '/suspense'
     | '/use-callback'
     | '/use-context'
     | '/use-effect'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-layout-effect'
     | '/use-memo'
     | '/use-reducer'
     | '/use-ref'
+    | '/use-signal'
     | '/use-state'
+    | '/use-transition'
   id:
     | '__root__'
     | '/'
+    | '/clone-element'
     | '/error-boundary'
     | '/forward-ref'
     | '/memo'
     | '/portals'
     | '/signals'
+    | '/suspense'
     | '/use-callback'
     | '/use-context'
     | '/use-effect'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-layout-effect'
     | '/use-memo'
     | '/use-reducer'
     | '/use-ref'
+    | '/use-signal'
     | '/use-state'
+    | '/use-transition'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CloneElementRoute: typeof CloneElementRoute
   ErrorBoundaryRoute: typeof ErrorBoundaryRoute
   ForwardRefRoute: typeof ForwardRefRoute
   MemoRoute: typeof MemoRoute
   PortalsRoute: typeof PortalsRoute
   SignalsRoute: typeof SignalsRoute
+  SuspenseRoute: typeof SuspenseRoute
   UseCallbackRoute: typeof UseCallbackRoute
   UseContextRoute: typeof UseContextRoute
   UseEffectRoute: typeof UseEffectRoute
+  UseIdRoute: typeof UseIdRoute
+  UseImperativeHandleRoute: typeof UseImperativeHandleRoute
+  UseLayoutEffectRoute: typeof UseLayoutEffectRoute
   UseMemoRoute: typeof UseMemoRoute
   UseReducerRoute: typeof UseReducerRoute
   UseRefRoute: typeof UseRefRoute
+  UseSignalRoute: typeof UseSignalRoute
   UseStateRoute: typeof UseStateRoute
+  UseTransitionRoute: typeof UseTransitionRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/use-transition': {
+      id: '/use-transition'
+      path: '/use-transition'
+      fullPath: '/use-transition'
+      preLoaderRoute: typeof UseTransitionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-state': {
       id: '/use-state'
       path: '/use-state'
       fullPath: '/use-state'
       preLoaderRoute: typeof UseStateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-signal': {
+      id: '/use-signal'
+      path: '/use-signal'
+      fullPath: '/use-signal'
+      preLoaderRoute: typeof UseSignalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/use-ref': {
@@ -229,6 +334,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseMemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-layout-effect': {
+      id: '/use-layout-effect'
+      path: '/use-layout-effect'
+      fullPath: '/use-layout-effect'
+      preLoaderRoute: typeof UseLayoutEffectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-imperative-handle': {
+      id: '/use-imperative-handle'
+      path: '/use-imperative-handle'
+      fullPath: '/use-imperative-handle'
+      preLoaderRoute: typeof UseImperativeHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-id': {
+      id: '/use-id'
+      path: '/use-id'
+      fullPath: '/use-id'
+      preLoaderRoute: typeof UseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-effect': {
       id: '/use-effect'
       path: '/use-effect'
@@ -248,6 +374,13 @@ declare module '@tanstack/react-router' {
       path: '/use-callback'
       fullPath: '/use-callback'
       preLoaderRoute: typeof UseCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/suspense': {
+      id: '/suspense'
+      path: '/suspense'
+      fullPath: '/suspense'
+      preLoaderRoute: typeof SuspenseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/signals': {
@@ -285,6 +418,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ErrorBoundaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/clone-element': {
+      id: '/clone-element'
+      path: '/clone-element'
+      fullPath: '/clone-element'
+      preLoaderRoute: typeof CloneElementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -297,18 +437,25 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CloneElementRoute: CloneElementRoute,
   ErrorBoundaryRoute: ErrorBoundaryRoute,
   ForwardRefRoute: ForwardRefRoute,
   MemoRoute: MemoRoute,
   PortalsRoute: PortalsRoute,
   SignalsRoute: SignalsRoute,
+  SuspenseRoute: SuspenseRoute,
   UseCallbackRoute: UseCallbackRoute,
   UseContextRoute: UseContextRoute,
   UseEffectRoute: UseEffectRoute,
+  UseIdRoute: UseIdRoute,
+  UseImperativeHandleRoute: UseImperativeHandleRoute,
+  UseLayoutEffectRoute: UseLayoutEffectRoute,
   UseMemoRoute: UseMemoRoute,
   UseReducerRoute: UseReducerRoute,
   UseRefRoute: UseRefRoute,
+  UseSignalRoute: UseSignalRoute,
   UseStateRoute: UseStateRoute,
+  UseTransitionRoute: UseTransitionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

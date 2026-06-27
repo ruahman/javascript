@@ -10,16 +10,23 @@ const navLinks: NavLink[] = [
   { to: '/', label: 'Home', exact: true },
   { to: '/use-state', label: 'useState' },
   { to: '/use-effect', label: 'useEffect' },
+  { to: '/use-layout-effect', label: 'useLayoutEffect' },
   { to: '/use-ref', label: 'useRef' },
   { to: '/use-context', label: 'useContext' },
   { to: '/use-reducer', label: 'useReducer' },
   { to: '/use-memo', label: 'useMemo' },
   { to: '/use-callback', label: 'useCallback' },
+  { to: '/use-id', label: 'useId' },
+  { to: '/use-imperative-handle', label: 'useImperativeHandle' },
+  { to: '/use-transition', label: 'useTransition' },
   { to: '/signals', label: 'Signals' },
+  { to: '/use-signal', label: 'Signals Hooks' },
   { to: '/portals', label: 'Portals' },
   { to: '/error-boundary', label: 'Error Boundary' },
   { to: '/forward-ref', label: 'forwardRef' },
   { to: '/memo', label: 'memo()' },
+  { to: '/suspense', label: 'Suspense' },
+  { to: '/clone-element', label: 'cloneElement' },
 ]
 
 function RootLayout() {

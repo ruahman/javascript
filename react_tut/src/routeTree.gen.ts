@@ -9,17 +9,35 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UseSyncExternalStoreRouteImport } from './routes/use-sync-external-store'
 import { Route as UseStateRouteImport } from './routes/use-state'
 import { Route as UseRefRouteImport } from './routes/use-ref'
 import { Route as UseReducerRouteImport } from './routes/use-reducer'
+import { Route as UseOptimisticRouteImport } from './routes/use-optimistic'
 import { Route as UseMemoRouteImport } from './routes/use-memo'
+import { Route as UseLayoutEffectRouteImport } from './routes/use-layout-effect'
+import { Route as UseImperativeHandleRouteImport } from './routes/use-imperative-handle'
+import { Route as UseIdRouteImport } from './routes/use-id'
+import { Route as UseHookRouteImport } from './routes/use-hook'
+import { Route as UseFormStatusRouteImport } from './routes/use-form-status'
 import { Route as UseEffectRouteImport } from './routes/use-effect'
+import { Route as UseDeferredValueRouteImport } from './routes/use-deferred-value'
 import { Route as UseContextRouteImport } from './routes/use-context'
 import { Route as UseCallbackRouteImport } from './routes/use-callback'
+import { Route as UseActionStateRouteImport } from './routes/use-action-state'
 import { Route as SuspenseRouteImport } from './routes/suspense'
+import { Route as RefAsPropRouteImport } from './routes/ref-as-prop'
+import { Route as ReactMemoRouteImport } from './routes/react-memo'
+import { Route as PortalsRouteImport } from './routes/portals'
+import { Route as ErrorBoundaryRouteImport } from './routes/error-boundary'
 import { Route as CustomHooksRouteImport } from './routes/custom-hooks'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UseSyncExternalStoreRoute = UseSyncExternalStoreRouteImport.update({
+  id: '/use-sync-external-store',
+  path: '/use-sync-external-store',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseStateRoute = UseStateRouteImport.update({
   id: '/use-state',
   path: '/use-state',
@@ -35,14 +53,49 @@ const UseReducerRoute = UseReducerRouteImport.update({
   path: '/use-reducer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseOptimisticRoute = UseOptimisticRouteImport.update({
+  id: '/use-optimistic',
+  path: '/use-optimistic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseMemoRoute = UseMemoRouteImport.update({
   id: '/use-memo',
   path: '/use-memo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseLayoutEffectRoute = UseLayoutEffectRouteImport.update({
+  id: '/use-layout-effect',
+  path: '/use-layout-effect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseImperativeHandleRoute = UseImperativeHandleRouteImport.update({
+  id: '/use-imperative-handle',
+  path: '/use-imperative-handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseIdRoute = UseIdRouteImport.update({
+  id: '/use-id',
+  path: '/use-id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseHookRoute = UseHookRouteImport.update({
+  id: '/use-hook',
+  path: '/use-hook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseFormStatusRoute = UseFormStatusRouteImport.update({
+  id: '/use-form-status',
+  path: '/use-form-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UseEffectRoute = UseEffectRouteImport.update({
   id: '/use-effect',
   path: '/use-effect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UseDeferredValueRoute = UseDeferredValueRouteImport.update({
+  id: '/use-deferred-value',
+  path: '/use-deferred-value',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UseContextRoute = UseContextRouteImport.update({
@@ -55,9 +108,34 @@ const UseCallbackRoute = UseCallbackRouteImport.update({
   path: '/use-callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UseActionStateRoute = UseActionStateRouteImport.update({
+  id: '/use-action-state',
+  path: '/use-action-state',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SuspenseRoute = SuspenseRouteImport.update({
   id: '/suspense',
   path: '/suspense',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefAsPropRoute = RefAsPropRouteImport.update({
+  id: '/ref-as-prop',
+  path: '/ref-as-prop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReactMemoRoute = ReactMemoRouteImport.update({
+  id: '/react-memo',
+  path: '/react-memo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalsRoute = PortalsRouteImport.update({
+  id: '/portals',
+  path: '/portals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ErrorBoundaryRoute = ErrorBoundaryRouteImport.update({
+  id: '/error-boundary',
+  path: '/error-boundary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomHooksRoute = CustomHooksRouteImport.update({
@@ -74,94 +152,192 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/custom-hooks': typeof CustomHooksRoute
+  '/error-boundary': typeof ErrorBoundaryRoute
+  '/portals': typeof PortalsRoute
+  '/react-memo': typeof ReactMemoRoute
+  '/ref-as-prop': typeof RefAsPropRoute
   '/suspense': typeof SuspenseRoute
+  '/use-action-state': typeof UseActionStateRoute
   '/use-callback': typeof UseCallbackRoute
   '/use-context': typeof UseContextRoute
+  '/use-deferred-value': typeof UseDeferredValueRoute
   '/use-effect': typeof UseEffectRoute
+  '/use-form-status': typeof UseFormStatusRoute
+  '/use-hook': typeof UseHookRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-layout-effect': typeof UseLayoutEffectRoute
   '/use-memo': typeof UseMemoRoute
+  '/use-optimistic': typeof UseOptimisticRoute
   '/use-reducer': typeof UseReducerRoute
   '/use-ref': typeof UseRefRoute
   '/use-state': typeof UseStateRoute
+  '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/custom-hooks': typeof CustomHooksRoute
+  '/error-boundary': typeof ErrorBoundaryRoute
+  '/portals': typeof PortalsRoute
+  '/react-memo': typeof ReactMemoRoute
+  '/ref-as-prop': typeof RefAsPropRoute
   '/suspense': typeof SuspenseRoute
+  '/use-action-state': typeof UseActionStateRoute
   '/use-callback': typeof UseCallbackRoute
   '/use-context': typeof UseContextRoute
+  '/use-deferred-value': typeof UseDeferredValueRoute
   '/use-effect': typeof UseEffectRoute
+  '/use-form-status': typeof UseFormStatusRoute
+  '/use-hook': typeof UseHookRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-layout-effect': typeof UseLayoutEffectRoute
   '/use-memo': typeof UseMemoRoute
+  '/use-optimistic': typeof UseOptimisticRoute
   '/use-reducer': typeof UseReducerRoute
   '/use-ref': typeof UseRefRoute
   '/use-state': typeof UseStateRoute
+  '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/custom-hooks': typeof CustomHooksRoute
+  '/error-boundary': typeof ErrorBoundaryRoute
+  '/portals': typeof PortalsRoute
+  '/react-memo': typeof ReactMemoRoute
+  '/ref-as-prop': typeof RefAsPropRoute
   '/suspense': typeof SuspenseRoute
+  '/use-action-state': typeof UseActionStateRoute
   '/use-callback': typeof UseCallbackRoute
   '/use-context': typeof UseContextRoute
+  '/use-deferred-value': typeof UseDeferredValueRoute
   '/use-effect': typeof UseEffectRoute
+  '/use-form-status': typeof UseFormStatusRoute
+  '/use-hook': typeof UseHookRoute
+  '/use-id': typeof UseIdRoute
+  '/use-imperative-handle': typeof UseImperativeHandleRoute
+  '/use-layout-effect': typeof UseLayoutEffectRoute
   '/use-memo': typeof UseMemoRoute
+  '/use-optimistic': typeof UseOptimisticRoute
   '/use-reducer': typeof UseReducerRoute
   '/use-ref': typeof UseRefRoute
   '/use-state': typeof UseStateRoute
+  '/use-sync-external-store': typeof UseSyncExternalStoreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/custom-hooks'
+    | '/error-boundary'
+    | '/portals'
+    | '/react-memo'
+    | '/ref-as-prop'
     | '/suspense'
+    | '/use-action-state'
     | '/use-callback'
     | '/use-context'
+    | '/use-deferred-value'
     | '/use-effect'
+    | '/use-form-status'
+    | '/use-hook'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-layout-effect'
     | '/use-memo'
+    | '/use-optimistic'
     | '/use-reducer'
     | '/use-ref'
     | '/use-state'
+    | '/use-sync-external-store'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/custom-hooks'
+    | '/error-boundary'
+    | '/portals'
+    | '/react-memo'
+    | '/ref-as-prop'
     | '/suspense'
+    | '/use-action-state'
     | '/use-callback'
     | '/use-context'
+    | '/use-deferred-value'
     | '/use-effect'
+    | '/use-form-status'
+    | '/use-hook'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-layout-effect'
     | '/use-memo'
+    | '/use-optimistic'
     | '/use-reducer'
     | '/use-ref'
     | '/use-state'
+    | '/use-sync-external-store'
   id:
     | '__root__'
     | '/'
     | '/custom-hooks'
+    | '/error-boundary'
+    | '/portals'
+    | '/react-memo'
+    | '/ref-as-prop'
     | '/suspense'
+    | '/use-action-state'
     | '/use-callback'
     | '/use-context'
+    | '/use-deferred-value'
     | '/use-effect'
+    | '/use-form-status'
+    | '/use-hook'
+    | '/use-id'
+    | '/use-imperative-handle'
+    | '/use-layout-effect'
     | '/use-memo'
+    | '/use-optimistic'
     | '/use-reducer'
     | '/use-ref'
     | '/use-state'
+    | '/use-sync-external-store'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CustomHooksRoute: typeof CustomHooksRoute
+  ErrorBoundaryRoute: typeof ErrorBoundaryRoute
+  PortalsRoute: typeof PortalsRoute
+  ReactMemoRoute: typeof ReactMemoRoute
+  RefAsPropRoute: typeof RefAsPropRoute
   SuspenseRoute: typeof SuspenseRoute
+  UseActionStateRoute: typeof UseActionStateRoute
   UseCallbackRoute: typeof UseCallbackRoute
   UseContextRoute: typeof UseContextRoute
+  UseDeferredValueRoute: typeof UseDeferredValueRoute
   UseEffectRoute: typeof UseEffectRoute
+  UseFormStatusRoute: typeof UseFormStatusRoute
+  UseHookRoute: typeof UseHookRoute
+  UseIdRoute: typeof UseIdRoute
+  UseImperativeHandleRoute: typeof UseImperativeHandleRoute
+  UseLayoutEffectRoute: typeof UseLayoutEffectRoute
   UseMemoRoute: typeof UseMemoRoute
+  UseOptimisticRoute: typeof UseOptimisticRoute
   UseReducerRoute: typeof UseReducerRoute
   UseRefRoute: typeof UseRefRoute
   UseStateRoute: typeof UseStateRoute
+  UseSyncExternalStoreRoute: typeof UseSyncExternalStoreRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/use-sync-external-store': {
+      id: '/use-sync-external-store'
+      path: '/use-sync-external-store'
+      fullPath: '/use-sync-external-store'
+      preLoaderRoute: typeof UseSyncExternalStoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-state': {
       id: '/use-state'
       path: '/use-state'
@@ -183,6 +359,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseReducerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-optimistic': {
+      id: '/use-optimistic'
+      path: '/use-optimistic'
+      fullPath: '/use-optimistic'
+      preLoaderRoute: typeof UseOptimisticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-memo': {
       id: '/use-memo'
       path: '/use-memo'
@@ -190,11 +373,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseMemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-layout-effect': {
+      id: '/use-layout-effect'
+      path: '/use-layout-effect'
+      fullPath: '/use-layout-effect'
+      preLoaderRoute: typeof UseLayoutEffectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-imperative-handle': {
+      id: '/use-imperative-handle'
+      path: '/use-imperative-handle'
+      fullPath: '/use-imperative-handle'
+      preLoaderRoute: typeof UseImperativeHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-id': {
+      id: '/use-id'
+      path: '/use-id'
+      fullPath: '/use-id'
+      preLoaderRoute: typeof UseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-hook': {
+      id: '/use-hook'
+      path: '/use-hook'
+      fullPath: '/use-hook'
+      preLoaderRoute: typeof UseHookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-form-status': {
+      id: '/use-form-status'
+      path: '/use-form-status'
+      fullPath: '/use-form-status'
+      preLoaderRoute: typeof UseFormStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/use-effect': {
       id: '/use-effect'
       path: '/use-effect'
       fullPath: '/use-effect'
       preLoaderRoute: typeof UseEffectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/use-deferred-value': {
+      id: '/use-deferred-value'
+      path: '/use-deferred-value'
+      fullPath: '/use-deferred-value'
+      preLoaderRoute: typeof UseDeferredValueRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/use-context': {
@@ -211,11 +436,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UseCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/use-action-state': {
+      id: '/use-action-state'
+      path: '/use-action-state'
+      fullPath: '/use-action-state'
+      preLoaderRoute: typeof UseActionStateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/suspense': {
       id: '/suspense'
       path: '/suspense'
       fullPath: '/suspense'
       preLoaderRoute: typeof SuspenseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ref-as-prop': {
+      id: '/ref-as-prop'
+      path: '/ref-as-prop'
+      fullPath: '/ref-as-prop'
+      preLoaderRoute: typeof RefAsPropRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/react-memo': {
+      id: '/react-memo'
+      path: '/react-memo'
+      fullPath: '/react-memo'
+      preLoaderRoute: typeof ReactMemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portals': {
+      id: '/portals'
+      path: '/portals'
+      fullPath: '/portals'
+      preLoaderRoute: typeof PortalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/error-boundary': {
+      id: '/error-boundary'
+      path: '/error-boundary'
+      fullPath: '/error-boundary'
+      preLoaderRoute: typeof ErrorBoundaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/custom-hooks': {
@@ -238,14 +498,27 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CustomHooksRoute: CustomHooksRoute,
+  ErrorBoundaryRoute: ErrorBoundaryRoute,
+  PortalsRoute: PortalsRoute,
+  ReactMemoRoute: ReactMemoRoute,
+  RefAsPropRoute: RefAsPropRoute,
   SuspenseRoute: SuspenseRoute,
+  UseActionStateRoute: UseActionStateRoute,
   UseCallbackRoute: UseCallbackRoute,
   UseContextRoute: UseContextRoute,
+  UseDeferredValueRoute: UseDeferredValueRoute,
   UseEffectRoute: UseEffectRoute,
+  UseFormStatusRoute: UseFormStatusRoute,
+  UseHookRoute: UseHookRoute,
+  UseIdRoute: UseIdRoute,
+  UseImperativeHandleRoute: UseImperativeHandleRoute,
+  UseLayoutEffectRoute: UseLayoutEffectRoute,
   UseMemoRoute: UseMemoRoute,
+  UseOptimisticRoute: UseOptimisticRoute,
   UseReducerRoute: UseReducerRoute,
   UseRefRoute: UseRefRoute,
   UseStateRoute: UseStateRoute,
+  UseSyncExternalStoreRoute: UseSyncExternalStoreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
