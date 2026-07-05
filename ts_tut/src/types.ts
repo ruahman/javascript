@@ -1,7 +1,9 @@
 import assert from "node:assert";
 
 // types in typescript
-export default function () {
+export default function types() {
+  console.log("***** types *****")
+
   // explicit type anotation
   const firstName: string = "Dylan";
 
@@ -14,6 +16,7 @@ export default function () {
   // typescript will throw error if types do not match
   // let firstNameLet = "Dylin";
   // firstNameLet = 33;
+
   // unable to inffer
   const json = JSON.parse("55"); // we don't know what the type will be
   console.log("typeof json: ", typeof json);
@@ -87,6 +90,5 @@ export default function () {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: npm run test src/types.test.ts");
+  types();
 }

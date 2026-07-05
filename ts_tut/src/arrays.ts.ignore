@@ -2,13 +2,15 @@ import assert from "node:assert";
 
 // an array is a collection of values of the same type
 
-export default function () {
+export default function arrays() {
+  console.log("***** arrays *****");
+
   // you can push later to an array
   const names: string[] = [];
   names.push("Diego");
   assert.ok(names.includes("Diego"));
 
-  // read only array, cant push to this
+  // read only array, can't push to this
   const names2: readonly string[] = ["diego"];
   assert.ok(names2.includes("diego"));
   //   names2.push("andy");
@@ -33,6 +35,5 @@ export default function () {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: npm run test src/arrays.test.ts");
+  arrays();
 }

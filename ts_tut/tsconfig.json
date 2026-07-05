@@ -7,14 +7,15 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
+    "module": "esnext",
     "target": "esnext",
     // For nodejs:
     "lib": ["DOM", "esnext"],
     "types": ["node"],
     // and npm install -D @types/node
-    "allowImportingTsExtensions": true,
-    "noEmit": true, // need this in order to import ts files directly
+    //"allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    //"noEmit": true, // need this in order to import ts files directly
 
     // Other Outputs
     "sourceMap": true,
@@ -48,5 +49,5 @@
     // Object.defineProperty on instances, which would shadow prototype getter/setters
     "useDefineForClassFields": false,
   },
-  "exclude": ["eslint.config.ts"],
+  "exclude": ["eslint.config.ts", "dist"],
 }

@@ -17,5 +17,5 @@ export function anytype() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("run `npm run test src/anytype.test.ts`");
+  anytype()
 }

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 
-import aliases from "./aliases.ts";
+import aliases from "./aliases";
 
 test("aliases", () => {
   aliases();

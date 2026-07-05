@@ -1,6 +1,7 @@
 import assert from "node:assert";
 
 export default function aliases() {
+  console.log("***** aliases *****");
   // alias is a way to create new types
 
   // create an alias for types
@@ -48,7 +49,9 @@ export default function aliases() {
   input = "Hi"; // valid
   assert(typeof input === "string");
 
-  // input = false; // Compiler error
+  // input = false; // oCompiler error
+
+  // you can make your own optional type
   type Optional<T> = T | null | undefined;
 
   const optional: Optional<number> = null;
@@ -62,6 +65,5 @@ export default function aliases() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test aliases");
+  aliases()
 }
