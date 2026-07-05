@@ -13,6 +13,8 @@ function add(a: number, b: number): number {
 }
 
 export default function functions() {
+  console.log("***** functions *****");
+
   const circ = (diameter: number) => {
     return diameter * Math.PI;
   };
@@ -109,6 +111,11 @@ export default function functions() {
     return 0;
   }
 
+  // function type annotation
+  const logNumber: (i: number) => void = (i: number) => {
+    console.log(i);
+  }
+  logNumber(10);
 
 
 

@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function () {
+export default function objects() {
   console.log("**** objects ****");
 
   // you can spcify the type in objec
@@ -40,13 +40,12 @@ export default function () {
   car3.milage = 70000;
 
   // index signatures,
-  // allow any fields without specifying
+  // allow any fields without specifying as long as it fits pattern
   const nameAgeMap: { [index: string]: number } = {};
   nameAgeMap.randomName = 123;
   nameAgeMap.testName = 345;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test objects");
+  objects();
 }

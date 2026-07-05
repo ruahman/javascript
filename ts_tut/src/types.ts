@@ -87,6 +87,11 @@ export default function types() {
 
   testNull = null;
   assert.equal(typeof testNull, "object");
+
+  // another way to implicit annotation
+  // this is useful for functions that return any
+  let x = JSON.parse("44") as number
+  console.log("...implicit annotation", x);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

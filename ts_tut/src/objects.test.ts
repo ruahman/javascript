@@ -1,5 +1,5 @@
 import { test } from "node:test";
-import objects from "./objects.ts";
+import objects from "./objects";
 
 test("Objects", () => {
   objects();
