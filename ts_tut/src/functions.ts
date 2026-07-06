@@ -102,9 +102,7 @@ export default function functions() {
   function getItemLength(name: unknown): number {
     if (Array.isArray(name)) {
       return name.length;
-
-    }
-    else if(typeof name == "string") {
+    } else if (typeof name == "string") {
       return name.length;
     }
 
@@ -114,9 +112,10 @@ export default function functions() {
   // function type annotation
   const logNumber: (i: number) => void = (i: number) => {
     console.log(i);
-  }
+  };
   logNumber(10);
+}
 
-
-
+if (import.meta.url === `file://${process.argv[1]}`) {
+  functions();
 }

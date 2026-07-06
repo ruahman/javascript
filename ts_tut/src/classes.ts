@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function () {
+export default function classes() {
   console.log("**** classes ****");
 
   class Animal {
@@ -238,4 +238,8 @@ export default function () {
 
   const personReadOnly = new PersonReadOnly(new Date("1990-01-01"));
   // assert.equal(personReadOnly.birthDate, new Date("1990-01-01"));
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  classes();
 }
