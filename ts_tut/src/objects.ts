@@ -4,11 +4,16 @@ export default function objects() {
   console.log("**** objects ****");
 
   // you can spcify the type in objec
-  const car: { type: string; model: string; year: number } = {
+  const car: { type: string; model: string; year: number; info: () => void } = {
     type: "Toyota",
     model: "Carolla",
     year: 2009,
+    info() {
+      console.log(this.model, this.year, this.type);
+    },
   };
+
+  car.info();
 
   // you can use an object type to descripe a parameter to a function
   function printCar(car?: {
@@ -44,6 +49,14 @@ export default function objects() {
   const nameAgeMap: { [index: string]: number } = {};
   nameAgeMap.randomName = 123;
   nameAgeMap.testName = 345;
+
+  // deconstruct objects
+  let { type } = car3;
+  console.log(type);
+
+  // rename deconstructed
+  let { type: myType } = car3;
+  console.log("myType: ", myType);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

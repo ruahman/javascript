@@ -90,6 +90,7 @@ export default function functions() {
     throw new Error(message);
   }
 
+  // never returns because of infinite loop
   function forever(): never {
     while (true) {
       console.log("Hello");

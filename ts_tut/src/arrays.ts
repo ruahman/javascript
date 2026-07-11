@@ -32,6 +32,18 @@ export default function arrays() {
   a.forEach((x) => {
     console.log(x);
   });
+
+  // array of both numbers and strings
+  const b: (number | string)[] = [1, "2", 3, "4", 5];
+
+  // traverse an array
+  b.forEach((x) => {
+    if (typeof x == "string") {
+      console.log("string: ", x);
+    } else {
+      console.log("number: ", x);
+    }
+  });
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
