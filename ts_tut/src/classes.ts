@@ -237,7 +237,7 @@ export default function classes() {
   }
 
   const personReadOnly = new PersonReadOnly(new Date("1990-01-01"));
-  // assert.equal(personReadOnly.birthDate, new Date("1990-01-01"));
+  assert.deepStrictEqual(personReadOnly.birthDate, new Date("1990-01-01"));
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
