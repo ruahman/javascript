@@ -15,7 +15,6 @@
     // and npm install -D @types/node
     //"allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
-    //"noEmit": true, // need this in order to import ts files directly
 
     // Other Outputs
     "sourceMap": true,

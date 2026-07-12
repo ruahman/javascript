@@ -2,7 +2,7 @@ import assert from "node:assert";
 
 // interfaces are similar to type aliases, except you can inherit from them
 
-export default function () {
+export default function interfaces() {
   console.log("**** interfaces ****");
 
   interface Product1 {
@@ -218,4 +218,8 @@ export default function () {
   };
   test.a();
   test.b();
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  interfaces();
 }

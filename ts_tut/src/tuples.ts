@@ -53,3 +53,7 @@ export default function tuples() {
   const coke: Drink = ["coke", true, 200];
   assert.deepEqual(coke, ["coke", true, 200]);
 }
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  tuples();
+}
