@@ -65,5 +65,5 @@ export default function aliases() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  aliases()
+  aliases();
 }
