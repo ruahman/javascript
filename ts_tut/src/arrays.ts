@@ -34,6 +34,9 @@ export default function arrays() {
   });
 }
 
+console.log("hello");
+console.log(import.meta.url.split("/").slice(-1));
+console.log(process.argv[1].split("\\").slice(-1));
 if (import.meta.url === `file://${process.argv[1]}`) {
   arrays();
 }
