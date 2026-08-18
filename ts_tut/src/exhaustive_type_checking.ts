@@ -1,6 +1,7 @@
 import assert from "node:assert";
 
 export default function exhaustive_type_checking() {
+  console.log("***** exaustive type checking *****")
   type Circle = {
     kind: "circle";
     radius: number;
@@ -45,4 +46,11 @@ export default function exhaustive_type_checking() {
   assert.equal(res, 25);
   res = area(rectangle);
   assert.equal(res, 25);
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  exhaustive_type_checking();
 }
