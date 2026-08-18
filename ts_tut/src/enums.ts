@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function () {
+export default function enums() {
   console.log("**** enums ****");
 
   enum Direction {
@@ -98,7 +98,9 @@ export default function () {
   assert.equal(role.toString(), "pilot");
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test enums");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  enums();
 }

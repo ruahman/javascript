@@ -1,6 +1,7 @@
 import assert from "node:assert";
 
-export default function () {
+export default function casting() {
+  console.log("***** casting *****");
   // as to string
   const q: unknown = "hello world";
   assert.equal(typeof q as string, "string");
@@ -10,4 +11,11 @@ export default function () {
   // <>
   const w: unknown = "hello world2";
   assert.equal(typeof (<string>w), "string");
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  casting();
 }
