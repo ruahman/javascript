@@ -1,6 +1,7 @@
 import assert from "node:assert";
 
 export default function whileStatement() {
+  console.log("***** while statement *****");
   let wcounter = 0;
 
   while (wcounter < 5) {
@@ -20,6 +21,10 @@ export default function whileStatement() {
   // expect(wi).toBe(10);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("run npm run test src/while-statement.ts");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  whileStatement();
 }
+

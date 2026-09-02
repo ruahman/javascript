@@ -1,6 +1,7 @@
 import assert from "node:assert";
 
 export function index_signatures() {
+  console.log("***** index signature *****");
   // index signatures are useful if you want to define a dictionary of objects
   let phones: {
     [k: string]: {
@@ -25,4 +26,11 @@ export function index_signatures() {
   const x: { [k: string]: string } = {};
   x.foo = "bar";
   // x.wrong = 5;
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  index_signatures();
 }

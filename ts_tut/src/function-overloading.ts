@@ -1,6 +1,7 @@
 import assert from "node:assert";
 
 export default function function_overloading() {
+  console.log("***** function overloading *****");
   // there is no such thing as function overloading in javascript,
   // but typescript allows us to do this
 
@@ -12,4 +13,11 @@ export default function function_overloading() {
 
   assert.equal(addo(1, 2), 3);
   assert.equal(addo("1", "2"), "12");
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  function_overloading();
 }

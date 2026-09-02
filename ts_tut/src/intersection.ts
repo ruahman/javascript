@@ -2,8 +2,9 @@ import assert from "node:assert";
 
 // Intersctions combines types
 
-export default function () {
+export default function intersections() {
   // intersection types
+  console.log("***** intersections *****");
 
   // creates a new type by combining other types
   interface BusinessPartner {
@@ -126,7 +127,10 @@ export default function () {
   assert.equal(admin.name, "Alice");
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test intersection");
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  intersections();
 }

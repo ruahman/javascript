@@ -1,6 +1,8 @@
 import assert from "node:assert";
 
 export default function if_statements() {
+  console.log("***** if statements *****");
+
   const max = 100;
   let counter = 99;
 
@@ -31,4 +33,11 @@ export default function if_statements() {
 
   console.log(`You got ${discount}% discount. `);
   assert.equal(discount, 15);
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  if_statements();
 }

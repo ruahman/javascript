@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 
 export default function function_type() {
+  console.log("***** function types *****");
+
   // setup function type
   let addtype: (x: number, y: number) => number;
 
@@ -20,4 +22,11 @@ export default function function_type() {
 
   // expect(addtype2(1, 2)).toBe(3);
   assert.equal(addtype2(1, 2), 3);
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  function_type();
 }
