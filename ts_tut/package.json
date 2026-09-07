@@ -8,6 +8,7 @@
     "check": "tsc --noEmit true",
     "watch": "tsc --watch",
     "tsx": "tsx",
+    "exec": "tsx",
     "test": "node --import tsx --test",
     "debug": "node --inspect-brk",
     "lint": "eslint",

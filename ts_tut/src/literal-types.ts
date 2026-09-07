@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function () {
+export default function literalTypes() {
   console.log("**** literal types ****");
 
   // literal types,
@@ -37,4 +37,11 @@ export default function () {
 
   assert.equal(answer(true), "You answered true");
   assert.equal(answer(false), "You answered false");
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  literalTypes();
 }

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 
-import variables from "./variables.ts";
+import variables from "./variables";
 
 test("variables", () => {
   variables();

@@ -44,6 +44,9 @@ export default function variables() {
   assert.strictEqual(isPublished, true);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("you need to run npm run test");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  variables();
 }

@@ -1,6 +1,9 @@
 import assert from "node:assert";
 
-export default function () {
+export default function optionals() {
+
+  console.log("***** optionals *****");
+
   // optional must always be at the end
   function multiplyo(a: number, b: number, c?: number): number {
     if (typeof c !== "undefined") {
@@ -36,4 +39,11 @@ export default function () {
     stock: 10,
   });
   assert.equal(res, 10);
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  optionals();
 }

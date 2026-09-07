@@ -3,6 +3,9 @@ import assert from "node:assert";
 // never is used to indicate that a function will never return
 
 export default function never() {
+
+  console.log("***** never *****");
+
   // this should never return
   function throwsError(msg: string): never {
     throw new Error(msg);
@@ -70,4 +73,12 @@ export default function never() {
   const symbol = currencyToSymbol("USD");
   // expect(symbol).toBe("$");
   assert.equal(symbol, "$");
+}
+
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  never();
 }
