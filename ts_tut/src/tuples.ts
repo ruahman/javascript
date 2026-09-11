@@ -53,3 +53,10 @@ export default function tuples() {
   const coke: Drink = ["coke", true, 200];
   assert.deepEqual(coke, ["coke", true, 200]);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  tuples();
+}

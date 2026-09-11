@@ -4,7 +4,9 @@ import assert from "node:assert";
 // they are generally used for unions, intersections, and mixins
 // use interfaces for objects
 
-export default function () {
+export default function type_alias() {
+  console.log("***** type alias *****");
+
   // type aliases allow you to create a new type
   type Employee = {
     name: string;
@@ -56,7 +58,10 @@ export default function () {
   assert.equal(staffMember.role, "Developer");
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test type_alias");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  type_alias();
 }
+

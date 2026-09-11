@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert";
 
-import getTotal from "./rest-parameters.ts";
+import getTotal from "./rest-parameters";
 
 test("test rest parameters", () => {
   assert.equal(getTotal(1, 2, 3), 6);
