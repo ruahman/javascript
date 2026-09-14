@@ -5,6 +5,9 @@ import assert from "node:assert";
 // you don't know what's inside
 
 export default function unknown() {
+
+  console.log("***** unknown *****");
+
   let value: unknown = 10;
 
   // unlike any, you can't access any properties on an unknown type
@@ -24,6 +27,10 @@ export default function unknown() {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("npm run test src/unknown.test.ts");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  unknown();
 }
+

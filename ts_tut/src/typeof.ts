@@ -2,7 +2,10 @@ import assert from "node:assert";
 
 // typeof allows you to use the type of a predefined object or function
 
-export default function () {
+export default function typeof_func() {
+
+  console.log("***** typeof *****");
+
   function add(a: number, b: number) {
     return a + b;
   }
@@ -31,7 +34,10 @@ export default function () {
   // expect(printName(exampleObject)).toBe("John 30");
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test typeof");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  typeof_func();
 }
+

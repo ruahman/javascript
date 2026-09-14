@@ -1,6 +1,9 @@
 import assert from "node:assert";
 
-export default function () {
+export default function type_alias_vs_interface() {
+
+  console.log("***** type alias vs interface *****");
+
   // interface is more suitable for describing object
   // use interfaces if you plan on extending
   // also if you are using classes, you can use interfaces
@@ -111,4 +114,11 @@ export default function () {
 
   // union
   type SpecialOrNormalPerson = SpecialPerson | Person2;
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  type_alias_vs_interface();
 }

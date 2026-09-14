@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-export default function () {
+export default function utilityTypes() {
   console.log("**** utility-types *****");
 
   interface User {
@@ -49,4 +49,11 @@ export default function () {
   let stringMap: StringMap = { one: 1, two: 2 };
   assert.equal(stringMap["one"], 1);
   assert.equal(stringMap["two"], 2);
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  utilityTypes();
 }

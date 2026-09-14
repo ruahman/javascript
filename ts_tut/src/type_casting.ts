@@ -1,6 +1,9 @@
 import assert from "node:assert";
 
-export default function () {
+export default function type_casting() {
+
+  console.log("***** type cast *****");
+
   // if the type is unknown then you can type cast it
   const xt: unknown = 777;
   let yt = xt as number;
@@ -17,4 +20,11 @@ export default function () {
   const bar2 = fff as string;
   assert.equal(typeof bar, "string");
   assert.equal(typeof bar2, "string");
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  type_casting();
 }

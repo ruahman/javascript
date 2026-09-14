@@ -2,7 +2,10 @@ import assert from "node:assert";
 
 // Union types allow a variable to have more than one type
 
-export default function () {
+export default function unions() {
+
+  console.log("***** unions *****");
+
   // in order to use a union type, you need to check the type of the value before performing operations on it
   function process(value: string | number) {
     if (typeof value === "string") {
@@ -59,7 +62,11 @@ export default function () {
   assert.equal(mouseEvent, "mousedown");
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log("if you want to see the tests");
-  console.log("run: just test unions");
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  unions();
 }
+
+
