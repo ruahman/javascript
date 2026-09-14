@@ -1,6 +1,8 @@
 import assert from "node:assert";
 
 export function arrays() {
+  console.log("***** arrays *****");
+
   var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   var stringArray = ["Hello", "World", "How", "Are", "You"];
@@ -280,4 +282,11 @@ export function arrays() {
   for (const [index, value] of entries) {
     console.log(index, value);
   }
+}
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  arrays();
 }
