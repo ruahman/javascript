@@ -139,3 +139,10 @@ export function variables() {
   const result = value ?? "no value";
   console.log(result);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  variables();
+}

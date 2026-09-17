@@ -9,3 +9,10 @@ export function proxy() {
   const proxy = new Proxy(target, handler);
   console.log(proxy.name);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  proxy();
+}

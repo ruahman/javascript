@@ -46,3 +46,10 @@ export function tag_templates() {
   var twitter = "ruahman";
   console.log(upper`${name}:${twitter}`);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  tag_templates();
+}

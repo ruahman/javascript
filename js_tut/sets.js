@@ -15,3 +15,10 @@ export function sets() {
   assert.equal(letters.has("a"), true);
   assert.equal(letters.has("z"), false);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  sets();
+}

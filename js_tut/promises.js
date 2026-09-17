@@ -80,3 +80,10 @@ export async function promises() {
     console.log("try ", e);
   }
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  await promises();
+}

@@ -18,3 +18,10 @@ export function math() {
   assert.strictEqual(Math.log(1), 0);
   console.log(Math.floor(Math.random() * 10));
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  math();
+}

@@ -1,6 +1,8 @@
 import assert from "node:assert";
 
 export function switches() {
+  console.log("***** switches *****");
+
   var day;
   switch (new Date("4/19/2025").getDay()) {
     case 0:
@@ -36,4 +38,13 @@ export function switches() {
       day = "good day";
   }
   assert.equal(day, "good day");
+}
+
+
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  switches();
 }

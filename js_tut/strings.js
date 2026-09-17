@@ -92,3 +92,10 @@ the lazy dog`;
   assert.equal(parseFloat("negative ten"), NaN);
   assert.ok(isNaN("negative ten"));
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  strings();
+}
