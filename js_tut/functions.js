@@ -198,3 +198,10 @@ export function functions() {
 
   assert.equal(multiply(2, 3, 4), 24);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  functions();
+}

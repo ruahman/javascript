@@ -16,3 +16,10 @@ export async function fetches() {
     console.log(error);
   }
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  await fetches();
+}

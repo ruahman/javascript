@@ -34,3 +34,10 @@ export function ifStatements() {
   assert.equal(car?.name, undefined);
   assert.equal(car?.type, "Fiat");
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  ifStatements();
+}

@@ -22,3 +22,10 @@ export function destructuring() {
   console.log(firstName, secondName);
   console.log(firstEmail, secondEmail);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  destructuring();
+}

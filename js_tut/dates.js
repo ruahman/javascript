@@ -30,3 +30,10 @@ export function dates() {
   var ms = Date.now();
   console.log(ms);
 }
+
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  dates();
+}
