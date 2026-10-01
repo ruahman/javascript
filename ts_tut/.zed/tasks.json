@@ -3,12 +3,12 @@
 // Example:
 [
   {
-    "label": "run",
+    "label": "Run current TS file",
     "command": "npm run tsx",
     "args": ["$ZED_FILE"],
   },
   {
-    "label": "test",
+    "label": "Test current TS file",
     "command": "npm run test",
     "args": ["$ZED_FILE"],
   },
