@@ -1,0 +1,15 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+//
+// Example:
+[
+  {
+    "label": "run",
+    "command": "npm run tsx",
+    "args": ["$ZED_FILE"],
+  },
+  {
+    "label": "test",
+    "command": "npm run test",
+    "args": ["$ZED_FILE"],
+  },
+]
